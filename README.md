@@ -1,8 +1,11 @@
 # IOS_FinalWork
 
 UIButton
+
 UILabel
+
 UITextField
+
 
 UIImageView : operation with image view 
 https://my.oschina.net/plumsoft/blog/76128
