@@ -41,8 +41,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imageArray = @[[UIImage imageNamed:@"Sample Icon"], [UIImage imageNamed:@"Sample Icon"], [UIImage imageNamed:@"Sample Icon"], [UIImage imageNamed:@"Sample Icon"]];
-    self.subButtonCount = 5;
+    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"drink"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"transport"]];
+    self.subButtonCount = 4;
     self.angle = 90.0;
     self.delay = 0.1;
     self.shadow = 1;
