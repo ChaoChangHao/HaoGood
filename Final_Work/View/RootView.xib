@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController">
             <connections>
                 <outlet property="IncomeButton" destination="Rse-rn-3YF" id="11i-rn-THX"/>
-                <outlet property="addItemButton" destination="KFf-y8-23x" id="6qT-zv-bhm"/>
+                <outlet property="addItemButton" destination="KFf-y8-23x" id="Dnv-Ur-02Y"/>
                 <outlet property="outcomButton" destination="XOr-fw-ifq" id="tEs-pi-tpR"/>
                 <outlet property="settingButton" destination="dMJ-QC-vFg" id="a6d-M6-quz"/>
                 <outlet property="statisticsButton" destination="gGO-ZY-cbV" id="2pd-Vk-ZnL"/>
@@ -39,6 +39,9 @@
                                 <constraint firstAttribute="height" constant="40" id="iHi-0F-0fo"/>
                             </constraints>
                             <state key="normal" title="💲"/>
+                            <connections>
+                                <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="oyP-HZ-ENn"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-fw-ifq" userLabel="Income">
                             <rect key="frame" x="82.666666666666657" y="42.666666666666629" width="82.999999999999972" height="40"/>
@@ -46,13 +49,19 @@
                                 <constraint firstAttribute="height" constant="40" id="uat-ue-M1f"/>
                             </constraints>
                             <state key="normal" title="🔝"/>
+                            <connections>
+                                <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="BH8-cL-GlH"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-y8-23x" userLabel="Add Item">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-y8-23x" userLabel="Add Item">
                             <rect key="frame" x="165.66666666666666" y="0.0" width="82.666666666666686" height="82.666666666666629"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="KFf-y8-23x" secondAttribute="height" id="SAw-N4-4Il"/>
                             </constraints>
                             <state key="normal" image="take_picture"/>
+                            <connections>
+                                <action selector="addItemButton:" destination="-1" eventType="touchUpInside" id="8x4-wL-0kU"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGO-ZY-cbV" userLabel="Stastics">
                             <rect key="frame" x="248.33333333333331" y="42.666666666666629" width="82.999999999999943" height="40"/>
@@ -60,6 +69,9 @@
                                 <constraint firstAttribute="height" constant="40" id="jep-Q4-b2L"/>
                             </constraints>
                             <state key="normal" title="💱"/>
+                            <connections>
+                                <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="Ogi-IT-ddJ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-QC-vFg" userLabel="Setting">
                             <rect key="frame" x="331.33333333333326" y="42.666666666666629" width="82.666666666666686" height="40"/>
@@ -67,6 +79,9 @@
                                 <constraint firstAttribute="height" constant="40" id="1vQ-ST-EaH"/>
                             </constraints>
                             <state key="normal" image="profile_normal"/>
+                            <connections>
+                                <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="4V7-PA-HXq"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

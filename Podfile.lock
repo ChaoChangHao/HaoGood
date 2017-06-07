@@ -1,0 +1,12 @@
+PODS:
+  - CKCircleMenuView (0.3.1)
+
+DEPENDENCIES:
+  - CKCircleMenuView
+
+SPEC CHECKSUMS:
+  CKCircleMenuView: 2c4183c79c84cb94b8b27714d8e7ebcf4de67e5e
+
+PODFILE CHECKSUM: 3be8369eac707e32ad4e99bc81901d2a750c9d99
+
+COCOAPODS: 1.1.1
