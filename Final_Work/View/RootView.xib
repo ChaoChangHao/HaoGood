@@ -33,20 +33,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMS-7g-c9F" userLabel="Tab Bars">
                     <rect key="frame" x="0.0" y="653.33333333333348" width="414" height="82.666666666666629"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-rn-3YF" userLabel="Outcome">
-                            <rect key="frame" x="0.0" y="42.666666666666629" width="82.666666666666671" height="40"/>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-rn-3YF" userLabel="Outcome">
+                            <rect key="frame" x="0.0" y="12.666666666666629" width="82.666666666666671" height="70"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="iHi-0F-0fo"/>
+                                <constraint firstAttribute="height" constant="70" id="iHi-0F-0fo"/>
                             </constraints>
                             <state key="normal" title="💲"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="oyP-HZ-ENn"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-fw-ifq" userLabel="Income">
-                            <rect key="frame" x="82.666666666666657" y="42.666666666666629" width="82.999999999999972" height="40"/>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-fw-ifq" userLabel="Income">
+                            <rect key="frame" x="82.666666666666657" y="12.666666666666629" width="82.999999999999972" height="70"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="uat-ue-M1f"/>
+                                <constraint firstAttribute="height" constant="70" id="uat-ue-M1f"/>
                             </constraints>
                             <state key="normal" title="🔝"/>
                             <connections>
@@ -63,20 +63,20 @@
                                 <action selector="addItemButton:" destination="-1" eventType="touchUpInside" id="8x4-wL-0kU"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGO-ZY-cbV" userLabel="Stastics">
-                            <rect key="frame" x="248.33333333333331" y="42.666666666666629" width="82.999999999999943" height="40"/>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGO-ZY-cbV" userLabel="Stastics">
+                            <rect key="frame" x="248.33333333333331" y="12.666666666666629" width="82.999999999999943" height="70"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="jep-Q4-b2L"/>
+                                <constraint firstAttribute="height" constant="70" id="jep-Q4-b2L"/>
                             </constraints>
                             <state key="normal" title="💱"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="Ogi-IT-ddJ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-QC-vFg" userLabel="Setting">
-                            <rect key="frame" x="331.33333333333326" y="42.666666666666629" width="82.666666666666686" height="40"/>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-QC-vFg" userLabel="Setting">
+                            <rect key="frame" x="331.33333333333326" y="12.666666666666629" width="82.666666666666686" height="70"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="1vQ-ST-EaH"/>
+                                <constraint firstAttribute="height" constant="70" id="1vQ-ST-EaH"/>
                             </constraints>
                             <state key="normal" image="profile_normal"/>
                             <connections>

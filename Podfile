@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'Final_Work' do
 	pod 'CKCircleMenuView'
+	pod 'MagicalRecord'
 end

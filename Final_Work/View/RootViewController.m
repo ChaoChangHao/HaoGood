@@ -8,6 +8,10 @@
 
 #import "RootViewController.h"
 
+#import "CostsListViewController.h"
+#import "IncomesListViewController.h"
+
+
 #import "UIView+Utils.h"
 
 #import <CKCircleMenuView/CKCircleMenuView.h>
@@ -30,6 +34,12 @@
 
 
 @implementation RootViewController {
+    CostsListViewController* _costsListViewController;
+    IncomesListViewController* _incomesListViewController;
+    CostsListViewController* _test1ListViewController;
+    IncomesListViewController* _test2ListViewController;
+    
+    
     NSArray* _titles;
     NSArray* _tabButtons;
     NSArray* _viewControllers;
@@ -41,6 +51,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    //tab bar button
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    _tabButtons = @[ _IncomeButton, _outcomButton, _statisticsButton, _settingButton ];
+    
+    _selectedIndex = 0;
+
+    _costsListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
+    _incomesListViewController = [[IncomesListViewController alloc] initWithNibName:@"IncomesListView" bundle:nil];
+    _test1ListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
+    _test2ListViewController = [[IncomesListViewController alloc] initWithNibName:@"IncomesListView" bundle:nil];
+    
+    
+    _viewControllers = @[ _costsListViewController, _incomesListViewController, _test1ListViewController, _test2ListViewController];
+    
+    _costsListViewController.rootViewController = self;
+    _costsListViewController.itemManager = self.itemManager;
+    
+    _incomesListViewController.rootViewController = self;
+    
+    _test1ListViewController.rootViewController = self;
+    
+    _test2ListViewController.rootViewController = self;
+    
+    
+    [self setSelectedIndex:0];
+    [self setTitle:@"Cost"];
+    
+    //-------------------------------------------------------------------------//
+    // Circle button
     self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"drink"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"transport"]];
     self.subButtonCount = 4;
     self.angle = 90.0;
@@ -50,10 +92,7 @@
     self.direction = CircleMenuDirectionLeftUp;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - IBActions
 

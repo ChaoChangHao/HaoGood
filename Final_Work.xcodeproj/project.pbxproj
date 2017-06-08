@@ -9,16 +9,22 @@
 /* Begin PBXBuildFile section */
 		4A725E5FC71FFF30AC12E7EA /* Pods_Final_Work.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5CB785AADEDDC369199F4C /* Pods_Final_Work.framework */; };
 		9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B34F1EE844D5007F2BA4 /* CostCell.xib */; };
-		9F80B35B1EE844D5007F2BA4 /* CostsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3501EE844D5007F2BA4 /* CostsListView.xib */; };
 		9F80B35C1EE844D5007F2BA4 /* CostsPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3511EE844D5007F2BA4 /* CostsPhotoCell.xib */; };
 		9F80B35D1EE844D5007F2BA4 /* CostsPhotoGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3521EE844D5007F2BA4 /* CostsPhotoGridView.xib */; };
 		9F80B35E1EE844D5007F2BA4 /* DateScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3531EE844D5007F2BA4 /* DateScrollView.xib */; };
 		9F80B35F1EE844D5007F2BA4 /* EditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3541EE844D5007F2BA4 /* EditView.xib */; };
 		9F80B3601EE844D5007F2BA4 /* IncomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3551EE844D5007F2BA4 /* IncomeCell.xib */; };
 		9F80B3611EE844D5007F2BA4 /* IncomeGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3561EE844D5007F2BA4 /* IncomeGridView.xib */; };
-		9F80B3621EE844D5007F2BA4 /* IncomeListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3571EE844D5007F2BA4 /* IncomeListView.xib */; };
 		9F80B3631EE844D5007F2BA4 /* IncomePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3581EE844D5007F2BA4 /* IncomePhotoCell.xib */; };
 		9F80B3641EE844D5007F2BA4 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3591EE844D5007F2BA4 /* MainView.xib */; };
+		9F80B3791EE8ED24007F2BA4 /* CostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B3761EE8EC8E007F2BA4 /* CostCell.m */; };
+		9F80B37D1EE8F9BC007F2BA4 /* _Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B37C1EE8F9BC007F2BA4 /* _Item.m */; };
+		9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B3831EE914DF007F2BA4 /* CostsListViewController.m */; };
+		9F80B3861EE914DF007F2BA4 /* CostsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3841EE914DF007F2BA4 /* CostsListView.xib */; };
+		9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B3881EE9196F007F2BA4 /* ItemManager.m */; };
+		9F80B38D1EE91F6A007F2BA4 /* IncomesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B38B1EE91F6A007F2BA4 /* IncomesListViewController.m */; };
+		9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B38C1EE91F6A007F2BA4 /* IncomesListView.xib */; };
+		9F80B38F1EE92840007F2BA4 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B37F1EE8FA08007F2BA4 /* Item.m */; };
 		9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7C1ED6DD56002E56EB /* main.m */; };
 		9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */; };
 		9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */; };
@@ -32,16 +38,28 @@
 		33E82FFECD113A4621078F52 /* Pods-Final_Work.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_Work.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final_Work/Pods-Final_Work.debug.xcconfig"; sourceTree = "<group>"; };
 		4C5CB785AADEDDC369199F4C /* Pods_Final_Work.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_Work.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F80B34F1EE844D5007F2BA4 /* CostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostCell.xib; path = View/CostCell.xib; sourceTree = "<group>"; };
-		9F80B3501EE844D5007F2BA4 /* CostsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsListView.xib; path = View/CostsListView.xib; sourceTree = "<group>"; };
 		9F80B3511EE844D5007F2BA4 /* CostsPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsPhotoCell.xib; path = View/CostsPhotoCell.xib; sourceTree = "<group>"; };
 		9F80B3521EE844D5007F2BA4 /* CostsPhotoGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsPhotoGridView.xib; path = View/CostsPhotoGridView.xib; sourceTree = "<group>"; };
 		9F80B3531EE844D5007F2BA4 /* DateScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateScrollView.xib; path = View/DateScrollView.xib; sourceTree = "<group>"; };
 		9F80B3541EE844D5007F2BA4 /* EditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditView.xib; path = View/EditView.xib; sourceTree = "<group>"; };
 		9F80B3551EE844D5007F2BA4 /* IncomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeCell.xib; path = View/IncomeCell.xib; sourceTree = "<group>"; };
 		9F80B3561EE844D5007F2BA4 /* IncomeGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeGridView.xib; path = View/IncomeGridView.xib; sourceTree = "<group>"; };
-		9F80B3571EE844D5007F2BA4 /* IncomeListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomeListView.xib; path = View/IncomeListView.xib; sourceTree = "<group>"; };
 		9F80B3581EE844D5007F2BA4 /* IncomePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomePhotoCell.xib; path = View/IncomePhotoCell.xib; sourceTree = "<group>"; };
 		9F80B3591EE844D5007F2BA4 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainView.xib; path = View/MainView.xib; sourceTree = "<group>"; };
+		9F80B36B1EE8EA3E007F2BA4 /* CostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CostCell.h; path = View/CostCell.h; sourceTree = "<group>"; };
+		9F80B3761EE8EC8E007F2BA4 /* CostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CostCell.m; path = View/CostCell.m; sourceTree = "<group>"; };
+		9F80B37B1EE8F9BC007F2BA4 /* _Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Item.h; sourceTree = "<group>"; };
+		9F80B37C1EE8F9BC007F2BA4 /* _Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Item.m; sourceTree = "<group>"; };
+		9F80B37E1EE8FA08007F2BA4 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
+		9F80B37F1EE8FA08007F2BA4 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		9F80B3821EE914DF007F2BA4 /* CostsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CostsListViewController.h; path = View/CostsListViewController.h; sourceTree = "<group>"; };
+		9F80B3831EE914DF007F2BA4 /* CostsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CostsListViewController.m; path = View/CostsListViewController.m; sourceTree = "<group>"; };
+		9F80B3841EE914DF007F2BA4 /* CostsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsListView.xib; path = View/CostsListView.xib; sourceTree = "<group>"; };
+		9F80B3871EE9196F007F2BA4 /* ItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemManager.h; path = Model/ItemManager.h; sourceTree = "<group>"; };
+		9F80B3881EE9196F007F2BA4 /* ItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemManager.m; path = Model/ItemManager.m; sourceTree = "<group>"; };
+		9F80B38A1EE91F6A007F2BA4 /* IncomesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IncomesListViewController.h; path = View/IncomesListViewController.h; sourceTree = "<group>"; };
+		9F80B38B1EE91F6A007F2BA4 /* IncomesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IncomesListViewController.m; path = View/IncomesListViewController.m; sourceTree = "<group>"; };
+		9F80B38C1EE91F6A007F2BA4 /* IncomesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IncomesListView.xib; path = View/IncomesListView.xib; sourceTree = "<group>"; };
 		9FAA8F781ED6DD56002E56EB /* Final_Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_Work.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAA8F7C1ED6DD56002E56EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FAA8F7E1ED6DD56002E56EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,20 +100,26 @@
 		9F4A2A421ED8392D006CD86D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9FBFD3CD1EE706C100DBEFBC /* RootViewController.h */,
+				9FBFD3CE1EE706C100DBEFBC /* RootViewController.m */,
+				9FBFD3CF1EE706C100DBEFBC /* RootView.xib */,
+				9F80B36B1EE8EA3E007F2BA4 /* CostCell.h */,
+				9F80B3761EE8EC8E007F2BA4 /* CostCell.m */,
 				9F80B34F1EE844D5007F2BA4 /* CostCell.xib */,
-				9F80B3501EE844D5007F2BA4 /* CostsListView.xib */,
+				9F80B3821EE914DF007F2BA4 /* CostsListViewController.h */,
+				9F80B3831EE914DF007F2BA4 /* CostsListViewController.m */,
+				9F80B3841EE914DF007F2BA4 /* CostsListView.xib */,
+				9F80B38A1EE91F6A007F2BA4 /* IncomesListViewController.h */,
+				9F80B38B1EE91F6A007F2BA4 /* IncomesListViewController.m */,
+				9F80B38C1EE91F6A007F2BA4 /* IncomesListView.xib */,
 				9F80B3511EE844D5007F2BA4 /* CostsPhotoCell.xib */,
 				9F80B3521EE844D5007F2BA4 /* CostsPhotoGridView.xib */,
 				9F80B3531EE844D5007F2BA4 /* DateScrollView.xib */,
 				9F80B3541EE844D5007F2BA4 /* EditView.xib */,
 				9F80B3551EE844D5007F2BA4 /* IncomeCell.xib */,
 				9F80B3561EE844D5007F2BA4 /* IncomeGridView.xib */,
-				9F80B3571EE844D5007F2BA4 /* IncomeListView.xib */,
 				9F80B3581EE844D5007F2BA4 /* IncomePhotoCell.xib */,
 				9F80B3591EE844D5007F2BA4 /* MainView.xib */,
-				9FBFD3CD1EE706C100DBEFBC /* RootViewController.h */,
-				9FBFD3CE1EE706C100DBEFBC /* RootViewController.m */,
-				9FBFD3CF1EE706C100DBEFBC /* RootView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -103,8 +127,21 @@
 		9F4A2A431ED8393F006CD86D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9F80B37E1EE8FA08007F2BA4 /* Item.h */,
+				9F80B37F1EE8FA08007F2BA4 /* Item.m */,
+				9F80B3871EE9196F007F2BA4 /* ItemManager.h */,
+				9F80B3881EE9196F007F2BA4 /* ItemManager.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		9F80B37A1EE8F9BC007F2BA4 /* CoreDatagenerator */ = {
+			isa = PBXGroup;
+			children = (
+				9F80B37B1EE8F9BC007F2BA4 /* _Item.h */,
+				9F80B37C1EE8F9BC007F2BA4 /* _Item.m */,
+			);
+			path = CoreDatagenerator;
 			sourceTree = "<group>";
 		};
 		9FAA8F6F1ED6DD56002E56EB = {
@@ -128,6 +165,7 @@
 		9FAA8F7A1ED6DD56002E56EB /* Final_Work */ = {
 			isa = PBXGroup;
 			children = (
+				9F80B37A1EE8F9BC007F2BA4 /* CoreDatagenerator */,
 				9FBFD3D61EE7A2B300DBEFBC /* Utils */,
 				9F4A2A431ED8393F006CD86D /* Model */,
 				9F4A2A421ED8392D006CD86D /* View */,
@@ -229,18 +267,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */,
+				9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */,
+				9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */,
 				9F80B3601EE844D5007F2BA4 /* IncomeCell.xib in Resources */,
 				9F80B35F1EE844D5007F2BA4 /* EditView.xib in Resources */,
 				9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */,
-				9F80B35B1EE844D5007F2BA4 /* CostsListView.xib in Resources */,
 				9F80B3631EE844D5007F2BA4 /* IncomePhotoCell.xib in Resources */,
 				9F80B3641EE844D5007F2BA4 /* MainView.xib in Resources */,
 				9FBFD3D51EE707EB00DBEFBC /* Images.xcassets in Resources */,
-				9F80B3621EE844D5007F2BA4 /* IncomeListView.xib in Resources */,
+				9F80B3861EE914DF007F2BA4 /* CostsListView.xib in Resources */,
 				9F80B3611EE844D5007F2BA4 /* IncomeGridView.xib in Resources */,
 				9F80B35E1EE844D5007F2BA4 /* DateScrollView.xib in Resources */,
-				9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */,
-				9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */,
 				9F80B35D1EE844D5007F2BA4 /* CostsPhotoGridView.xib in Resources */,
 				9F80B35C1EE844D5007F2BA4 /* CostsPhotoCell.xib in Resources */,
 			);
@@ -276,7 +314,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EC3E364C025B4997CCE722C3 /* [CP] Copy Pods Resources */ = {
@@ -301,6 +339,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F80B38F1EE92840007F2BA4 /* Item.m in Sources */,
+				9F80B38D1EE91F6A007F2BA4 /* IncomesListViewController.m in Sources */,
+				9F80B37D1EE8F9BC007F2BA4 /* _Item.m in Sources */,
+				9F80B3791EE8ED24007F2BA4 /* CostCell.m in Sources */,
+				9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */,
+				9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */,
 				9FBFD3DA1EE7AB9300DBEFBC /* RootViewController.m in Sources */,
 				9FBFD3D91EE7A2C800DBEFBC /* UIView+Utils.m in Sources */,
 				9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */,

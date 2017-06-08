@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CostsListViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IncomesListViewController">
             <connections>
-                <outlet property="costsListView" destination="eaw-q7-e4C" id="tta-62-B7o"/>
+                <outlet property="incomeListView" destination="ZM4-s2-NdT" id="CZV-Zi-MgL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,17 +20,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eaw-q7-e4C">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZM4-s2-NdT">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="eaw-q7-e4C" secondAttribute="trailing" id="GN8-PF-oEy"/>
-                <constraint firstItem="eaw-q7-e4C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GTb-aI-jeA"/>
-                <constraint firstItem="eaw-q7-e4C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bDw-3N-OQ3"/>
-                <constraint firstAttribute="bottom" secondItem="eaw-q7-e4C" secondAttribute="bottom" id="kJQ-Tq-8FZ"/>
+                <constraint firstItem="ZM4-s2-NdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fzr-ng-UoX"/>
+                <constraint firstAttribute="bottom" secondItem="ZM4-s2-NdT" secondAttribute="bottom" id="O5l-ag-3y8"/>
+                <constraint firstItem="ZM4-s2-NdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YgG-mi-kwL"/>
+                <constraint firstAttribute="trailing" secondItem="ZM4-s2-NdT" secondAttribute="trailing" id="rJg-51-js3"/>
             </constraints>
         </view>
     </objects>
