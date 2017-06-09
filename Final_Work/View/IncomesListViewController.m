@@ -40,7 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.rootViewController setTitle:@"Income"];
-//    [self.incomeListView reloadData];
+    [self.incomeListView reloadData];
 }
 
 - (void)dealloc {
@@ -61,7 +61,7 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    Item* item = [self itemAtIndexPath:indexPath];
+//    Item* item = [self itemAtIndexPath:indexPath];
     //    [self.rootViewController showPhotosOfItem:item.name];
 }
 

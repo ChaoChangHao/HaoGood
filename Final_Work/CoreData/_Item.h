@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) ItemID *objectID;
 
+@property (nonatomic, strong, nullable) NSString* category;
+
 @property (nonatomic, strong, nullable) NSDate* date;
 
 @property (nonatomic, strong, nullable) NSString* image;
@@ -32,11 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (float)priceValue;
 - (void)setPriceValue:(float)value_;
 
-@property (nonatomic, strong, nullable) NSString* type;
-
 @end
 
 @interface _Item (CoreDataGeneratedPrimitiveAccessors)
+
+- (nullable NSString*)primitiveCategory;
+- (void)setPrimitiveCategory:(nullable NSString*)value;
 
 - (nullable NSDate*)primitiveDate;
 - (void)setPrimitiveDate:(nullable NSDate*)value;
@@ -56,11 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface ItemAttributes: NSObject 
++ (NSString *)category;
 + (NSString *)date;
 + (NSString *)image;
 + (NSString *)name;
 + (NSString *)price;
-+ (NSString *)type;
 @end
 
 NS_ASSUME_NONNULL_END

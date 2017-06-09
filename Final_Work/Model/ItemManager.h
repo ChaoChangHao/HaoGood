@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "Item.h"
 
-FOUNDATION_EXPORT NSString* const ItmesSynchronizedNotificationName;
+
+FOUNDATION_EXPORT NSString* const ItemsSynchronizedNotificationName;
+
 
 
 @interface ItemManager : NSObject
+
+
+- (instancetype)initWithLocal;
 
 - (Item*)getItem:(NSString*)itemName;
 

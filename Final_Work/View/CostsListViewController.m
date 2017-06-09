@@ -12,8 +12,9 @@
 #import "RootViewController.h"
 
 #import "ItemManager.h"
+#import "Item.h"
 
-
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface CostsListViewController ()
 
@@ -32,9 +33,10 @@
     _items = [NSMutableArray new];
     
     [self updateItems];
+    
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.costsListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsSynchronized) name:ItemsSynchronizedNotificationName object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,15 +59,13 @@
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    return 8;
+    return [_items count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-//    Item* poster = [self itemAtIndexPath:indexPath];
+    Item* poster = [self itemAtIndexPath:indexPath];
     CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
-//    [cell setItem:poster];
-    cell.ItemNameLabel.text = [NSString stringWithFormat:@"Nametest"];
-    cell.ItemPriceLabel.text = [NSString stringWithFormat:@"20 $"];
+    [cell setItem:poster];
     
     return cell;
 }
@@ -79,11 +79,15 @@
 }
 
 - (void)updateItems {
-    
+    [_items removeAllObjects];
+    NSArray *items = [Item MR_findAllSortedBy:@"name" ascending:YES];
+    [_items addObjectsFromArray:items];
+    [self.costsListView reloadData];
+
 }
 
 - (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
-    return [[_items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    return [_items objectAtIndex:indexPath.row];
 }
 
 @end

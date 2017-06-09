@@ -12,23 +12,30 @@
 
 #import "Item.h"
 
-NSString* const ItmesSynchronizedNotificationName = @"ItmesSynchronized";
+NSString* const ItemsSynchronizedNotificationName = @"ItemsSynchronized";
 
 @implementation ItemManager {
     NSMutableDictionary* _items;
 }
 
-- (Item*)getItem:(NSString*)itemName {
-    return _items[itemName];
+- (instancetype)initWithLocal {
+    if ([super init]) {
+        _items = [NSMutableDictionary new];
+        NSArray* localItems = [Item MR_findAllInContext:[NSManagedObjectContext MR_defaultContext]];
+        for (Item* item in localItems) {
+            [_items setObject:item forKey:item.name];
+        }
+    }
+    return self;
+}
+
+
+- (Item*)getItem:(NSString*)Name {
+    return _items[Name];
 }
 
 - (NSArray*)items {
     return _items.allValues;
 }
-
-
-
-#pragma mark - Private Methods
-
 
 @end

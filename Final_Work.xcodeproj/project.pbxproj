@@ -18,13 +18,11 @@
 		9F80B3631EE844D5007F2BA4 /* IncomePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3581EE844D5007F2BA4 /* IncomePhotoCell.xib */; };
 		9F80B3641EE844D5007F2BA4 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3591EE844D5007F2BA4 /* MainView.xib */; };
 		9F80B3791EE8ED24007F2BA4 /* CostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B3761EE8EC8E007F2BA4 /* CostCell.m */; };
-		9F80B37D1EE8F9BC007F2BA4 /* _Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B37C1EE8F9BC007F2BA4 /* _Item.m */; };
 		9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B3831EE914DF007F2BA4 /* CostsListViewController.m */; };
 		9F80B3861EE914DF007F2BA4 /* CostsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3841EE914DF007F2BA4 /* CostsListView.xib */; };
 		9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B3881EE9196F007F2BA4 /* ItemManager.m */; };
 		9F80B38D1EE91F6A007F2BA4 /* IncomesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B38B1EE91F6A007F2BA4 /* IncomesListViewController.m */; };
 		9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B38C1EE91F6A007F2BA4 /* IncomesListView.xib */; };
-		9F80B38F1EE92840007F2BA4 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F80B37F1EE8FA08007F2BA4 /* Item.m */; };
 		9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7C1ED6DD56002E56EB /* main.m */; };
 		9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */; };
 		9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */; };
@@ -32,6 +30,9 @@
 		9FBFD3D51EE707EB00DBEFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */; };
 		9FBFD3D91EE7A2C800DBEFBC /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFD3D81EE7A2C800DBEFBC /* UIView+Utils.m */; };
 		9FBFD3DA1EE7AB9300DBEFBC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFD3CE1EE706C100DBEFBC /* RootViewController.m */; };
+		9FD9040E1EEAEBB60004D4C7 /* Final_Work.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F871ED6DD56002E56EB /* Final_Work.xcdatamodeld */; };
+		9FD904111EEAEBD60004D4C7 /* _Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD904101EEAEBD60004D4C7 /* _Item.m */; };
+		9FD904141EEAEBE20004D4C7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD904131EEAEBE20004D4C7 /* Item.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,10 +49,6 @@
 		9F80B3591EE844D5007F2BA4 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainView.xib; path = View/MainView.xib; sourceTree = "<group>"; };
 		9F80B36B1EE8EA3E007F2BA4 /* CostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CostCell.h; path = View/CostCell.h; sourceTree = "<group>"; };
 		9F80B3761EE8EC8E007F2BA4 /* CostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CostCell.m; path = View/CostCell.m; sourceTree = "<group>"; };
-		9F80B37B1EE8F9BC007F2BA4 /* _Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Item.h; sourceTree = "<group>"; };
-		9F80B37C1EE8F9BC007F2BA4 /* _Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Item.m; sourceTree = "<group>"; };
-		9F80B37E1EE8FA08007F2BA4 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
-		9F80B37F1EE8FA08007F2BA4 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
 		9F80B3821EE914DF007F2BA4 /* CostsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CostsListViewController.h; path = View/CostsListViewController.h; sourceTree = "<group>"; };
 		9F80B3831EE914DF007F2BA4 /* CostsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CostsListViewController.m; path = View/CostsListViewController.m; sourceTree = "<group>"; };
 		9F80B3841EE914DF007F2BA4 /* CostsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsListView.xib; path = View/CostsListView.xib; sourceTree = "<group>"; };
@@ -73,6 +70,10 @@
 		9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9FBFD3D71EE7A2C800DBEFBC /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		9FBFD3D81EE7A2C800DBEFBC /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		9FD9040F1EEAEBD60004D4C7 /* _Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Item.h; sourceTree = "<group>"; };
+		9FD904101EEAEBD60004D4C7 /* _Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Item.m; sourceTree = "<group>"; };
+		9FD904121EEAEBE20004D4C7 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
+		9FD904131EEAEBE20004D4C7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
 		BA6E706066076762D39E4848 /* Pods-Final_Work.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_Work.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final_Work/Pods-Final_Work.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,21 +128,12 @@
 		9F4A2A431ED8393F006CD86D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F80B37E1EE8FA08007F2BA4 /* Item.h */,
-				9F80B37F1EE8FA08007F2BA4 /* Item.m */,
+				9FD904121EEAEBE20004D4C7 /* Item.h */,
+				9FD904131EEAEBE20004D4C7 /* Item.m */,
 				9F80B3871EE9196F007F2BA4 /* ItemManager.h */,
 				9F80B3881EE9196F007F2BA4 /* ItemManager.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		9F80B37A1EE8F9BC007F2BA4 /* CoreDatagenerator */ = {
-			isa = PBXGroup;
-			children = (
-				9F80B37B1EE8F9BC007F2BA4 /* _Item.h */,
-				9F80B37C1EE8F9BC007F2BA4 /* _Item.m */,
-			);
-			path = CoreDatagenerator;
 			sourceTree = "<group>";
 		};
 		9FAA8F6F1ED6DD56002E56EB = {
@@ -165,7 +157,7 @@
 		9FAA8F7A1ED6DD56002E56EB /* Final_Work */ = {
 			isa = PBXGroup;
 			children = (
-				9F80B37A1EE8F9BC007F2BA4 /* CoreDatagenerator */,
+				9FD9040A1EEAEAF30004D4C7 /* CoreData */,
 				9FBFD3D61EE7A2B300DBEFBC /* Utils */,
 				9F4A2A431ED8393F006CD86D /* Model */,
 				9F4A2A421ED8392D006CD86D /* View */,
@@ -195,6 +187,15 @@
 				9FBFD3D81EE7A2C800DBEFBC /* UIView+Utils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9FD9040A1EEAEAF30004D4C7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9FD9040F1EEAEBD60004D4C7 /* _Item.h */,
+				9FD904101EEAEBD60004D4C7 /* _Item.m */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C001681127D6F382413B6C89 /* Frameworks */ = {
@@ -339,16 +340,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F80B38F1EE92840007F2BA4 /* Item.m in Sources */,
 				9F80B38D1EE91F6A007F2BA4 /* IncomesListViewController.m in Sources */,
-				9F80B37D1EE8F9BC007F2BA4 /* _Item.m in Sources */,
 				9F80B3791EE8ED24007F2BA4 /* CostCell.m in Sources */,
 				9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */,
 				9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */,
 				9FBFD3DA1EE7AB9300DBEFBC /* RootViewController.m in Sources */,
 				9FBFD3D91EE7A2C800DBEFBC /* UIView+Utils.m in Sources */,
 				9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */,
+				9FD904141EEAEBE20004D4C7 /* Item.m in Sources */,
 				9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */,
+				9FD904111EEAEBD60004D4C7 /* _Item.m in Sources */,
+				9FD9040E1EEAEBB60004D4C7 /* Final_Work.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

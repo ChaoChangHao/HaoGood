@@ -104,10 +104,26 @@
                         <constraint firstItem="KFf-y8-23x" firstAttribute="height" secondItem="SMS-7g-c9F" secondAttribute="height" id="zJq-lm-cbX"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qb-hV-hzG">
+                    <rect key="frame" x="184" y="353" width="46" height="69"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="addItem:" destination="-1" eventType="touchUpInside" id="4Ae-HP-ci4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1e-5C-leq">
+                    <rect key="frame" x="185" y="150" width="43" height="30"/>
+                    <state key="normal" title="delete"/>
+                    <connections>
+                        <action selector="deleteTest:" destination="-1" eventType="touchUpInside" id="d0K-G9-XXS"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="SMS-7g-c9F" secondAttribute="trailing" id="7wy-K7-3Gs"/>
+                <constraint firstItem="C1e-5C-leq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="DLO-V9-RZW"/>
                 <constraint firstAttribute="bottom" secondItem="SMS-7g-c9F" secondAttribute="bottom" id="KNe-lC-mbX"/>
                 <constraint firstAttribute="bottom" secondItem="dQc-07-3FM" secondAttribute="bottom" id="KkS-i2-VKW"/>
                 <constraint firstAttribute="trailing" secondItem="dQc-07-3FM" secondAttribute="trailing" id="VNV-tL-k8w"/>
@@ -115,7 +131,7 @@
                 <constraint firstItem="SMS-7g-c9F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vVh-mz-4BE"/>
                 <constraint firstItem="dQc-07-3FM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zKI-7L-1es"/>
             </constraints>
-            <point key="canvasLocation" x="38.5" y="58.5"/>
+            <point key="canvasLocation" x="48" y="38"/>
         </view>
     </objects>
     <resources>

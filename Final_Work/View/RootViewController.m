@@ -11,11 +11,13 @@
 #import "CostsListViewController.h"
 #import "IncomesListViewController.h"
 
+#import "Item.h"
+#import "ItemManager.h"
 
 #import "UIView+Utils.h"
 
 #import <CKCircleMenuView/CKCircleMenuView.h>
-
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface RootViewController () <CKCircleMenuDelegate>
 
@@ -95,6 +97,26 @@
 
 
 #pragma mark - IBActions
+- (IBAction)addItem:(id)sender {
+
+    Item *item = [Item MR_createEntity];
+    item.name = [NSString stringWithFormat:@"testname"];
+    item.price = [NSNumber numberWithInteger:20];
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    
+    //Inform app
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
+    
+    //dismiss view
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+- (IBAction)deleteTest:(id)sender {
+    [Item MR_truncateAll];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
+}
 
 - (IBAction)tabButtonPressed:(id)sender {
     if ([sender isKindOfClass:[UIButton class]]) {

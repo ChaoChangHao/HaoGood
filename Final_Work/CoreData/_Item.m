@@ -38,6 +38,8 @@
 	return keyPaths;
 }
 
+@dynamic category;
+
 @dynamic date;
 
 @dynamic image;
@@ -64,11 +66,12 @@
 	[self setPrimitivePrice:@(value_)];
 }
 
-@dynamic type;
-
 @end
 
 @implementation ItemAttributes 
++ (NSString *)category {
+	return @"category";
+}
 + (NSString *)date {
 	return @"date";
 }
@@ -80,9 +83,6 @@
 }
 + (NSString *)price {
 	return @"price";
-}
-+ (NSString *)type {
-	return @"type";
 }
 @end
 
