@@ -14,8 +14,21 @@
 
 NSString* const ItmesSynchronizedNotificationName = @"ItmesSynchronized";
 
-@implementation ItemManager
+@implementation ItemManager {
+    NSMutableDictionary* _items;
+}
 
+- (Item*)getItem:(NSString*)itemName {
+    return _items[itemName];
+}
+
+- (NSArray*)items {
+    return _items.allValues;
+}
+
+
+
+#pragma mark - Private Methods
 
 
 @end

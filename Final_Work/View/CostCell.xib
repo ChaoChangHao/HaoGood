@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,9 +32,8 @@
                             <constraint firstAttribute="height" constant="1" id="GCU-pM-Zts"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56p-8Y-XYG" userLabel="ItemName">
-                        <rect key="frame" x="40" y="24" width="79" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56p-8Y-XYG" userLabel="ItemName">
+                        <rect key="frame" x="28" y="24" width="79" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.13725490200000001" green="0.039215686270000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -48,7 +48,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Pwg-ze-OZy" secondAttribute="trailing" constant="40" id="3VX-nD-BgE"/>
+                    <constraint firstItem="56p-8Y-XYG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="KDX-ff-7kH"/>
                     <constraint firstAttribute="bottom" secondItem="Pwg-ze-OZy" secondAttribute="bottom" id="LFc-HN-yHV"/>
+                    <constraint firstItem="56p-8Y-XYG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Sz6-7z-UCS"/>
                     <constraint firstItem="6xi-QF-bhM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TDh-Dy-QZI"/>
                     <constraint firstAttribute="trailing" secondItem="9rS-dy-37j" secondAttribute="trailing" constant="30" id="aQ1-6z-DOA"/>
                     <constraint firstItem="9rS-dy-37j" firstAttribute="leading" secondItem="6xi-QF-bhM" secondAttribute="trailing" constant="15" id="b00-dz-aJ5"/>
