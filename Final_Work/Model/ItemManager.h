@@ -18,11 +18,6 @@ FOUNDATION_EXPORT NSString* const ItemsSynchronizedNotificationName;
 @interface ItemManager : NSObject
 
 
-- (instancetype)initWithLocal;
-
-- (Item*)getItem:(NSString*)itemName;
-
-@property (readonly) NSArray* items;
 
 
 @end

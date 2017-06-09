@@ -106,14 +106,7 @@
 - (void)updateFriends {
     [_others removeAllObjects];
     [_prices removeAllObjects];
-    for (Item* item in self.itemManager.items) {
-        if (item.priceValue) {
-            [_prices addObject:item];
-        }
-        else {
-            [_others addObject:item];
-        }
-    }
+
 }
 - (void)updateFavoriteStateAtIndexPath:(NSIndexPath*)indexPath {
     Item* item = [self itemAtIndexPath:indexPath];
