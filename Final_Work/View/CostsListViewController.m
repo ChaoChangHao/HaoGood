@@ -22,8 +22,6 @@
 
 @implementation CostsListViewController {
     NSMutableArray* _items;
-    
-    
 }
 
 #pragma mark - ViewController Lifecycle
@@ -92,7 +90,7 @@
 
 - (void)updateItems {
     [_items removeAllObjects];
-    NSArray *items = [Item MR_findAllSortedBy:@"name" ascending:YES];
+    NSArray *items = [Item MR_findAll];
     [_items addObjectsFromArray:items];
     [self.costsListView reloadData];
 

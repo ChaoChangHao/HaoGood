@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "AddItemViewController.h"
 
 #import "CostsListViewController.h"
 #import "IncomesListViewController.h"
@@ -87,7 +88,7 @@
     // Circle button
     self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"drink"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"transport"]];
     self.subButtonCount = 4;
-    self.angle = 90.0;
+    self.angle = 120.0;
     self.delay = 0.1;
     self.shadow = 1;
     self.radius = 120;
@@ -164,14 +165,32 @@
 #pragma mark - Private Methods
 - (void)circleMenuActivatedButtonWithIndex:(int)anIndex
 {
-    UIAlertController* tController = [UIAlertController alertControllerWithTitle:@"Circle Menu Action" message:[NSString stringWithFormat:@"Button pressed at index %i.", anIndex] preferredStyle:UIAlertControllerStyleAlert];
-    [tController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:tController animated:YES completion:^{
-        self.circleMenuView = nil;
-        [self.addItemButton setTitle:@"" forState:UIControlStateNormal];
-    }];
+
+    AddItemViewController *viewController = [[AddItemViewController alloc] initWithNibName:@"AddItemView" bundle:nil];
+
+    CATransition* transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromBottom;
+    
+    [self.navigationController pushViewController:viewController animated:NO];
+    
+    
+
 }
 
+- (void)circleMenuClosed
+{
+    if (self.circleMenuView) {
+        [self.circleMenuView closeMenu];
+        self.circleMenuView = nil;
+    }
+    [self.addItemButton setTitle:@"" forState:UIControlStateNormal];
+}
+
+- (void)circleMenuOpened
+{
+    [self.addItemButton setTitle:@"" forState:UIControlStateNormal];
+}
 
 - (void)setSelectedIndex:(NSInteger)index {
     if (index < 0 || index > [_viewControllers count]) {

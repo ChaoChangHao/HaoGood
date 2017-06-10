@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A725E5FC71FFF30AC12E7EA /* Pods_Final_Work.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5CB785AADEDDC369199F4C /* Pods_Final_Work.framework */; };
 		9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B34F1EE844D5007F2BA4 /* CostCell.xib */; };
-		9F80B35C1EE844D5007F2BA4 /* CostsPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3511EE844D5007F2BA4 /* CostsPhotoCell.xib */; };
 		9F80B35D1EE844D5007F2BA4 /* CostsPhotoGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3521EE844D5007F2BA4 /* CostsPhotoGridView.xib */; };
 		9F80B35E1EE844D5007F2BA4 /* DateScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3531EE844D5007F2BA4 /* DateScrollView.xib */; };
 		9F80B35F1EE844D5007F2BA4 /* EditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3541EE844D5007F2BA4 /* EditView.xib */; };
@@ -33,13 +32,15 @@
 		9FD9040E1EEAEBB60004D4C7 /* Final_Work.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F871ED6DD56002E56EB /* Final_Work.xcdatamodeld */; };
 		9FD904111EEAEBD60004D4C7 /* _Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD904101EEAEBD60004D4C7 /* _Item.m */; };
 		9FD904141EEAEBE20004D4C7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD904131EEAEBE20004D4C7 /* Item.m */; };
+		9FD904181EEB9D180004D4C7 /* AddItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3511EE844D5007F2BA4 /* AddItemView.xib */; };
+		9FD9041C1EEBA10C0004D4C7 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD9041A1EEBA10C0004D4C7 /* AddItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		33E82FFECD113A4621078F52 /* Pods-Final_Work.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_Work.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Final_Work/Pods-Final_Work.debug.xcconfig"; sourceTree = "<group>"; };
 		4C5CB785AADEDDC369199F4C /* Pods_Final_Work.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_Work.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F80B34F1EE844D5007F2BA4 /* CostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostCell.xib; path = View/CostCell.xib; sourceTree = "<group>"; };
-		9F80B3511EE844D5007F2BA4 /* CostsPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsPhotoCell.xib; path = View/CostsPhotoCell.xib; sourceTree = "<group>"; };
+		9F80B3511EE844D5007F2BA4 /* AddItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddItemView.xib; path = View/AddItemView.xib; sourceTree = "<group>"; };
 		9F80B3521EE844D5007F2BA4 /* CostsPhotoGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CostsPhotoGridView.xib; path = View/CostsPhotoGridView.xib; sourceTree = "<group>"; };
 		9F80B3531EE844D5007F2BA4 /* DateScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DateScrollView.xib; path = View/DateScrollView.xib; sourceTree = "<group>"; };
 		9F80B3541EE844D5007F2BA4 /* EditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditView.xib; path = View/EditView.xib; sourceTree = "<group>"; };
@@ -74,6 +75,8 @@
 		9FD904101EEAEBD60004D4C7 /* _Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Item.m; sourceTree = "<group>"; };
 		9FD904121EEAEBE20004D4C7 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Model/Item.h; sourceTree = "<group>"; };
 		9FD904131EEAEBE20004D4C7 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Model/Item.m; sourceTree = "<group>"; };
+		9FD904191EEBA10C0004D4C7 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = View/AddItemViewController.h; sourceTree = "<group>"; };
+		9FD9041A1EEBA10C0004D4C7 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = View/AddItemViewController.m; sourceTree = "<group>"; };
 		BA6E706066076762D39E4848 /* Pods-Final_Work.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final_Work.release.xcconfig"; path = "Pods/Target Support Files/Pods-Final_Work/Pods-Final_Work.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,10 +113,12 @@
 				9F80B3821EE914DF007F2BA4 /* CostsListViewController.h */,
 				9F80B3831EE914DF007F2BA4 /* CostsListViewController.m */,
 				9F80B3841EE914DF007F2BA4 /* CostsListView.xib */,
+				9FD904191EEBA10C0004D4C7 /* AddItemViewController.h */,
+				9FD9041A1EEBA10C0004D4C7 /* AddItemViewController.m */,
+				9F80B3511EE844D5007F2BA4 /* AddItemView.xib */,
 				9F80B38A1EE91F6A007F2BA4 /* IncomesListViewController.h */,
 				9F80B38B1EE91F6A007F2BA4 /* IncomesListViewController.m */,
 				9F80B38C1EE91F6A007F2BA4 /* IncomesListView.xib */,
-				9F80B3511EE844D5007F2BA4 /* CostsPhotoCell.xib */,
 				9F80B3521EE844D5007F2BA4 /* CostsPhotoGridView.xib */,
 				9F80B3531EE844D5007F2BA4 /* DateScrollView.xib */,
 				9F80B3541EE844D5007F2BA4 /* EditView.xib */,
@@ -268,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD904181EEB9D180004D4C7 /* AddItemView.xib in Resources */,
 				9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */,
 				9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */,
 				9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */,
@@ -281,7 +287,6 @@
 				9F80B3611EE844D5007F2BA4 /* IncomeGridView.xib in Resources */,
 				9F80B35E1EE844D5007F2BA4 /* DateScrollView.xib in Resources */,
 				9F80B35D1EE844D5007F2BA4 /* CostsPhotoGridView.xib in Resources */,
-				9F80B35C1EE844D5007F2BA4 /* CostsPhotoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F80B38D1EE91F6A007F2BA4 /* IncomesListViewController.m in Sources */,
+				9FD9041C1EEBA10C0004D4C7 /* AddItemViewController.m in Sources */,
 				9F80B3791EE8ED24007F2BA4 /* CostCell.m in Sources */,
 				9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */,
 				9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */,
