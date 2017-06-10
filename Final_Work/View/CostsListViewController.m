@@ -21,14 +21,20 @@
 @end
 
 @implementation CostsListViewController {
-    NSMutableArray* _items;
+    NSArray* _items;
+    NSMutableArray* _category1;
+    NSMutableArray* _category2;
 }
 
 #pragma mark - ViewController Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _items = [NSMutableArray new];
+    
+    _category1 = [NSMutableArray new];
+    _category2 = [NSMutableArray new];
+    _items = @[_category1, _category2];
+    
     
     [self updateItems];
     
@@ -63,13 +69,17 @@
     return @[ action ];
 }
 
+- (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
+    return (section == 0)? @"category1" : @"category2";
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return 1;
+    return [_items count];
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_items count];
+    return [[_items objectAtIndex:section] count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
@@ -89,15 +99,27 @@
 }
 
 - (void)updateItems {
-    [_items removeAllObjects];
+    [_category1 removeAllObjects];
+    [_category2 removeAllObjects];
     NSArray *items = [Item MR_findAll];
-    [_items addObjectsFromArray:items];
+    
+    for (Item* item in items) {
+        
+        
+        if ([item.category isEqualToString:@"button"]) {
+            [_category1 addObject:item];
+        } else {
+            [_category2 addObject:item];
+        }
+        
+        
+    }
     [self.costsListView reloadData];
 
 }
 
 - (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
-    return [_items objectAtIndex:indexPath.row];
+    return [[_items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 }
 
 @end

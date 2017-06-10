@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,10 +38,16 @@
 }
 
 
+
+
+- (IBAction)photoButtonPressed:(id)sender {
+}
+
 - (IBAction)confirmButtonPressed:(id)sender {
     Item *item = [Item MR_createEntity];
     item.name = _itemName.text;
     item.priceValue = [_itemPrice.text floatValue];
+    item.category = [NSString stringWithFormat:@"navigation"];
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     

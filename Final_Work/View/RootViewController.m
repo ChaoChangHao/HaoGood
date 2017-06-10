@@ -103,6 +103,7 @@
     Item *item = [Item MR_createEntity];
     item.name = [NSString stringWithFormat:@"testname"];
     item.price = [NSNumber numberWithInteger:20];
+    item.category = [NSString stringWithFormat:@"button"];
     
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     
