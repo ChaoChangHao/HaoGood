@@ -66,10 +66,6 @@
                         <constraint firstAttribute="width" secondItem="p16-Gd-as7" secondAttribute="height" multiplier="1:1" id="BrE-oe-sxb"/>
                     </constraints>
                     <state key="normal" title="Image Import"/>
-                    <connections>
-                        <action selector="insertImage:" destination="-1" eventType="touchUpInside" id="eB3-Eb-jUn"/>
-                        <action selector="photoButtonPressed:" destination="-1" eventType="touchUpInside" id="bzR-tT-i8E"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uu-C3-yAO">
                     <rect key="frame" x="368" y="70" width="46" height="55"/>

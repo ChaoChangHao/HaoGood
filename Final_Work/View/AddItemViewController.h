@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddItemViewController : UIViewController<UITextViewDelegate>
+@interface AddItemViewController : UIViewController<UITextFieldDelegate>
 
 
 @property (nonatomic, weak) UIViewController* rootViewController;
