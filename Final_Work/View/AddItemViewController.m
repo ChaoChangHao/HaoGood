@@ -36,16 +36,24 @@
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(chooseDate:) forControlEvents:UIControlEventValueChanged];
     
-    UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
-    [toolBar setTintColor:[UIColor grayColor]];
-    UIBarButtonItem *doneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(ShowSelectedDate)];
-    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [toolBar setItems:[NSArray arrayWithObjects:space,doneBtn, nil]];
-    [_itemDate setInputAccessoryView:toolBar];
+    [self chooseDate:datePicker];
     
-    UIBarButtonItem *doneBtn2 = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed:)];
-    [toolBar setItems:[NSArray arrayWithObjects:space, doneBtn2, nil]];
-    [_itemPrice setInputAccessoryView:toolBar];
+    //space
+    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    //price
+    UIToolbar *priceToolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [priceToolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *priceDoneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(priceDoneButtonPressed)];
+    
+    [priceToolBar setItems:[NSArray arrayWithObjects:space,priceDoneBtn, nil]];
+    [_itemPrice setInputAccessoryView:priceToolBar];
+    //date
+    UIToolbar *dateToolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [dateToolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *dateDoneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dateDoneButtonPressed)];
+    [dateToolBar setItems:[NSArray arrayWithObjects:space,dateDoneBtn, nil]];
+    [_itemDate setInputAccessoryView:dateToolBar];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -170,15 +178,18 @@
     [formatter setDateFormat:@"YYYY/MM/dd"];
     _itemDate.text = [formatter stringFromDate:selectedDate];
 }
--(void)ShowSelectedDate
-{   NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+-(void)dateDoneButtonPressed
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd"];
     _itemDate.text = [formatter stringFromDate:datePicker.date];
     [_itemDate resignFirstResponder];
 }
--(void)doneButtonPressed:(UIDatePicker*)datePick
+-(void)priceDoneButtonPressed
 {
     [_itemPrice resignFirstResponder];
 }
+
+
 
 @end
