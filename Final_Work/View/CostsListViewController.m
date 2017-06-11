@@ -22,8 +22,11 @@
 
 @implementation CostsListViewController {
     NSArray* _items;
-    NSMutableArray* _category1;
-    NSMutableArray* _category2;
+    NSMutableArray* _food;
+    NSMutableArray* _traffic;
+    NSMutableArray* _entertainment;
+    NSMutableArray* _else;
+    
 }
 
 #pragma mark - ViewController Lifecycle
@@ -31,9 +34,11 @@
     [super viewDidLoad];
     
     
-    _category1 = [NSMutableArray new];
-    _category2 = [NSMutableArray new];
-    _items = @[_category1, _category2];
+    _food = [NSMutableArray new];
+    _traffic = [NSMutableArray new];
+    _entertainment = [NSMutableArray new];
+    _else = [NSMutableArray new];
+    _items = @[_food, _traffic, _entertainment, _else];
     
     
     [self updateItems];
@@ -70,7 +75,24 @@
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
-    return (section == 0)? @"category1" : @"category2";
+    switch (section) {
+        case 0:
+            return @"food";
+            break;
+        case 1:
+            return @"traffic";
+            break;
+        case 2:
+            return @"entertainment";
+            break;
+        case 3:
+            return @"else";
+            break;
+        default:
+            return @"error";
+            break;
+    }
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -99,15 +121,22 @@
 }
 
 - (void)updateItems {
-    [_category1 removeAllObjects];
-    [_category2 removeAllObjects];
+    [_food removeAllObjects];
+    [_traffic removeAllObjects];
+    [_entertainment removeAllObjects];
+    [_else removeAllObjects];
+
     NSArray *items = [Item MR_findAll];
     
     for (Item* item in items) {
-        if ([item.category isEqualToString:@"button"]) {
-            [_category1 addObject:item];
-        } else {
-            [_category2 addObject:item];
+        if ([item.category isEqualToString:@"food"]) {
+            [_food addObject:item];
+        } else if ([item.category isEqualToString:@"traffic"]) {
+            [_traffic addObject:item];
+        } else if ([item.category isEqualToString:@"entertainment"]) {
+            [_entertainment addObject:item];
+        } else if ([item.category isEqualToString:@"else"]) {
+            [_else addObject:item];
         }
     }
     [self.costsListView reloadData];

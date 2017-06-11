@@ -21,6 +21,7 @@
 
 @implementation AddItemViewController {
     UIDatePicker *datePicker;
+    NSDateFormatter *formatter;
 }
 
 - (void)viewDidLoad {
@@ -35,7 +36,8 @@
     datePicker.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(chooseDate:) forControlEvents:UIControlEventValueChanged];
-    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd"];
     [self chooseDate:datePicker];
     
     //space
@@ -54,6 +56,10 @@
     [dateToolBar setItems:[NSArray arrayWithObjects:space,dateDoneBtn, nil]];
     [_itemDate setInputAccessoryView:dateToolBar];
     
+    
+    //Comfirm button in navigation bar
+    UIBarButtonItem *comfirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Comfirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
+    self.navigationItem.rightBarButtonItem = comfirmBtn;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,7 +75,7 @@
 
 #pragma mark - UITableViewDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-
+    
     
     if(textField.tag == 0) {
     }
@@ -96,7 +102,7 @@
                                     _addItemView.frame.size.height);
     [UIView commitAnimations];
     return YES;
-
+    
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
@@ -119,8 +125,8 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
     _itemDate.placeholder = @"YYYY / MM / DD";
-
-//    _itemDate.inputView = datePicker;
+    
+    //    _itemDate.inputView = datePicker;
     
 }
 
@@ -144,14 +150,30 @@
 - (IBAction)photoButtonPressed:(id)sender {
 }
 
-- (IBAction)confirmButtonPressed:(id)sender {
-    
+
+#pragma mark - private method
+-(void)chooseDate:(UIDatePicker *)datePick
+{
+    NSDate *selectedDate = datePick.date;
+    _itemDate.text = [formatter stringFromDate:selectedDate];
+}
+-(void)dateDoneButtonPressed
+{
+    _itemDate.text = [formatter stringFromDate:datePicker.date];
+    [_itemDate resignFirstResponder];
+}
+-(void)priceDoneButtonPressed
+{
+    [_itemPrice resignFirstResponder];
+}
+-(void)confirmButtonPressed {
     if (_itemPrice.text.length > 0 & _itemName.text.length > 0) {
         
         Item *item = [Item MR_createEntity];
         item.name = _itemName.text;
         item.priceValue = [_itemPrice.text floatValue];
-        item.category = [NSString stringWithFormat:@"navigation"];
+        item.category = [NSString stringWithFormat:@"food"];
+        item.date = [formatter dateFromString:_itemDate.text];
         
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
@@ -166,30 +188,7 @@
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:^{}];
     }
-    
-    
 }
-
-#pragma mark - private method
--(void)chooseDate:(UIDatePicker *)datePick
-{
-    NSDate *selectedDate = datePick.date;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY/MM/dd"];
-    _itemDate.text = [formatter stringFromDate:selectedDate];
-}
--(void)dateDoneButtonPressed
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY/MM/dd"];
-    _itemDate.text = [formatter stringFromDate:datePicker.date];
-    [_itemDate resignFirstResponder];
-}
--(void)priceDoneButtonPressed
-{
-    [_itemPrice resignFirstResponder];
-}
-
 
 
 @end

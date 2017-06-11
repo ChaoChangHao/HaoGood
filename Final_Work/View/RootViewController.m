@@ -202,6 +202,16 @@
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromBottom;
     
+    if (anIndex == 0) {
+        
+    } else if (anIndex == 0) {
+        
+    } else if (anIndex == 0) {
+        
+    } else if (anIndex == 0) {
+        
+    }
+    
     [self.navigationController pushViewController:viewController animated:NO];
     
     
