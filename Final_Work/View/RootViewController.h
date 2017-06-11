@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class ItemManager;
+@class Item;
+
 
 @interface RootViewController : UIViewController <UITextFieldDelegate>
 
@@ -22,5 +24,6 @@
 @property ItemManager* itemManager;
 
 @property (weak, nonatomic) IBOutlet UITextField *dateSelectTextField;
+
 
 @end

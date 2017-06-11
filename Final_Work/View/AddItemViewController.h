@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootViewController.h"
 
 @interface AddItemViewController : UIViewController<UITextFieldDelegate>
 
@@ -19,4 +20,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *itemPrice;
 @property (weak, nonatomic) IBOutlet UITextField *itemDate;
 
+@property(nonatomic) Item *item;
 @end

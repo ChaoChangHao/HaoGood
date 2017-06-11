@@ -169,11 +169,11 @@
 -(void)confirmButtonPressed {
     if (_itemPrice.text.length > 0 & _itemName.text.length > 0) {
         
-        Item *item = [Item MR_createEntity];
-        item.name = _itemName.text;
-        item.priceValue = [_itemPrice.text floatValue];
-        item.category = [NSString stringWithFormat:@"food"];
-        item.date = [formatter dateFromString:_itemDate.text];
+        self.item.name = _itemName.text;
+        self.item.priceValue = [_itemPrice.text floatValue];
+//        self.item.category = [NSString stringWithFormat:@"food"];
+        NSLog(@"category:%@", self.item.category);
+        self.item.date = [formatter dateFromString:_itemDate.text];
         
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         

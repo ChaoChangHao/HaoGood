@@ -57,7 +57,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     //tab bar button
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -202,16 +201,17 @@
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromBottom;
     
-    if (anIndex == 0) {
-        
-    } else if (anIndex == 0) {
-        
-    } else if (anIndex == 0) {
-        
-    } else if (anIndex == 0) {
-        
-    }
     
+    viewController.item = [Item MR_createEntity];
+    if (anIndex == 0) {
+        viewController.item.category = [NSString stringWithFormat:@"food"];
+    } else if (anIndex == 1) {
+        viewController.item.category = [NSString stringWithFormat:@"traffic"];
+    } else if (anIndex == 2) {
+        viewController.item.category = [NSString stringWithFormat:@"entertainment"];
+    } else if (anIndex == 3) {
+        viewController.item.category = [NSString stringWithFormat:@"else"];
+    }
     [self.navigationController pushViewController:viewController animated:NO];
     
     
