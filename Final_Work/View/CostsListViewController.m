@@ -104,15 +104,11 @@
     NSArray *items = [Item MR_findAll];
     
     for (Item* item in items) {
-        
-        
         if ([item.category isEqualToString:@"button"]) {
             [_category1 addObject:item];
         } else {
             [_category2 addObject:item];
         }
-        
-        
     }
     [self.costsListView reloadData];
 

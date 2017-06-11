@@ -49,6 +49,9 @@
     
     NSInteger _selectedIndex;
     UIViewController* _currentController;
+    
+    UIDatePicker *datePicker;
+
 }
 
 - (void)viewDidLoad {
@@ -84,7 +87,7 @@
     [self setSelectedIndex:0];
     [self setTitle:@"Cost"];
     
-    //-------------------------------------------------------------------------//
+    //======================================================================//
     // Circle button
     self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"drink"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"transport"]];
     self.subButtonCount = 4;
@@ -93,33 +96,59 @@
     self.shadow = 1;
     self.radius = 120;
     self.direction = CircleMenuDirectionLeftUp;
+    //======================================================================//
+    
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 350, self.view.frame.size.width, 300)];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    datePicker.hidden = NO;
+    datePicker.date = [NSDate date];
+    datePicker.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    [datePicker addTarget:self action:@selector(chooseDate:) forControlEvents:UIControlEventValueChanged];
+    //space
+    UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    //date
+    UIToolbar *dateToolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, -20, self.view.frame.size.width, 44)];
+    [dateToolBar setTintColor:[UIColor blueColor]];
+    dateToolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *dateDoneBtn=[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
+    
+    
+    [dateToolBar setItems:[NSArray arrayWithObjects:space,dateDoneBtn, nil]];
+    [_dateSelectTextField setInputView:datePicker];
+    [_dateSelectTextField setInputAccessoryView:dateToolBar];
+    [[_dateSelectTextField valueForKey:@"textInputTraits"] setValue:[UIColor clearColor] forKey:@"insertionPointColor"];
+    [self chooseDate:datePicker];
+    
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    
+    if (datePicker.superview) {
+        [datePicker removeFromSuperview];
+    } else {
+        [self chooseDate:datePicker];
+    }
+    return YES;
+    
+}
 
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [_dateSelectTextField resignFirstResponder];
+}
 
 #pragma mark - IBActions
-- (IBAction)addItem:(id)sender {
-
-    Item *item = [Item MR_createEntity];
-    item.name = [NSString stringWithFormat:@"testname"];
-    item.price = [NSNumber numberWithInteger:20];
-    item.category = [NSString stringWithFormat:@"button"];
-    
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    
-    //Inform app
-    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
-    
-    //dismiss view
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
-- (IBAction)deleteTest:(id)sender {
-    [Item MR_truncateAll];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
-}
-
 - (IBAction)tabButtonPressed:(id)sender {
     if ([sender isKindOfClass:[UIButton class]]) {
         UIButton* button = (UIButton*)sender;
@@ -209,5 +238,15 @@
     [self.viewContainer addSubview:controller.view fit:YES];
     _currentController = controller;
 }
-
+-(void)chooseDate:(UIDatePicker *)datePick
+{
+    NSDate *selectedDate = datePick.date;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd"];
+    _dateSelectTextField.text = [formatter stringFromDate:selectedDate];
+}
+-(void)doneButtonPressed
+{
+    [_dateSelectTextField resignFirstResponder];
+}
 @end

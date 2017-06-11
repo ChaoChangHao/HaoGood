@@ -10,7 +10,8 @@
 
 @class ItemManager;
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController <UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UIView *viewContainer;
 @property (weak, nonatomic) IBOutlet UIButton *IncomeButton;
 @property (weak, nonatomic) IBOutlet UIButton *outcomButton;
@@ -19,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addItemButton;
 
 @property ItemManager* itemManager;
+
+@property (weak, nonatomic) IBOutlet UITextField *dateSelectTextField;
 
 @end
