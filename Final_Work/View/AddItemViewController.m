@@ -33,7 +33,7 @@
     datePicker = [[UIDatePicker alloc] init];
     datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_TW"];
     [_itemDate setInputView:datePicker];
-    datePicker.timeZone = [NSTimeZone timeZoneWithName:@"GMT"];
+    datePicker.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker addTarget:self action:@selector(chooseDate:) forControlEvents:UIControlEventValueChanged];
     formatter = [[NSDateFormatter alloc] init];
@@ -171,10 +171,8 @@
         
         self.item.name = _itemName.text;
         self.item.priceValue = [_itemPrice.text floatValue];
-//        self.item.category = [NSString stringWithFormat:@"food"];
-        NSLog(@"category:%@", self.item.category);
         self.item.date = [formatter dateFromString:_itemDate.text];
-        
+        NSLog(@"date:%@", self.item.date);
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
         //Inform app

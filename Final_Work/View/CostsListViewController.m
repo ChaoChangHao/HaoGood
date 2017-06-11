@@ -77,19 +77,23 @@
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
-            return @"food";
+            if (_food.count == 0) return nil;
+            else return @"food";
             break;
         case 1:
-            return @"traffic";
+            if (_traffic.count == 0) return nil;
+            else return @"traffic";
             break;
         case 2:
-            return @"entertainment";
+            if (_entertainment.count == 0) return nil;
+            else return @"entertainment";
             break;
         case 3:
-            return @"else";
+            if (_else.count == 0) return nil;
+            else return @"else";
             break;
         default:
-            return @"error";
+            return nil;
             break;
     }
     
@@ -125,9 +129,11 @@
     [_traffic removeAllObjects];
     [_entertainment removeAllObjects];
     [_else removeAllObjects];
-
-    NSArray *items = [Item MR_findAll];
     
+    
+//    NSArray *items = [Item MR_findAll];
+
+    NSArray *items = [Item MR_findByAttribute:@"date" withValue:_rootViewController.currentSelectDate];
     for (Item* item in items) {
         if ([item.category isEqualToString:@"food"]) {
             [_food addObject:item];

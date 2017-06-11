@@ -25,5 +25,5 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *dateSelectTextField;
 
-
+@property (nonatomic) NSDate *currentSelectDate;
 @end

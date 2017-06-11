@@ -88,7 +88,7 @@
     
     //======================================================================//
     // Circle button
-    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"drink"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"transport"]];
+    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"transport"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"drink"]];
     self.subButtonCount = 4;
     self.angle = 120.0;
     self.delay = 0.1;
@@ -97,10 +97,14 @@
     self.direction = CircleMenuDirectionLeftUp;
     //======================================================================//
     
-    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 350, self.view.frame.size.width, 300)];
+    datePicker = [[UIDatePicker alloc] init];
+    
+    datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_TW"];
+    datePicker.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    
     datePicker.datePickerMode = UIDatePickerModeDate;
     datePicker.hidden = NO;
-    datePicker.date = [NSDate date];
+    
     datePicker.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     [datePicker addTarget:self action:@selector(chooseDate:) forControlEvents:UIControlEventValueChanged];
     //space
@@ -203,12 +207,12 @@
     
     
     viewController.item = [Item MR_createEntity];
-    if (anIndex == 0) {
-        viewController.item.category = [NSString stringWithFormat:@"food"];
+     if (anIndex == 0) {
+        viewController.item.category = [NSString stringWithFormat:@"entertainment"];
     } else if (anIndex == 1) {
         viewController.item.category = [NSString stringWithFormat:@"traffic"];
     } else if (anIndex == 2) {
-        viewController.item.category = [NSString stringWithFormat:@"entertainment"];
+        viewController.item.category = [NSString stringWithFormat:@"food"];
     } else if (anIndex == 3) {
         viewController.item.category = [NSString stringWithFormat:@"else"];
     }
@@ -254,6 +258,11 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd"];
     _dateSelectTextField.text = [formatter stringFromDate:selectedDate];
+    
+    self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
+
 }
 -(void)doneButtonPressed
 {
