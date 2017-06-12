@@ -8,11 +8,13 @@
 
 #import "IncomesListViewController.h"
 
-#import "ItemManager.h"
-
 #import "CostCell.h"
 #import "RootViewController.h"
 
+#import "ItemManager.h"
+#import "Item.h"
+
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface IncomesListViewController ()
 
@@ -20,21 +22,23 @@
 
 @implementation IncomesListViewController {
     NSArray* _items;
-    NSMutableArray* _others;
-    NSMutableArray* _prices;
+    NSMutableArray* _income;
 }
 
 #pragma mark - ViewController Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _prices = [NSMutableArray new];
-    _others = [NSMutableArray new];
-    _items = @[ _prices, _others ];
     
-    [self updateFriends];
+    
+    _income = [NSMutableArray new];
+    _items = @[_income];
+    
+    
+    [self updateItems];
+    
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.incomeListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
-    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsSynchronized) name:itemsSynchronizedNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsSynchronized) name:ItemsSynchronizedNotificationName object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,31 +56,19 @@
 }
 
 - (NSArray<UITableViewRowAction*> *)tableView:(UITableView*)tableView editActionsForRowAtIndexPath:(NSIndexPath*)indexPath {
-    NSString* title = indexPath.section == 0 ? @"Unlike" : @"Like";
+    NSString* title = @"delete";
     UITableViewRowAction* action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:title handler:^(UITableViewRowAction* _Nonnull action, NSIndexPath* _Nonnull path) {
-        [self updateFavoriteStateAtIndexPath:path];
+        Item *deleteItem = [self itemAtIndexPath:indexPath];
+        [deleteItem MR_deleteEntity];
+        
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
     }];
     return @[ action ];
 }
 
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-//    Item* item = [self itemAtIndexPath:indexPath];
-    //    [self.rootViewController showPhotosOfItem:item.name];
-}
-
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
-    return (section == 0)? @"Favorites" : @"Others";
-}
-
-- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel* label = [UILabel new];
-    UIFont* font = [UIFont boldSystemFontOfSize:12];
-    label.text = (section == 0)? @"  Favorites" : @"  Others";
-    label.font = font;
-    label.textColor = [UIColor redColor];
-    label.backgroundColor = [UIColor blackColor];
-    return label;
+    return nil;
 }
 
 #pragma mark - UITableViewDataSource
@@ -92,6 +84,7 @@
     Item* poster = [self itemAtIndexPath:indexPath];
     CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
     [cell setItem:poster];
+    
     return cell;
 }
 
@@ -99,38 +92,30 @@
 #pragma mark - Private Methods
 
 - (void)itemsSynchronized {
-    [self updateFriends];
+    [self updateItems];
     [self.incomeListView reloadData];
 }
 
-- (void)updateFriends {
-    [_others removeAllObjects];
-    [_prices removeAllObjects];
-
-}
-- (void)updateFavoriteStateAtIndexPath:(NSIndexPath*)indexPath {
-    Item* item = [self itemAtIndexPath:indexPath];
+- (void)updateItems {
+    [_income removeAllObjects];
     
-    [self updateFriends];
-    NSIndexPath* pathToInsert = [self indexPathOfPoster:item];
-    [self.incomeListView beginUpdates];
-    [self.incomeListView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationLeft];
-    [self.incomeListView insertRowsAtIndexPaths:@[ pathToInsert ] withRowAnimation:UITableViewRowAnimationRight];
-    [self.incomeListView endUpdates];
+    //    NSArray *items = [Item MR_findAll];
+    
+    NSArray *items = [Item MR_findByAttribute:@"date" withValue:_rootViewController.currentSelectDate];
+    for (Item* item in items) {
+        if ([item.category isEqualToString:@"income"]) {
+            [_income addObject:item];
+        }
+    }
+    [self.incomeListView reloadData];
+    
 }
 
 - (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
     return [[_items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 }
 
-- (NSIndexPath*)indexPathOfPoster:(Item*)poster {
-    NSUInteger row = [_prices indexOfObject:poster];
-    if (row != NSNotFound) {
-        return [NSIndexPath indexPathForRow:row inSection:0];
-    }
-    else {
-        return [NSIndexPath indexPathForRow:[_others indexOfObject:poster] inSection:1];
-    }
-}
-
 @end
+
+
+

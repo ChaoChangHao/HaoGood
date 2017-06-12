@@ -21,14 +21,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Final_Work"];
     
-//    [self addItem];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    
     [self showRootView];
     
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -72,6 +69,7 @@
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
     [MagicalRecord cleanUp];
 }
+
 
 
 

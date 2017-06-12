@@ -60,12 +60,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p16-Gd-as7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p16-Gd-as7">
                     <rect key="frame" x="15" y="30" width="384" height="384"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="p16-Gd-as7" secondAttribute="height" multiplier="1:1" id="BrE-oe-sxb"/>
                     </constraints>
-                    <state key="normal" title="Image Import"/>
+                    <state key="normal" image="camera"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -97,4 +97,7 @@
             <point key="canvasLocation" x="-39" y="-11"/>
         </view>
     </objects>
+    <resources>
+        <image name="camera" width="32" height="32"/>
+    </resources>
 </document>

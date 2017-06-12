@@ -21,15 +21,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZM4-s2-NdT">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="120" width="375" height="427"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="DgI-Eq-heT"/>
+                        <outlet property="delegate" destination="-1" id="wNq-rT-cgs"/>
+                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ZM4-s2-NdT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fzr-ng-UoX"/>
-                <constraint firstAttribute="bottom" secondItem="ZM4-s2-NdT" secondAttribute="bottom" id="O5l-ag-3y8"/>
-                <constraint firstItem="ZM4-s2-NdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YgG-mi-kwL"/>
+                <constraint firstAttribute="bottom" secondItem="ZM4-s2-NdT" secondAttribute="bottom" constant="120" id="O5l-ag-3y8"/>
+                <constraint firstItem="ZM4-s2-NdT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="YgG-mi-kwL"/>
                 <constraint firstAttribute="trailing" secondItem="ZM4-s2-NdT" secondAttribute="trailing" id="rJg-51-js3"/>
             </constraints>
         </view>

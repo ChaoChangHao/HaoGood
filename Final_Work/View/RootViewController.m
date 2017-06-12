@@ -88,8 +88,8 @@
     
     //======================================================================//
     // Circle button
-    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"transport"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"drink"]];
-    self.subButtonCount = 4;
+    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"transport"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"other"], [UIImage imageNamed:@"income"]];
+    self.subButtonCount = 5;
     self.angle = 120.0;
     self.delay = 0.1;
     self.shadow = 1;
@@ -215,6 +215,8 @@
         viewController.item.category = [NSString stringWithFormat:@"food"];
     } else if (anIndex == 3) {
         viewController.item.category = [NSString stringWithFormat:@"else"];
+    } else if (anIndex == 4) {
+        viewController.item.category = [NSString stringWithFormat:@"income"];
     }
     [self.navigationController pushViewController:viewController animated:NO];
     

@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class ItemManager;
+@class RootViewController;
 
 @interface IncomesListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
 @property (weak) ItemManager* itemManager;
 
-@property (nonatomic, weak) UIViewController* rootViewController;
+@property (nonatomic, weak) RootViewController* rootViewController;
 @property (weak, nonatomic) IBOutlet UITableView *incomeListView;
 
 
