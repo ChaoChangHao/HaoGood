@@ -13,7 +13,7 @@
 #import "ItemManager.h"
 
 #import <MagicalRecord/MagicalRecord.h>
-
+#import <GPUImage/GPUImage.h>
 
 @interface AddItemViewController ()
 
@@ -22,6 +22,9 @@
 @implementation AddItemViewController {
     UIDatePicker *datePicker;
     NSDateFormatter *formatter;
+    
+    GPUImageVideoCamera *videoCamera;
+    GPUImageView *view1, *view2, *view3, *view4;
 }
 
 - (void)viewDidLoad {
@@ -40,8 +43,18 @@
     [formatter setDateFormat:@"YYYY/MM/dd"];
     [self chooseDate:datePicker];
     
+    _itemName.text = self.item.name;
+    _itemPrice.text = [NSString stringWithFormat:@"%@", self.item.price];
+    _itemDate.text = [formatter stringFromDate:self.item.date];
+    
     //space
     UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIToolbar *nameToolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [nameToolBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *nameDoneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(nameDoneButtonPressed)];
+    
+    [nameToolBar setItems:[NSArray arrayWithObjects:space,nameDoneBtn, nil]];
+    [_itemName setInputAccessoryView:nameToolBar];
     //price
     UIToolbar *priceToolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
     [priceToolBar setTintColor:[UIColor grayColor]];
@@ -61,6 +74,7 @@
     UIBarButtonItem *comfirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Comfirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
     self.navigationItem.rightBarButtonItem = comfirmBtn;
     [self.navigationItem setTitle:_item.category];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -149,6 +163,7 @@
 
 #pragma mark - IBAction
 - (IBAction)photoButtonPressed:(id)sender {
+
 }
 
 
@@ -167,6 +182,11 @@
 {
     [_itemPrice resignFirstResponder];
 }
+-(void)nameDoneButtonPressed
+{
+    [_itemName resignFirstResponder];
+}
+
 -(void)confirmButtonPressed {
     if (_itemPrice.text.length > 0 & _itemName.text.length > 0) {
         

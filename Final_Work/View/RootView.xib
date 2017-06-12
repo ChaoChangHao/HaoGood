@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="IncomeButton" destination="Rse-rn-3YF" id="11i-rn-THX"/>
                 <outlet property="addItemButton" destination="KFf-y8-23x" id="Dnv-Ur-02Y"/>
+                <outlet property="budgetBarLabel" destination="wQP-lD-y3W" id="Jvg-SK-jJ2"/>
                 <outlet property="dateSelectTextField" destination="O8t-87-nU7" id="hm6-zw-v0u"/>
                 <outlet property="outcomButton" destination="XOr-fw-ifq" id="tEs-pi-tpR"/>
                 <outlet property="settingButton" destination="dMJ-QC-vFg" id="a6d-M6-quz"/>

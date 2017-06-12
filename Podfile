@@ -5,4 +5,6 @@ target 'Final_Work' do
 	pod 'CKCircleMenuView'
 	pod 'MagicalRecord'
 	pod 'DZNEmptyDataSet'
+    pod 'GPUImage'
+    pod 'TZImagePickerController'
 end

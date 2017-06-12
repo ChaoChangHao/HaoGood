@@ -51,8 +51,9 @@
     UIViewController* _currentController;
     
     UIDatePicker *datePicker;
+    NSDateFormatter *formatter;
     
-    
+    NSUInteger budgetValue;
 }
 
 - (void)viewDidLoad {
@@ -104,6 +105,8 @@
 //                        [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1],];
 
     //=================================================================//
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd"];
     datePicker = [[UIDatePicker alloc] init];
     
     datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_TW"];
@@ -136,8 +139,14 @@
     swipeR.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeR];
     [self.view addGestureRecognizer:swipeL];
-    
-    
+    //======================================================================//
+    budgetValue = 10000;
+    [self calculateBudget];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsSynchronized) name:ItemsSynchronizedNotificationName object:nil];
+
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -212,11 +221,47 @@
 
 
 #pragma mark - Private Methods
--(void)swipeRecognized:(UISwipeGestureRecognizer*)swipeGesture {
+- (void)calculateBudget
+{
+//    [Item MR_trurncateAll];
+    NSDate *todayDate = [NSDate date];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY/MM/dd"];
+    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    // 指定日历的算法 NSCalendarIdentifierGregorian,NSGregorianCalendar
+    // NSDateComponent 可以获得日期的详细信息，即日期的组成
+    NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:todayDate];
     
+    NSString *dateStr;
+    NSDate *date;
+    NSArray *items;
+    
+    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay
+                                   inUnit: NSCalendarUnitMonth
+                                  forDate:todayDate];
+    NSUInteger sum = 0;
+    
+    for (int i = 1; i <= range.length; i++) {
+        dateStr = [NSString stringWithFormat:@"%ld/%ld/%i",(long)comps.year, (long)comps.month, i];
+        date = [formatter dateFromString:dateStr];
+        
+        items = [Item MR_findByAttribute:@"date" withValue:date];
+        for (Item* item in items) {
+            if ([item.category isEqualToString:@"income"]) break;
+            sum += [item.price integerValue];
+        }
+    }
+    self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)budgetValue];
+    if (sum > budgetValue) {
+        [self.budgetBarLabel setTextColor:[UIColor redColor]];
+    } else if (sum > budgetValue/2) {
+        [self.budgetBarLabel setTextColor:[UIColor orangeColor]];
+    } else {
+        [self.budgetBarLabel setTextColor:[UIColor greenColor]];
+    }
+}
+
+-(void)swipeRecognized:(UISwipeGestureRecognizer*)swipeGesture
+{
     self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
     if (swipeGesture.direction == UISwipeGestureRecognizerDirectionLeft) {
         self.currentSelectDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentSelectDate];
@@ -287,19 +332,19 @@
     [self.viewContainer addSubview:controller.view fit:YES];
     _currentController = controller;
 }
--(void)chooseDate:(UIDatePicker *)datePick
+- (void)chooseDate:(UIDatePicker *)datePick
 {
     NSDate *selectedDate = datePick.date;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY/MM/dd"];
     _dateSelectTextField.text = [formatter stringFromDate:selectedDate];
-    
     self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
 }
--(void)doneButtonPressed
+- (void)doneButtonPressed
 {
     [_dateSelectTextField resignFirstResponder];
+}
+- (void)itemsSynchronized {
+    [self calculateBudget];
+//    [self chooseDate:datePicker];
 }
 @end

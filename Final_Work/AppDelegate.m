@@ -30,13 +30,13 @@
 }
 
 - (void)addItem {
-    Item *item = [Item MR_createEntityInContext:[NSManagedObjectContext MR_defaultContext]];
-    item.name = @"FirstName";
-    item.category = @"FirstType";
-    item.priceValue = 30;
-    item.date = [NSDate dateWithTimeIntervalSince1970:0];
-    item.image = @"FirstImage";
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+//    Item *item = [Item MR_createEntityInContext:[NSManagedObjectContext MR_defaultContext]];
+//    item.name = @"FirstName";
+//    item.category = @"FirstType";
+//    item.priceValue = 30;
+//    item.date = [NSDate dateWithTimeIntervalSince1970:0];
+//    item.image = @"FirstImage";
+//    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 

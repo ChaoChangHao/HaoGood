@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *statisticsButton;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
 @property (weak, nonatomic) IBOutlet UIButton *addItemButton;
+@property (weak, nonatomic) IBOutlet UILabel *budgetBarLabel;
 
 @property ItemManager* itemManager;
 

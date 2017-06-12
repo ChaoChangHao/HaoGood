@@ -10,6 +10,7 @@
 
 #import "CostCell.h"
 #import "RootViewController.h"
+#import "AddItemViewController.h"
 
 #import "ItemManager.h"
 #import "Item.h"
@@ -93,14 +94,26 @@
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
 {
     return [UIColor whiteColor];
-    //return [UIColor colorWithRed:<#(CGFloat)#> green:<#(CGFloat)#> blue:<#(CGFloat)#> alpha:<#(CGFloat)#>]
 }
 
 #pragma mark - UITableViewDelegate
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
     return YES;
 }
-
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    AddItemViewController *viewController = [[AddItemViewController alloc] initWithNibName:@"AddItemView" bundle:nil];
+    
+    CATransition* transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromBottom;
+    
+    
+    viewController.item = [Item MR_createEntity];
+    viewController.item = [self itemAtIndexPath:indexPath];
+    [_rootViewController.navigationController pushViewController:viewController animated:NO];
+}
 - (NSArray<UITableViewRowAction*> *)tableView:(UITableView*)tableView editActionsForRowAtIndexPath:(NSIndexPath*)indexPath {
     NSString* title = @"delete";
     UITableViewRowAction* action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:title handler:^(UITableViewRowAction* _Nonnull action, NSIndexPath* _Nonnull path) {
@@ -112,11 +125,6 @@
     }];
     return @[ action ];
 }
-//self.colorArray = @[[UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1],
-//                    [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1],
-//                    [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1],
-//                    [UIColor colorWithRed:1 green:1 blue:0.439 alpha:1],
-//                    [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1],];
 
 -(void) tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
@@ -138,7 +146,6 @@
             case 4:
                 content.backgroundColor  = [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1];
                 break;
-
             default:
                 break;
         }
