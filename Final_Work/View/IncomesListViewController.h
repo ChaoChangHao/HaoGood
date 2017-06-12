@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+
 @class ItemManager;
 @class RootViewController;
 
-@interface IncomesListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface IncomesListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 
 @property (weak) ItemManager* itemManager;
