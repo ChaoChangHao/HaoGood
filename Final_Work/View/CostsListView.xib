@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eaw-q7-e4C" userLabel="Cost View">
-                    <rect key="frame" x="0.0" y="120" width="414" height="496"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.43803648978703219" green="0.92145264148712158" blue="0.27108763939315933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
@@ -33,10 +33,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="eaw-q7-e4C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="8Jq-wP-vJz"/>
+                <constraint firstItem="eaw-q7-e4C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Jq-wP-vJz"/>
                 <constraint firstItem="eaw-q7-e4C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Ag-qL-OM2"/>
                 <constraint firstAttribute="trailing" secondItem="eaw-q7-e4C" secondAttribute="trailing" id="Kdf-Mj-2L4"/>
-                <constraint firstAttribute="bottom" secondItem="eaw-q7-e4C" secondAttribute="bottom" constant="120" id="ba6-5T-5lD"/>
+                <constraint firstAttribute="bottom" secondItem="eaw-q7-e4C" secondAttribute="bottom" id="ba6-5T-5lD"/>
             </constraints>
             <point key="canvasLocation" x="81.5" y="57.5"/>
         </view>

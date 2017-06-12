@@ -101,8 +101,16 @@
     return @[ action ];
 }
 
+-(void) tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
+        UITableViewHeaderFooterView* castView = (UITableViewHeaderFooterView*) view;
+        UIView* content = castView.contentView;
+        content.backgroundColor  = [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1];
+    }
+}
+
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
-    return nil;
+    return @"income";
 }
 
 #pragma mark - UITableViewDataSource

@@ -112,6 +112,39 @@
     }];
     return @[ action ];
 }
+//self.colorArray = @[[UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1],
+//                    [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1],
+//                    [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1],
+//                    [UIColor colorWithRed:1 green:1 blue:0.439 alpha:1],
+//                    [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1],];
+
+-(void) tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
+        UITableViewHeaderFooterView* castView = (UITableViewHeaderFooterView*) view;
+        UIView* content = castView.contentView;
+        switch (section) {
+            case 0:
+                content.backgroundColor  = [UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1];
+                break;
+            case 1:
+                content.backgroundColor  = [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1];
+                break;
+            case 2:
+                content.backgroundColor  = [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1];
+                break;
+            case 3:
+                content.backgroundColor  = [UIColor colorWithRed:1 green:1 blue:0.439 alpha:1];
+                break;
+            case 4:
+                content.backgroundColor  = [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1];
+                break;
+
+            default:
+                break;
+        }
+    }
+
+}
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
@@ -135,7 +168,6 @@
             return nil;
             break;
     }
-    
 }
 
 #pragma mark - UITableViewDataSource

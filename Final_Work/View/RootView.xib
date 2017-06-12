@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,42 +27,53 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQc-07-3FM" userLabel="Container">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8t-87-nU7" userLabel="dateSelect">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8t-87-nU7" userLabel="dateSelect">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                     <color key="backgroundColor" red="0.25456059644670048" green="0.25456059644670048" blue="0.25456059644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="j2K-qk-QLO"/>
+                    </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQP-lD-y3W" userLabel="budgetBar">
+                    <rect key="frame" x="0.0" y="602.66666666666663" width="414" height="50"/>
+                    <color key="backgroundColor" red="0.27302109769999999" green="0.27302109769999999" blue="0.27302109769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="DZq-63-W6s"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMS-7g-c9F" userLabel="Tab Bars">
-                    <rect key="frame" x="0.0" y="653.66666666666652" width="414" height="82.333333333333371"/>
+                    <rect key="frame" x="0.0" y="652.66666666666652" width="414" height="83.333333333333371"/>
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-rn-3YF" userLabel="Outcome">
-                            <rect key="frame" x="0.0" y="12.333333333333371" width="82.666666666666671" height="70"/>
+                            <rect key="frame" x="0.0" y="13.333333333333371" width="82.666666666666671" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="iHi-0F-0fo"/>
                             </constraints>
                             <state key="normal" image="cost"/>
+                            <state key="selected" image="cost_press"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="oyP-HZ-ENn"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOr-fw-ifq" userLabel="Income">
-                            <rect key="frame" x="82.666666666666657" y="12.333333333333371" width="82.666666666666657" height="70"/>
+                            <rect key="frame" x="82.666666666666686" y="13.333333333333371" width="82.333333333333314" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="uat-ue-M1f"/>
                             </constraints>
                             <state key="normal" image="income"/>
+                            <state key="selected" image="income_press"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="BH8-cL-GlH"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFf-y8-23x" userLabel="Add Item">
-                            <rect key="frame" x="165.33333333333334" y="0.0" width="83" height="82.333333333333371"/>
+                            <rect key="frame" x="165" y="0.0" width="83.333333333333343" height="83.333333333333371"/>
                             <rect key="contentStretch" x="0.0" y="0.0" width="0.55000000000000004" height="1"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="KFf-y8-23x" secondAttribute="height" id="SAw-N4-4Il"/>
@@ -73,27 +84,28 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGO-ZY-cbV" userLabel="Stastics">
-                            <rect key="frame" x="248.33333333333331" y="12.333333333333371" width="82.999999999999943" height="70"/>
+                            <rect key="frame" x="248.33333333333331" y="13.333333333333371" width="82.999999999999943" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="jep-Q4-b2L"/>
                             </constraints>
                             <state key="normal" image="statistic"/>
+                            <state key="selected" image="stastic_press"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="Ogi-IT-ddJ"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMJ-QC-vFg" userLabel="Setting">
-                            <rect key="frame" x="331.33333333333326" y="12.333333333333371" width="82.666666666666686" height="70"/>
+                            <rect key="frame" x="331.33333333333326" y="13.333333333333371" width="82.666666666666686" height="70"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="1vQ-ST-EaH"/>
                             </constraints>
                             <state key="normal" image="setting"/>
+                            <state key="selected" image="setting_press"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="4V7-PA-HXq"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="KFf-y8-23x" firstAttribute="width" secondItem="Rse-rn-3YF" secondAttribute="width" id="33P-Q3-zw8"/>
                         <constraint firstItem="gGO-ZY-cbV" firstAttribute="leading" secondItem="KFf-y8-23x" secondAttribute="trailing" id="7j7-9w-Wru"/>
@@ -113,15 +125,22 @@
                         <constraint firstItem="KFf-y8-23x" firstAttribute="height" secondItem="SMS-7g-c9F" secondAttribute="height" id="zJq-lm-cbX"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQc-07-3FM" userLabel="Container">
+                    <rect key="frame" x="0.0" y="50" width="414" height="552.66666666666663"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="SMS-7g-c9F" firstAttribute="top" secondItem="wQP-lD-y3W" secondAttribute="bottom" id="4ig-l6-Lad"/>
                 <constraint firstAttribute="trailing" secondItem="SMS-7g-c9F" secondAttribute="trailing" id="7wy-K7-3Gs"/>
+                <constraint firstAttribute="trailing" secondItem="wQP-lD-y3W" secondAttribute="trailing" id="ESo-h8-amY"/>
                 <constraint firstAttribute="bottom" secondItem="SMS-7g-c9F" secondAttribute="bottom" id="KNe-lC-mbX"/>
-                <constraint firstAttribute="bottom" secondItem="dQc-07-3FM" secondAttribute="bottom" id="KkS-i2-VKW"/>
+                <constraint firstItem="wQP-lD-y3W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PVn-bo-gA2"/>
                 <constraint firstAttribute="trailing" secondItem="dQc-07-3FM" secondAttribute="trailing" id="VNV-tL-k8w"/>
                 <constraint firstAttribute="trailing" secondItem="O8t-87-nU7" secondAttribute="trailing" id="WPx-Bl-jWy"/>
-                <constraint firstItem="dQc-07-3FM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="guB-hu-gc4"/>
+                <constraint firstItem="wQP-lD-y3W" firstAttribute="top" secondItem="dQc-07-3FM" secondAttribute="bottom" id="ZBs-Kl-bzQ"/>
+                <constraint firstItem="dQc-07-3FM" firstAttribute="top" secondItem="O8t-87-nU7" secondAttribute="bottom" id="jhi-gH-WtC"/>
                 <constraint firstItem="O8t-87-nU7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mSK-Xh-a6f"/>
                 <constraint firstItem="O8t-87-nU7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="riD-hf-hfO"/>
                 <constraint firstItem="SMS-7g-c9F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vVh-mz-4BE"/>
@@ -133,8 +152,12 @@
     <resources>
         <image name="addItem" width="48" height="48"/>
         <image name="cost" width="32" height="32"/>
+        <image name="cost_press" width="32" height="32"/>
         <image name="income" width="32" height="32"/>
+        <image name="income_press" width="32" height="32"/>
         <image name="setting" width="32" height="32"/>
+        <image name="setting_press" width="32" height="32"/>
+        <image name="stastic_press" width="32" height="32"/>
         <image name="statistic" width="32" height="32"/>
     </resources>
 </document>

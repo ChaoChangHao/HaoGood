@@ -30,10 +30,10 @@
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) int direction;
 
+
 @property (nonatomic) CKCircleMenuView* circleMenuView;
 
 @end
-
 
 
 @implementation RootViewController {
@@ -51,6 +51,7 @@
     UIViewController* _currentController;
     
     UIDatePicker *datePicker;
+    
     
 }
 
@@ -85,7 +86,8 @@
     
     [self setSelectedIndex:0];
     [self setTitle:@"Cost"];
-    
+//    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+
     //======================================================================//
     // Circle button
     self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"transport"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"other"], [UIImage imageNamed:@"incomeItem"]];
@@ -95,12 +97,12 @@
     self.shadow = 1;
     self.radius = 120;
     self.direction = CircleMenuDirectionLeftUp;
-    //
-    //entertainment (211,163,255,1)
-    //transport (153,204,255,1)
-    //food (255,194,224,1)
-    //other(255,255,112,1)
-    //income(149,254,208,1)
+//    self.colorArray = @[[UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1],
+//                        [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1],
+//                        [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1],
+//                        [UIColor colorWithRed:1 green:1 blue:0.439 alpha:1],
+//                        [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1],];
+
     //=================================================================//
     datePicker = [[UIDatePicker alloc] init];
     
@@ -184,6 +186,7 @@
         tPoint = [self.view convertPoint:tPoint fromView:sender];
         
         NSMutableDictionary* tOptions = [NSMutableDictionary new];
+        
         [tOptions setValue:[NSDecimalNumber numberWithFloat:self.delay] forKey:CIRCLE_MENU_OPENING_DELAY];
         [tOptions setValue:[NSDecimalNumber numberWithFloat:self.angle] forKey:CIRCLE_MENU_MAX_ANGLE];
         [tOptions setValue:[NSDecimalNumber numberWithFloat:self.radius] forKey:CIRCLE_MENU_RADIUS];

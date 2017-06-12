@@ -60,6 +60,7 @@
     //Comfirm button in navigation bar
     UIBarButtonItem *comfirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Comfirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
     self.navigationItem.rightBarButtonItem = comfirmBtn;
+    [self.navigationItem setTitle:_item.category];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
