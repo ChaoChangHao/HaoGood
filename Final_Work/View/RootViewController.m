@@ -51,7 +51,7 @@
     UIViewController* _currentController;
     
     UIDatePicker *datePicker;
-
+    
 }
 
 - (void)viewDidLoad {
@@ -64,7 +64,7 @@
     _tabButtons = @[ _IncomeButton, _outcomButton, _statisticsButton, _settingButton ];
     
     _selectedIndex = 0;
-
+    
     _costsListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
     _incomesListViewController = [[IncomesListViewController alloc] initWithNibName:@"IncomesListView" bundle:nil];
     _test1ListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
@@ -96,7 +96,6 @@
     self.radius = 120;
     self.direction = CircleMenuDirectionLeftUp;
     //======================================================================//
-    
     datePicker = [[UIDatePicker alloc] init];
     
     datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_TW"];
@@ -122,7 +121,13 @@
     [_dateSelectTextField setInputAccessoryView:dateToolBar];
     [[_dateSelectTextField valueForKey:@"textInputTraits"] setValue:[UIColor clearColor] forKey:@"insertionPointColor"];
     [self chooseDate:datePicker];
-    
+    //======================================================================//
+    UISwipeGestureRecognizer *swipeR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRecognized:)];
+    UISwipeGestureRecognizer *swipeL = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRecognized:)];
+    swipeL.direction = UISwipeGestureRecognizerDirectionLeft;
+    swipeR.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeR];
+    [self.view addGestureRecognizer:swipeL];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -139,7 +144,7 @@
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-
+    
     return YES;
 }
 
@@ -196,18 +201,35 @@
 
 
 #pragma mark - Private Methods
+-(void)swipeRecognized:(UISwipeGestureRecognizer*)swipeGesture {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY/MM/dd"];
+    
+    self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
+    if (swipeGesture.direction == UISwipeGestureRecognizerDirectionLeft) {
+        self.currentSelectDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentSelectDate];
+    } else if (swipeGesture.direction == UISwipeGestureRecognizerDirectionRight) {
+        self.currentSelectDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentSelectDate];
+    }
+    _dateSelectTextField.text = [formatter stringFromDate:self.currentSelectDate];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
+    
+}
+
 - (void)circleMenuActivatedButtonWithIndex:(int)anIndex
 {
-
+    
     AddItemViewController *viewController = [[AddItemViewController alloc] initWithNibName:@"AddItemView" bundle:nil];
-
+    
     CATransition* transition = [CATransition animation];
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromBottom;
     
     
     viewController.item = [Item MR_createEntity];
-     if (anIndex == 0) {
+    if (anIndex == 0) {
         viewController.item.category = [NSString stringWithFormat:@"entertainment"];
     } else if (anIndex == 1) {
         viewController.item.category = [NSString stringWithFormat:@"traffic"];
@@ -221,7 +243,7 @@
     [self.navigationController pushViewController:viewController animated:NO];
     
     
-
+    
 }
 
 - (void)circleMenuClosed
@@ -264,7 +286,6 @@
     self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
-
 }
 -(void)doneButtonPressed
 {

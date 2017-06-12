@@ -21,4 +21,8 @@
 @property (weak) RootViewController* rootViewController;
 @property (weak, nonatomic) IBOutlet UITableView *costsListView;
 
+
+
+
+
 @end
