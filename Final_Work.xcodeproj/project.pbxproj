@@ -224,7 +224,7 @@
 				TargetAttributes = {
 					9FAA8F771ED6DD56002E56EB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = LRVMYCBTJ7;
+						DevelopmentTeam = RK5L652G86;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -441,11 +441,11 @@
 			baseConfigurationReference = 33E82FFECD113A4621078F52 /* Pods-Final_Work.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LRVMYCBTJ7;
+				DEVELOPMENT_TEAM = RK5L652G86;
 				INFOPLIST_FILE = Final_Work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Chchao.Final-Work";
+				PRODUCT_BUNDLE_IDENTIFIER = "Roger.Final-Work";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -455,11 +455,11 @@
 			baseConfigurationReference = BA6E706066076762D39E4848 /* Pods-Final_Work.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LRVMYCBTJ7;
+				DEVELOPMENT_TEAM = RK5L652G86;
 				INFOPLIST_FILE = Final_Work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Chchao.Final-Work";
+				PRODUCT_BUNDLE_IDENTIFIER = "Roger.Final-Work";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

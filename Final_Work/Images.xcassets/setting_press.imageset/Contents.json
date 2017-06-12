@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cost_32 (2).png",
+      "filename" : "setting__press_32.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cost_64 (2).png",
+      "filename" : "setting_press_64.png",
       "scale" : "2x"
     },
     {

@@ -88,14 +88,20 @@
     
     //======================================================================//
     // Circle button
-    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"transport"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"other"], [UIImage imageNamed:@"income"]];
+    self.imageArray = @[[UIImage imageNamed:@"entertainment"], [UIImage imageNamed:@"transport"], [UIImage imageNamed:@"food"], [UIImage imageNamed:@"other"], [UIImage imageNamed:@"incomeItem"]];
     self.subButtonCount = 5;
     self.angle = 120.0;
     self.delay = 0.1;
     self.shadow = 1;
     self.radius = 120;
     self.direction = CircleMenuDirectionLeftUp;
-    //======================================================================//
+    //
+    //entertainment (211,163,255,1)
+    //transport (153,204,255,1)
+    //food (255,194,224,1)
+    //other(255,255,112,1)
+    //income(149,254,208,1)
+    //=================================================================//
     datePicker = [[UIDatePicker alloc] init];
     
     datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_TW"];
@@ -111,7 +117,7 @@
     
     //date
     UIToolbar *dateToolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, -20, self.view.frame.size.width, 44)];
-    [dateToolBar setTintColor:[UIColor blueColor]];
+    [dateToolBar setTintColor:[UIColor whiteColor]];
     dateToolBar.barStyle = UIBarStyleBlackTranslucent;
     UIBarButtonItem *dateDoneBtn=[[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonPressed)];
     
@@ -128,6 +134,8 @@
     swipeR.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeR];
     [self.view addGestureRecognizer:swipeL];
+    
+    
 }
 
 #pragma mark - UITextFieldDelegate
@@ -182,7 +190,7 @@
         [tOptions setValue:[NSNumber numberWithInt:self.direction] forKey:CIRCLE_MENU_DIRECTION];
         [tOptions setValue:[UIColor colorWithRed:0.0 green:0.25 blue:0.5 alpha:1.0] forKey:CIRCLE_MENU_BUTTON_BACKGROUND_NORMAL];
         [tOptions setValue:[UIColor colorWithRed:0.25 green:0.5 blue:0.75 alpha:1.0] forKey:CIRCLE_MENU_BUTTON_BACKGROUND_ACTIVE];
-        [tOptions setValue:[UIColor whiteColor] forKey:CIRCLE_MENU_BUTTON_BORDER];
+        [tOptions setValue:[UIColor colorWithRed:0.25 green:0.5 blue:0.75 alpha:1.0] forKey:CIRCLE_MENU_BUTTON_BORDER];
         [tOptions setValue:[NSNumber numberWithInt:shadow] forKey:CIRCLE_MENU_DEPTH];
         [tOptions setValue:[NSDecimalNumber decimalNumberWithString:@"30.0"] forKey:CIRCLE_MENU_BUTTON_RADIUS];
         [tOptions setValue:[NSDecimalNumber decimalNumberWithString:@"2.5"] forKey:CIRCLE_MENU_BUTTON_BORDER_WIDTH];

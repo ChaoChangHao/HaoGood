@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "add_32.png",
+      "filename" : "incomeItem_32.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "add_64.png",
+      "filename" : "incomeItem_64.png",
       "scale" : "2x"
     },
     {
