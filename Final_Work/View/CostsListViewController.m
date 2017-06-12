@@ -90,6 +90,11 @@
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIColor whiteColor];
+}
+
 #pragma mark - UITableViewDelegate
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
     return YES;
