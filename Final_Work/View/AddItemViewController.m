@@ -24,8 +24,10 @@
     UIDatePicker *datePicker;
     NSDateFormatter *formatter;
     
-    GPUImageVideoCamera *videoCamera;
-    GPUImageView *view1, *view2, *view3, *view4;
+    TZImagePickerController *imagePC;
+    NSMutableArray *_selectedPhotos;
+    NSMutableArray *_selectedAssets;
+    BOOL _isSelectOriginalPhoto;
 }
 
 - (void)viewDidLoad {
@@ -69,24 +71,101 @@
     UIBarButtonItem *dateDoneBtn=[[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dateDoneButtonPressed)];
     [dateToolBar setItems:[NSArray arrayWithObjects:space,dateDoneBtn, nil]];
     [_itemDate setInputAccessoryView:dateToolBar];
-    
-    
     //Comfirm button in navigation bar
     UIBarButtonItem *comfirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Comfirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
     self.navigationItem.rightBarButtonItem = comfirmBtn;
     [self.navigationItem setTitle:_item.category];
+    
+    _selectedPhotos = [NSMutableArray array];
+    _selectedAssets = [NSMutableArray array];
+    imagePC= [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];//设置多选最多支持的最大数量，设置代理
+    [imagePC setDidFinishPickingPhotosHandle:^(NSArray *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        _selectedPhotos = [NSMutableArray arrayWithArray:photos];
+        _selectedAssets = [NSMutableArray arrayWithArray:assets];
+        _isSelectOriginalPhoto = isSelectOriginalPhoto;
+        NSLog(@"%@",_selectedPhotos);
+        [_itemImage setImage:_selectedPhotos[0] forState:UIControlStateNormal];
+//        item.image = _selectedPhotos[0];
+//        NSString *path = [[NSHomeDirectory()stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:@"image.png"];
+
+    }];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.rootViewController setTitle:@"Add Item"];
-//        [self.addItemView reloadData];
+    //        [self.addItemView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark - TZImagePickerController
+
+- (void)pushTZImagePickerController {
+//    if (self.maxCountTF.text.integerValue <= 0) {
+//        return;
+//    }
+    TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:self pushPhotoPickerVc:YES];
+    
+    
+#pragma mark - 四类个性化设置，这些参数都可以不传，此时会走默认设置
+    imagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
+    
+//    if (self.maxCountTF.text.integerValue > 1) {
+        // 1.设置目前已经选中的图片数组
+        imagePickerVc.selectedAssets = _selectedAssets; // 目前已经选中的图片数组
+//    }
+    imagePickerVc.allowTakePicture = YES; // 在内部显示拍照按钮
+    
+    // 2. Set the appearance
+    // 2. 在这里设置imagePickerVc的外观
+    // imagePickerVc.navigationBar.barTintColor = [UIColor greenColor];
+    // imagePickerVc.oKButtonTitleColorDisabled = [UIColor lightGrayColor];
+    // imagePickerVc.oKButtonTitleColorNormal = [UIColor greenColor];
+    // imagePickerVc.navigationBar.translucent = NO;
+    
+    // 3. Set allow picking video & photo & originalPhoto or not
+    // 3. 设置是否可以选择视频/图片/原图
+    imagePickerVc.allowPickingVideo = NO;
+    imagePickerVc.allowPickingImage = YES;
+    imagePickerVc.allowPickingOriginalPhoto = YES;
+    imagePickerVc.allowPickingGif = NO;
+    
+    // 4. 照片排列按修改时间升序
+    imagePickerVc.sortAscendingByModificationDate = YES;
+    
+    // imagePickerVc.minImagesCount = 3;
+    // imagePickerVc.alwaysEnableDoneBtn = YES;
+    
+    // imagePickerVc.minPhotoWidthSelectable = 3000;
+    // imagePickerVc.minPhotoHeightSelectable = 2000;
+    
+    /// 5. Single selection mode, valid when maxImagesCount = 1
+    /// 5. 单选模式,maxImagesCount为1时才生效
+    imagePickerVc.showSelectBtn = NO;
+    imagePickerVc.allowCrop = NO;
+    imagePickerVc.needCircleCrop = NO;
+    imagePickerVc.circleCropRadius = 100;
+    imagePickerVc.isStatusBarDefault = NO;
+    /*
+     [imagePickerVc setCropViewSettingBlock:^(UIView *cropView) {
+     cropView.layer.borderColor = [UIColor redColor].CGColor;
+     cropView.layer.borderWidth = 2.0;
+     }];*/
+    
+    //imagePickerVc.allowPreview = NO;
+#pragma mark - 到这里为止
+    
+    // You can get the photos by block, the same as by delegate.
+    // 你可以通过block或者代理，来得到用户选择的照片.
+    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        
+    }];
+    
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDelegate
@@ -139,11 +218,7 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
     _itemDate.placeholder = @"YYYY / MM / DD";
-    
-    //    _itemDate.inputView = datePicker;
-    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -164,7 +239,7 @@
 
 #pragma mark - IBAction
 - (IBAction)photoButtonPressed:(id)sender {
-
+    [self presentViewController:imagePC animated:YES completion:nil];//跳转
 }
 
 

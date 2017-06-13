@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
+#import <TZImagePickerController/TZImagePickerController.h>
 
-@interface AddItemViewController : UIViewController<UITextFieldDelegate>
+@interface AddItemViewController : UIViewController<UITextFieldDelegate, TZImagePickerControllerDelegate>
 
 
 @property (nonatomic, weak) UIViewController* rootViewController;
@@ -19,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *itemName;
 @property (weak, nonatomic) IBOutlet UITextField *itemPrice;
 @property (weak, nonatomic) IBOutlet UITextField *itemDate;
+@property (weak, nonatomic) IBOutlet UIButton *itemImage;
 
 @property(nonatomic) Item *item;
+
+@property (nonatomic, strong) UIImagePickerController *imagePickerVc;
 @end

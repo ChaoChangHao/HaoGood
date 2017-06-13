@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="addItemView" destination="4pF-H0-sHT" id="S7c-BP-UYW"/>
                 <outlet property="itemDate" destination="78I-C7-NMR" id="Jqm-FL-dwP"/>
+                <outlet property="itemImage" destination="p16-Gd-as7" id="CcS-qL-gt9"/>
                 <outlet property="itemName" destination="Lsl-cY-Cug" id="75E-TM-fHT"/>
                 <outlet property="itemPrice" destination="k63-UT-Ktw" id="kWY-vn-QXK"/>
                 <outlet property="view" destination="4pF-H0-sHT" id="G7T-YB-21y"/>
