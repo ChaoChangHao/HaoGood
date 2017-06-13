@@ -176,13 +176,13 @@
         UITableViewHeaderFooterView* castView = (UITableViewHeaderFooterView*) view;
         UIView* content = castView.contentView;
         switch (section) {
-            case 0:
+            case 2:
                 content.backgroundColor  = [UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1];
                 break;
             case 1:
                 content.backgroundColor  = [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1];
                 break;
-            case 2:
+            case 0:
                 content.backgroundColor  = [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1];
                 break;
             case 3:
