@@ -32,6 +32,7 @@
     NSDateFormatter *formatter;
     
     NSUInteger budgetValue;
+    
 }
 
 #pragma mark - ViewController Lifecycle
@@ -269,8 +270,13 @@
 - (void)itemsSynchronized {
     [self updateItems];
     [self calculateBudget];
-    [self.costsListView reloadData];
-}
+//    [self.costsListView reloadData];
+    [UIView transitionWithView:self.costsListView
+                      duration:0.5f
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^(void) {
+                        [self.costsListView reloadData];
+                    } completion:NULL];}
 - (void)calculateBudget
 {
     //    [Item MR_trurncateAll];
@@ -346,6 +352,7 @@
 
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
+        NSLog(@"%@",item);
         if ([item.category isEqualToString:@"food"]) {
             [_food addObject:item];
         } else if ([item.category isEqualToString:@"traffic"]) {

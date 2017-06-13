@@ -86,13 +86,9 @@
         _selectedPhotos = [NSMutableArray arrayWithArray:photos];
         _selectedAssets = [NSMutableArray arrayWithArray:assets];
         _isSelectOriginalPhoto = isSelectOriginalPhoto;
-        
         [_itemImage setImage:_selectedPhotos[0] forState:UIControlStateNormal];
         NSData *imageData = UIImagePNGRepresentation(_selectedPhotos[0]);
         self.item.image = imageData;
-//        item.image = _selectedPhotos[0];
-//        NSString *path = [[NSHomeDirectory()stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:@"image.png"];
-
     }];
     
 }
@@ -134,10 +130,10 @@
     
     // 3. Set allow picking video & photo & originalPhoto or not
     // 3. 设置是否可以选择视频/图片/原图
-    imagePickerVc.allowPickingVideo = NO;
+    imagePickerVc.allowPickingVideo = YES;
     imagePickerVc.allowPickingImage = YES;
     imagePickerVc.allowPickingOriginalPhoto = YES;
-    imagePickerVc.allowPickingGif = NO;
+    imagePickerVc.allowPickingGif = YES;
     
     // 4. 照片排列按修改时间升序
     imagePickerVc.sortAscendingByModificationDate = YES;
