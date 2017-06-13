@@ -14,8 +14,6 @@
             <connections>
                 <outlet property="IncomeButton" destination="Rse-rn-3YF" id="11i-rn-THX"/>
                 <outlet property="addItemButton" destination="KFf-y8-23x" id="Dnv-Ur-02Y"/>
-                <outlet property="budgetBarLabel" destination="wQP-lD-y3W" id="Jvg-SK-jJ2"/>
-                <outlet property="dateSelectTextField" destination="O8t-87-nU7" id="hm6-zw-v0u"/>
                 <outlet property="outcomButton" destination="XOr-fw-ifq" id="tEs-pi-tpR"/>
                 <outlet property="settingButton" destination="dMJ-QC-vFg" id="a6d-M6-quz"/>
                 <outlet property="statisticsButton" destination="gGO-ZY-cbV" id="2pd-Vk-ZnL"/>
@@ -28,26 +26,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O8t-87-nU7" userLabel="dateSelect">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                    <color key="backgroundColor" red="0.25456059644670048" green="0.25456059644670048" blue="0.25456059644670048" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="j2K-qk-QLO"/>
-                    </constraints>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/10000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQP-lD-y3W" userLabel="budgetBar">
-                    <rect key="frame" x="0.0" y="602.66666666666663" width="414" height="50"/>
-                    <color key="backgroundColor" red="0.27302109769999999" green="0.27302109769999999" blue="0.27302109769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="DZq-63-W6s"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMS-7g-c9F" userLabel="Tab Bars">
                     <rect key="frame" x="0.0" y="652.66666666666652" width="414" height="83.333333333333371"/>
                     <subviews>
@@ -127,24 +105,18 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQc-07-3FM" userLabel="Container">
-                    <rect key="frame" x="0.0" y="50" width="414" height="552.66666666666663"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="652.66666666666663"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="SMS-7g-c9F" firstAttribute="top" secondItem="wQP-lD-y3W" secondAttribute="bottom" id="4ig-l6-Lad"/>
                 <constraint firstAttribute="trailing" secondItem="SMS-7g-c9F" secondAttribute="trailing" id="7wy-K7-3Gs"/>
-                <constraint firstAttribute="trailing" secondItem="wQP-lD-y3W" secondAttribute="trailing" id="ESo-h8-amY"/>
                 <constraint firstAttribute="bottom" secondItem="SMS-7g-c9F" secondAttribute="bottom" id="KNe-lC-mbX"/>
-                <constraint firstItem="wQP-lD-y3W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PVn-bo-gA2"/>
                 <constraint firstAttribute="trailing" secondItem="dQc-07-3FM" secondAttribute="trailing" id="VNV-tL-k8w"/>
-                <constraint firstAttribute="trailing" secondItem="O8t-87-nU7" secondAttribute="trailing" id="WPx-Bl-jWy"/>
-                <constraint firstItem="wQP-lD-y3W" firstAttribute="top" secondItem="dQc-07-3FM" secondAttribute="bottom" id="ZBs-Kl-bzQ"/>
-                <constraint firstItem="dQc-07-3FM" firstAttribute="top" secondItem="O8t-87-nU7" secondAttribute="bottom" id="jhi-gH-WtC"/>
-                <constraint firstItem="O8t-87-nU7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mSK-Xh-a6f"/>
-                <constraint firstItem="O8t-87-nU7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="riD-hf-hfO"/>
                 <constraint firstItem="SMS-7g-c9F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vVh-mz-4BE"/>
+                <constraint firstItem="SMS-7g-c9F" firstAttribute="top" secondItem="dQc-07-3FM" secondAttribute="bottom" id="xAx-8o-Oog"/>
+                <constraint firstItem="dQc-07-3FM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="z8q-eI-0tM"/>
                 <constraint firstItem="dQc-07-3FM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zKI-7L-1es"/>
             </constraints>
             <point key="canvasLocation" x="48" y="38"/>

@@ -8,6 +8,7 @@
 
 #import "AddItemViewController.h"
 #import "RootViewController.h"
+#import "CostsListViewController.h"
 
 #import "Item.h"
 #import "ItemManager.h"
@@ -43,9 +44,9 @@
     [formatter setDateFormat:@"YYYY/MM/dd"];
     [self chooseDate:datePicker];
     
-    _itemName.text = self.item.name;
-    _itemPrice.text = [NSString stringWithFormat:@"%@", self.item.price];
-    _itemDate.text = [formatter stringFromDate:self.item.date];
+    if (self.item.name) _itemName.text = self.item.name;
+    if (self.item.priceValue) _itemPrice.text = [NSString stringWithFormat:@"%@", self.item.price];
+    if (self.item.date) _itemDate.text = [formatter stringFromDate:self.item.date];
     
     //space
     UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -80,7 +81,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.rootViewController setTitle:@"Add Item"];
-    //    [self.addItemView reloadData];
+//        [self.addItemView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,6 +21,12 @@
 @property (nonatomic, weak) RootViewController* rootViewController;
 @property (weak, nonatomic) IBOutlet UITableView *incomeListView;
 
+@property (weak, nonatomic) IBOutlet UILabel *budgetBarLabel;
+@property (weak, nonatomic) IBOutlet UITextField *dateSelectTextField;
+
+@property (nonatomic) NSDate *currentSelectDate;
+
+
 
 
 @end

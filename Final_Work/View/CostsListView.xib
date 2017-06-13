@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CostsListViewController">
             <connections>
+                <outlet property="budgetBarLabel" destination="8kn-FT-K3R" id="zO9-Qh-6nS"/>
                 <outlet property="costsListView" destination="eaw-q7-e4C" id="tta-62-B7o"/>
+                <outlet property="dateSelectTextField" destination="NZF-mR-cuP" id="kfR-AO-WJV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eaw-q7-e4C" userLabel="Cost View">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <rect key="frame" x="0.0" y="50" width="414" height="646"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" red="0.43803648978703219" green="0.92145264148712158" blue="0.27108763939315933" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
@@ -29,16 +31,42 @@
                         <outlet property="delegate" destination="-1" id="g7W-z7-ukR"/>
                     </connections>
                 </tableView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZF-mR-cuP" userLabel="dateSelect">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                    <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8qN-xR-oY1"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kn-FT-K3R" userLabel="budgetBar">
+                    <rect key="frame" x="0.0" y="696" width="414" height="40"/>
+                    <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="XNF-68-d43"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="eaw-q7-e4C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8Jq-wP-vJz"/>
+                <constraint firstItem="8kn-FT-K3R" firstAttribute="top" secondItem="eaw-q7-e4C" secondAttribute="bottom" id="1Hf-dc-QB5"/>
+                <constraint firstItem="NZF-mR-cuP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4vd-3s-WU2"/>
                 <constraint firstItem="eaw-q7-e4C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Ag-qL-OM2"/>
+                <constraint firstAttribute="bottom" secondItem="8kn-FT-K3R" secondAttribute="bottom" id="Gmy-5L-m0Z"/>
+                <constraint firstItem="NZF-mR-cuP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I1x-0q-NYd"/>
+                <constraint firstItem="eaw-q7-e4C" firstAttribute="top" secondItem="NZF-mR-cuP" secondAttribute="bottom" id="JdE-Pc-GRz"/>
                 <constraint firstAttribute="trailing" secondItem="eaw-q7-e4C" secondAttribute="trailing" id="Kdf-Mj-2L4"/>
-                <constraint firstAttribute="bottom" secondItem="eaw-q7-e4C" secondAttribute="bottom" id="ba6-5T-5lD"/>
+                <constraint firstAttribute="trailing" secondItem="8kn-FT-K3R" secondAttribute="trailing" id="MRc-E7-D5T"/>
+                <constraint firstItem="8kn-FT-K3R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XQq-Iy-O3U"/>
+                <constraint firstAttribute="trailing" secondItem="NZF-mR-cuP" secondAttribute="trailing" id="Zdb-uT-6aB"/>
             </constraints>
-            <point key="canvasLocation" x="81.5" y="57.5"/>
+            <point key="canvasLocation" x="81" y="57"/>
         </view>
     </objects>
 </document>

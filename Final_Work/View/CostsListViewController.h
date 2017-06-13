@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 @class ItemManager;
@@ -23,7 +22,10 @@
 @property (weak) RootViewController* rootViewController;
 @property (weak, nonatomic) IBOutlet UITableView *costsListView;
 
+@property (weak, nonatomic) IBOutlet UILabel *budgetBarLabel;
+@property (weak, nonatomic) IBOutlet UITextField *dateSelectTextField;
 
+@property (nonatomic) NSDate *currentSelectDate;
 
 
 
