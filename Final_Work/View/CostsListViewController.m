@@ -50,7 +50,6 @@
     
     
     
-    
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.costsListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
     
@@ -341,7 +340,8 @@
     [_entertainment removeAllObjects];
     [_else removeAllObjects];
     
-    
+//    [Item MR_truncateAll];
+//    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 //    NSArray *items = [Item MR_findAll];
 
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];

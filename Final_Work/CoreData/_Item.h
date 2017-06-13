@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSDate* date;
 
-@property (nonatomic, strong, nullable) NSString* image;
+@property (nonatomic, strong, nullable) NSData* image;
 
 @property (nonatomic, strong, nullable) NSString* name;
 
@@ -44,8 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSDate*)primitiveDate;
 - (void)setPrimitiveDate:(nullable NSDate*)value;
 
-- (nullable NSString*)primitiveImage;
-- (void)setPrimitiveImage:(nullable NSString*)value;
+- (nullable NSData*)primitiveImage;
+- (void)setPrimitiveImage:(nullable NSData*)value;
 
 - (nullable NSString*)primitiveName;
 - (void)setPrimitiveName:(nullable NSString*)value;

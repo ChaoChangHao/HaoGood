@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RootViewController.h"
-#import <TZImagePickerController/TZImagePickerController.h>
+#import <TZImagePickerController/TZImagePickerController-umbrella.h>
 
 @interface AddItemViewController : UIViewController<UITextFieldDelegate, TZImagePickerControllerDelegate>
 

@@ -49,7 +49,10 @@
     if (self.item.name) _itemName.text = self.item.name;
     if (self.item.priceValue) _itemPrice.text = [NSString stringWithFormat:@"%@", self.item.price];
     if (self.item.date) _itemDate.text = [formatter stringFromDate:self.item.date];
-    
+    if (self.item.image) {
+        UIImage *image = [UIImage imageWithData:self.item.image];
+        [_itemImage setImage:image forState:UIControlStateNormal];
+    }
     //space
     UIBarButtonItem *space=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIToolbar *nameToolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -83,8 +86,10 @@
         _selectedPhotos = [NSMutableArray arrayWithArray:photos];
         _selectedAssets = [NSMutableArray arrayWithArray:assets];
         _isSelectOriginalPhoto = isSelectOriginalPhoto;
-        NSLog(@"%@",_selectedPhotos);
+        
         [_itemImage setImage:_selectedPhotos[0] forState:UIControlStateNormal];
+        NSData *imageData = UIImagePNGRepresentation(_selectedPhotos[0]);
+        self.item.image = imageData;
 //        item.image = _selectedPhotos[0];
 //        NSString *path = [[NSHomeDirectory()stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:@"image.png"];
 
