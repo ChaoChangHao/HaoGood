@@ -30,9 +30,7 @@
     
     UIDatePicker *datePicker;
     NSDateFormatter *formatter;
-    
     NSUInteger budgetValue;
-    
 }
 
 #pragma mark - ViewController Lifecycle
@@ -90,7 +88,7 @@
     [self.view addGestureRecognizer:swipeR];
     [self.view addGestureRecognizer:swipeL];
     //======================================================================//
-    budgetValue = 10000;
+    self.budgetValue = 10000;
     
     [self chooseDate:datePicker];
     [self updateItems];
@@ -142,6 +140,22 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{    return 100;
+}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIView* myView = [[UIView alloc] init];
+//    myView.backgroundColor = [UIColor colorWithRed:0.10 green:0.68 blue:0.94 alpha:0.7];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 90, 22)];
+//    titleLabel.textColor=[UIColor whiteColor];
+//    titleLabel.backgroundColor = [UIColor clearColor];
+//    titleLabel.text=[self.keys objectAtIndex:section];
+//    [myView addSubview:titleLabel];
+//    [titleLabel release];
+//    return myView;
+//
+//}
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
     return YES;
 }
@@ -305,10 +319,10 @@
             sum += [item.price integerValue];
         }
     }
-    self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)budgetValue];
-    if (sum > budgetValue) {
+    self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)self.budgetValue];
+    if (sum > self.budgetValue) {
         [self.budgetBarLabel setTextColor:[UIColor redColor]];
-    } else if (sum > budgetValue/2) {
+    } else if (sum > self.budgetValue/2) {
         [self.budgetBarLabel setTextColor:[UIColor orangeColor]];
     } else {
         [self.budgetBarLabel setTextColor:[UIColor greenColor]];
@@ -336,8 +350,9 @@
 }
 - (void)doneButtonPressed
 {
+    if (![_dateSelectTextField.text isEqualToString:[formatter stringFromDate:[NSDate date]]])
+        [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
     [_dateSelectTextField resignFirstResponder];
-    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
 }
 
 - (void)updateItems {

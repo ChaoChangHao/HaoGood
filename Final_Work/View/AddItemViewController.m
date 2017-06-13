@@ -106,9 +106,7 @@
 #pragma mark - TZImagePickerController
 
 - (void)pushTZImagePickerController {
-//    if (self.maxCountTF.text.integerValue <= 0) {
-//        return;
-//    }
+
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:self pushPhotoPickerVc:YES];
     
     
@@ -158,15 +156,7 @@
      }];*/
     
     //imagePickerVc.allowPreview = NO;
-#pragma mark - 到这里为止
-    
-    // You can get the photos by block, the same as by delegate.
-    // 你可以通过block或者代理，来得到用户选择的照片.
-    [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        
-    }];
-    
-    [self presentViewController:imagePickerVc animated:YES completion:nil];
+
 }
 
 #pragma mark - UITableViewDelegate

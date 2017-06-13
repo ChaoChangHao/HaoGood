@@ -11,6 +11,7 @@
 
 #import "CostsListViewController.h"
 #import "IncomesListViewController.h"
+#import "SettingViewController.h"
 
 #import "Item.h"
 #import "ItemManager.h"
@@ -40,7 +41,7 @@
     CostsListViewController* _costsListViewController;
     IncomesListViewController* _incomesListViewController;
     CostsListViewController* _test1ListViewController;
-    IncomesListViewController* _test2ListViewController;
+    SettingViewController* _settingViewController;
     
     
     NSArray* _titles;
@@ -67,10 +68,10 @@
     _costsListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
     _incomesListViewController = [[IncomesListViewController alloc] initWithNibName:@"IncomesListView" bundle:nil];
     _test1ListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
-    _test2ListViewController = [[IncomesListViewController alloc] initWithNibName:@"IncomesListView" bundle:nil];
+    _settingViewController = [[SettingViewController alloc] initWithNibName:@"SettingView" bundle:nil];
     
     
-    _viewControllers = @[ _costsListViewController, _incomesListViewController, _test1ListViewController, _test2ListViewController];
+    _viewControllers = @[ _costsListViewController, _incomesListViewController, _test1ListViewController, _settingViewController];
     
     _costsListViewController.rootViewController = self;
     _costsListViewController.itemManager = self.itemManager;
@@ -79,12 +80,11 @@
     
     _test1ListViewController.rootViewController = self;
     
-    _test2ListViewController.rootViewController = self;
+    _settingViewController.rootViewController = self;
     
     
     [self setSelectedIndex:0];
     [self setTitle:@"Cost"];
-//    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 
     //======================================================================//
     // Circle button

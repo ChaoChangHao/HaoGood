@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dateSelectTextField;
 
 @property (nonatomic) NSDate *currentSelectDate;
-
+@property (nonatomic) NSUInteger budgetValue;
 
 
 @end
