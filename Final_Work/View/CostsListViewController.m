@@ -30,7 +30,6 @@
     
     UIDatePicker *datePicker;
     NSDateFormatter *formatter;
-    NSUInteger budgetValue;
 }
 
 #pragma mark - ViewController Lifecycle
@@ -293,31 +292,40 @@
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^(void) {
                         [self.costsListView reloadData];
-                    } completion:NULL];}
+                    } completion:NULL];
+}
 - (void)calculateBudget
 {
-    budgetValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
-    NSDate *todayDate = [NSDate date];
-    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:todayDate];
+    NSUInteger budgetValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
+    NSUInteger startValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"startdate"];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *date = [NSDate date];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
     
-    NSString *dateStr;
-    NSDate *date;
+    [components setDay:startValue];
+//    NSDate *startDate = [calendar dateBySettingUnit:NSCalendarUnitDay value:startValue ofDate:date options:0];
+    NSDate *startDate = [calendar dateFromComponents:components];
+    
+    [components setYear:0];
+    [components setMonth:1];
+    [components setDay:-1];
+    NSDate *endDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
+
+    [components setMonth:0];
+    NSInteger dayTimeInterval = [endDate timeIntervalSinceDate:startDate]/86400;
+
     NSArray *items;
-    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay
-                                   inUnit: NSCalendarUnitMonth
-                                  forDate:todayDate];
     NSUInteger sum = 0;
     
-    for (int i = 1; i <= range.length; i++) {
-        dateStr = [NSString stringWithFormat:@"%ld/%ld/%i",(long)comps.year, (long)comps.month, i];
-        date = [formatter dateFromString:dateStr];
-        
-        items = [Item MR_findByAttribute:@"date" withValue:date];
+    for (int i = 0; i <= dayTimeInterval; i++) {
+        [components setDay:i];
+        NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
+        items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
             if ([item.category isEqualToString:@"income"]) continue;
             sum += [item.price integerValue];
         }
+
     }
     
     self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)budgetValue];
