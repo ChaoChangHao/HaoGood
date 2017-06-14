@@ -55,9 +55,21 @@
     _budgetTextField.text = [NSString stringWithFormat:@"%ld",(long)budget];
     _startDateTextField.text = [NSString stringWithFormat:@"%ld",(long)startDate];
 }
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    [self.rootViewController setTitle:@"Setting"];
+}
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSInteger value = [textField.text integerValue];
+    if (value > 31) value = 31;
+    if (value < 1) value = 1;
+    textField.text = [NSString stringWithFormat:@"%ld",(long)value];
+}
+#pragma mark - private method
 -(void)budgetTextFieldDoneButtonPressed
 {
+    
     NSInteger budget = [_budgetTextField.text integerValue];
     [[NSUserDefaults standardUserDefaults] setInteger:budget forKey:@"budget"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -67,7 +79,10 @@
 
 -(void)startDateTextFieldDoneButtonPressed
 {
+    
     NSInteger startDate = [_startDateTextField.text integerValue];
+    if (startDate > 31) startDate = 31;
+    if (startDate < 1) startDate = 1;
     [[NSUserDefaults standardUserDefaults] setInteger:startDate forKey:@"startdate"];
     
     [[NSUserDefaults standardUserDefaults] synchronize];

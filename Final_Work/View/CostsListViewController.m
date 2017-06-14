@@ -364,9 +364,11 @@
     [_entertainment removeAllObjects];
     [_else removeAllObjects];
 
+    
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
-        if (!item.name || !item.price) continue;
+//        if (!item.name || !item.price) continue;
+        
         if ([item.category isEqualToString:@"food"]) {
             [_food addObject:item];
         } else if ([item.category isEqualToString:@"traffic"]) {

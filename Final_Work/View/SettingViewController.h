@@ -11,7 +11,8 @@
 
 @interface SettingViewController : UIViewController<UITextFieldDelegate>
 
-@property (nonatomic) UIViewController* rootViewController;
+
+@property (nonatomic) RootViewController* rootViewController;
 @property (weak, nonatomic) IBOutlet UITextField *budgetTextField;
 @property (weak, nonatomic) IBOutlet UITextField *startDateTextField;
 @end

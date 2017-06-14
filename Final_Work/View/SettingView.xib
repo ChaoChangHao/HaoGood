@@ -21,22 +21,46 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your budget" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="onC-lM-4ac" userLabel="budgetTextField">
-                    <rect key="frame" x="98" y="115" width="178" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預算" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI1-3T-XA7" userLabel="budget">
+                    <rect key="frame" x="40" y="120" width="52" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起始日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vee-i4-gLs" userLabel="startDate">
+                    <rect key="frame" x="40" y="190" width="52" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your budget" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="onC-lM-4ac" userLabel="budgetTextField">
+                    <rect key="frame" x="122" y="120" width="213" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your start date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4e-3k-dLg" userLabel="startDateTextField">
-                    <rect key="frame" x="98" y="175" width="178" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your start date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4e-3k-dLg" userLabel="startDateTextField">
+                    <rect key="frame" x="122" y="185.5" width="213" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="uI1-3T-XA7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="0Ah-iM-Q0C"/>
+                <constraint firstItem="uI1-3T-XA7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="6Y7-NT-jcq"/>
+                <constraint firstAttribute="trailing" secondItem="onC-lM-4ac" secondAttribute="trailing" constant="40" id="7tf-ZQ-885"/>
+                <constraint firstItem="vee-i4-gLs" firstAttribute="leading" secondItem="uI1-3T-XA7" secondAttribute="leading" id="Bdn-RQ-b3w"/>
+                <constraint firstItem="onC-lM-4ac" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="KzC-Ow-5ly"/>
+                <constraint firstItem="vee-i4-gLs" firstAttribute="top" secondItem="uI1-3T-XA7" secondAttribute="bottom" constant="40" id="ce8-Oh-GsH"/>
+                <constraint firstItem="E4e-3k-dLg" firstAttribute="trailing" secondItem="onC-lM-4ac" secondAttribute="trailing" id="k1j-jL-Bg5"/>
+                <constraint firstItem="E4e-3k-dLg" firstAttribute="leading" secondItem="onC-lM-4ac" secondAttribute="leading" id="obF-Qv-JoZ"/>
+                <constraint firstItem="vee-i4-gLs" firstAttribute="trailing" secondItem="uI1-3T-XA7" secondAttribute="trailing" id="rsL-Qr-ZWi"/>
+                <constraint firstItem="E4e-3k-dLg" firstAttribute="centerY" secondItem="vee-i4-gLs" secondAttribute="centerY" id="wRf-7L-1HT"/>
+                <constraint firstItem="onC-lM-4ac" firstAttribute="leading" secondItem="uI1-3T-XA7" secondAttribute="trailing" constant="30" id="yal-Th-hRS"/>
+                <constraint firstItem="onC-lM-4ac" firstAttribute="centerY" secondItem="uI1-3T-XA7" secondAttribute="centerY" id="yc0-3J-uPo"/>
+            </constraints>
             <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>
     </objects>

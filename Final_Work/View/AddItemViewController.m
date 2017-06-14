@@ -288,8 +288,10 @@
     
 }
 -(void)cancelButtonPressed {
-    
-    
+    if (!self.item.name || !self.item.price) {
+        [self.item MR_deleteEntity];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    }
     [self.navigationController popViewControllerAnimated:NO];
     CATransition* transition = [CATransition animation];
     transition.type = kCATransitionFade;
