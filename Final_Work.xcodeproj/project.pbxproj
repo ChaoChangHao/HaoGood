@@ -22,6 +22,8 @@
 		9FA9E5D61EF0331D00061812 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D41EF0331D00061812 /* SettingViewController.m */; };
 		9FA9E5D71EF0331D00061812 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D51EF0331D00061812 /* SettingView.xib */; };
 		9FA9E5D91EF045E700061812 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D81EF045E700061812 /* Settings.bundle */; };
+		9FA9E5E61EF17AF400061812 /* StatisticsChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E5E41EF17AF400061812 /* StatisticsChartViewController.m */; };
+		9FA9E5E71EF17AF400061812 /* StatisticsChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5E51EF17AF400061812 /* StatisticsChartView.xib */; };
 		9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7C1ED6DD56002E56EB /* main.m */; };
 		9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */; };
 		9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */; };
@@ -59,6 +61,9 @@
 		9FA9E5D41EF0331D00061812 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = View/SettingViewController.m; sourceTree = "<group>"; };
 		9FA9E5D51EF0331D00061812 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingView.xib; path = View/SettingView.xib; sourceTree = "<group>"; };
 		9FA9E5D81EF045E700061812 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Setting/Settings.bundle; sourceTree = "<group>"; };
+		9FA9E5E31EF17AF400061812 /* StatisticsChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatisticsChartViewController.h; path = View/StatisticsChartViewController.h; sourceTree = "<group>"; };
+		9FA9E5E41EF17AF400061812 /* StatisticsChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatisticsChartViewController.m; path = View/StatisticsChartViewController.m; sourceTree = "<group>"; };
+		9FA9E5E51EF17AF400061812 /* StatisticsChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsChartView.xib; path = View/StatisticsChartView.xib; sourceTree = "<group>"; };
 		9FAA8F781ED6DD56002E56EB /* Final_Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_Work.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAA8F7C1ED6DD56002E56EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FAA8F7E1ED6DD56002E56EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +120,9 @@
 				9F80B38A1EE91F6A007F2BA4 /* IncomesListViewController.h */,
 				9F80B38B1EE91F6A007F2BA4 /* IncomesListViewController.m */,
 				9F80B38C1EE91F6A007F2BA4 /* IncomesListView.xib */,
+				9FA9E5E31EF17AF400061812 /* StatisticsChartViewController.h */,
+				9FA9E5E41EF17AF400061812 /* StatisticsChartViewController.m */,
+				9FA9E5E51EF17AF400061812 /* StatisticsChartView.xib */,
 				9FA9E5D31EF0331D00061812 /* SettingViewController.h */,
 				9FA9E5D41EF0331D00061812 /* SettingViewController.m */,
 				9FA9E5D51EF0331D00061812 /* SettingView.xib */,
@@ -267,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA9E5E71EF17AF400061812 /* StatisticsChartView.xib in Resources */,
 				9FD904181EEB9D180004D4C7 /* AddItemView.xib in Resources */,
 				9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */,
 				9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */,
@@ -341,6 +350,7 @@
 				9F80B3791EE8ED24007F2BA4 /* CostCell.m in Sources */,
 				9FA9E5CD1EF0234600061812 /* _Item.m in Sources */,
 				9F2B1B191EF02031005ED060 /* Final_Work.xcdatamodeld in Sources */,
+				9FA9E5E61EF17AF400061812 /* StatisticsChartViewController.m in Sources */,
 				9FA9E5D21EF0238B00061812 /* Model.xcmappingmodel in Sources */,
 				9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */,
 				9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */,

@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.0.2):
+    - Charts/Core (= 3.0.2)
+  - Charts/Core (3.0.2)
   - CKCircleMenuView (0.3.1)
   - DZNEmptyDataSet (1.8.1)
   - GPUImage (0.1.7)
@@ -8,6 +11,7 @@ PODS:
   - TZImagePickerController (1.8.0)
 
 DEPENDENCIES:
+  - Charts
   - CKCircleMenuView
   - DZNEmptyDataSet
   - GPUImage
@@ -15,12 +19,13 @@ DEPENDENCIES:
   - TZImagePickerController
 
 SPEC CHECKSUMS:
+  Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
   CKCircleMenuView: 2c4183c79c84cb94b8b27714d8e7ebcf4de67e5e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   TZImagePickerController: 2a74f34f116e8229264e2afc122b0d8d4683c626
 
-PODFILE CHECKSUM: 2fd7d11317ed8687c3f15bee355944a1597c3046
+PODFILE CHECKSUM: acd271f938bc213632d6e3dcbaf6a96a468043ef
 
 COCOAPODS: 1.3.0.beta.1

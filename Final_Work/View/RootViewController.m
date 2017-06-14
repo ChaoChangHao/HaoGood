@@ -11,7 +11,9 @@
 
 #import "CostsListViewController.h"
 #import "IncomesListViewController.h"
+#import "StatisticsChartViewController.h"
 #import "SettingViewController.h"
+
 
 #import "Item.h"
 #import "ItemManager.h"
@@ -40,7 +42,7 @@
 @implementation RootViewController {
     CostsListViewController* _costsListViewController;
     IncomesListViewController* _incomesListViewController;
-    CostsListViewController* _test1ListViewController;
+    StatisticsChartViewController* _statisticsChartViewController;
     SettingViewController* _settingViewController;
     
     
@@ -67,18 +69,18 @@
     
     _costsListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
     _incomesListViewController = [[IncomesListViewController alloc] initWithNibName:@"IncomesListView" bundle:nil];
-    _test1ListViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
+    _statisticsChartViewController = [[StatisticsChartViewController alloc] initWithNibName:@"StatisticsChartView" bundle:nil];
     _settingViewController = [[SettingViewController alloc] initWithNibName:@"SettingView" bundle:nil];
     
     
-    _viewControllers = @[ _costsListViewController, _incomesListViewController, _test1ListViewController, _settingViewController];
+    _viewControllers = @[ _costsListViewController, _incomesListViewController, _statisticsChartViewController, _settingViewController];
     
     _costsListViewController.rootViewController = self;
     _costsListViewController.itemManager = self.itemManager;
     
     _incomesListViewController.rootViewController = self;
     
-    _test1ListViewController.rootViewController = self;
+    _statisticsChartViewController.rootViewController = self;
     
     _settingViewController.rootViewController = self;
     

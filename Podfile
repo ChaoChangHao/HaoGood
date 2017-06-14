@@ -7,4 +7,5 @@ target 'Final_Work' do
 	pod 'DZNEmptyDataSet'
     pod 'GPUImage'
     pod 'TZImagePickerController'
+    pod 'Charts'
 end

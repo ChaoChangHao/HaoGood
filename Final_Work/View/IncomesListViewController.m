@@ -95,7 +95,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self itemsSynchronized];
-    [self.rootViewController setTitle:@"Cost"];
+    [self.rootViewController setTitle:@"Income"];
     [self.incomeListView reloadData];
 }
 
