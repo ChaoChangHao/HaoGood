@@ -359,6 +359,7 @@
     
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
+        if (!item.name || !item.price) continue;
         if ([item.category isEqualToString:@"income"]) {
             [_income addObject:item];
         }

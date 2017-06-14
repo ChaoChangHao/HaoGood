@@ -95,13 +95,7 @@
     self.shadow = 1;
     self.radius = 120;
     self.direction = CircleMenuDirectionLeftUp;
-//    self.colorArray = @[[UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1],
-//                        [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1],
-//                        [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1],
-//                        [UIColor colorWithRed:1 green:1 blue:0.439 alpha:1],
-//                        [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1],];
 
-    
 
 }
 - (void)dealloc {
@@ -162,9 +156,7 @@
     
     AddItemViewController *viewController = [[AddItemViewController alloc] initWithNibName:@"AddItemView" bundle:nil];
     
-    CATransition* transition = [CATransition animation];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromBottom;
+    
     
     
     viewController.item = [Item MR_createEntity];
@@ -182,8 +174,10 @@
     }
     [self.navigationController pushViewController:viewController animated:NO];
     
-    
-    
+//    CATransition* transition = [CATransition animation];
+//    transition.type = kCATransitionFromBottom;
+////    transition.subtype = kCATransitionFromBottom;
+//    [self.navigationController.view.layer addAnimation:transition forKey:nil];
 }
 
 - (void)circleMenuClosed

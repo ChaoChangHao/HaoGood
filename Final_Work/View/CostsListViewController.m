@@ -145,19 +145,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {    return 100;
 }
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UIView* myView = [[UIView alloc] init];
-//    myView.backgroundColor = [UIColor colorWithRed:0.10 green:0.68 blue:0.94 alpha:0.7];
-//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 90, 22)];
-//    titleLabel.textColor=[UIColor whiteColor];
-//    titleLabel.backgroundColor = [UIColor clearColor];
-//    titleLabel.text=[self.keys objectAtIndex:section];
-//    [myView addSubview:titleLabel];
-//    [titleLabel release];
-//    return myView;
-//
-//}
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
     return YES;
 }
@@ -171,7 +158,7 @@
     transition.subtype = kCATransitionFromBottom;
     
     
-    viewController.item = [Item MR_createEntity];
+//    viewController.item = [Item MR_createEntity];
     viewController.item = [self itemAtIndexPath:indexPath];
     [_rootViewController.navigationController pushViewController:viewController animated:NO];
 }
@@ -379,7 +366,7 @@
 
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
-        
+        if (!item.name || !item.price) continue;
         if ([item.category isEqualToString:@"food"]) {
             [_food addObject:item];
         } else if ([item.category isEqualToString:@"traffic"]) {

@@ -23,6 +23,7 @@
 @implementation AddItemViewController {
     UIDatePicker *datePicker;
     NSDateFormatter *formatter;
+    NSData *imageData;
     
     TZImagePickerController *imagePC;
     NSMutableArray *_selectedPhotos;
@@ -46,6 +47,7 @@
     [formatter setDateFormat:@"YYYY/MM/dd"];
     [self chooseDate:datePicker];
     
+    NSLog(@"%@",self.item);
     if (self.item.name) _itemName.text = self.item.name;
     if (self.item.priceValue) _itemPrice.text = [NSString stringWithFormat:@"%@", self.item.price];
     if (self.item.date) _itemDate.text = [formatter stringFromDate:self.item.date];
@@ -75,8 +77,10 @@
     [dateToolBar setItems:[NSArray arrayWithObjects:space,dateDoneBtn, nil]];
     [_itemDate setInputAccessoryView:dateToolBar];
     //Comfirm button in navigation bar
-    UIBarButtonItem *comfirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Comfirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
-    self.navigationItem.rightBarButtonItem = comfirmBtn;
+    UIBarButtonItem *confirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Confirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
+    self.navigationItem.rightBarButtonItem = confirmBtn;
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancelButtonPressed)];
+    self.navigationItem.leftBarButtonItem = cancelBtn;
     [self.navigationItem setTitle:_item.category];
     
     _selectedPhotos = [NSMutableArray array];
@@ -87,8 +91,8 @@
         _selectedAssets = [NSMutableArray arrayWithArray:assets];
         _isSelectOriginalPhoto = isSelectOriginalPhoto;
         [_itemImage setImage:_selectedPhotos[0] forState:UIControlStateNormal];
-        NSData *imageData = UIImagePNGRepresentation(_selectedPhotos[0]);
-        self.item.image = imageData;
+        imageData = UIImagePNGRepresentation(_selectedPhotos[0]);
+        
     }];
     
 }
@@ -256,25 +260,40 @@
 
 -(void)confirmButtonPressed {
     if (_itemPrice.text.length > 0 & _itemName.text.length > 0) {
+        self.item = [Item MR_createEntity];
         
         self.item.name = _itemName.text;
         self.item.priceValue = [_itemPrice.text floatValue];
         self.item.date = [formatter dateFromString:_itemDate.text];
-        
+        if (imageData) self.item.image = imageData;
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
         //Inform app
         [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
         
         //dismiss view
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:NO];
+        
+        CATransition* transition = [CATransition animation];
+        transition.type = kCATransitionFromTop;
+//        transition.subtype = kCATransitionFromTop;
+        [self.navigationController.view.layer addAnimation:transition forKey:nil];
     } else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"名字、價錢或日期未填" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){}];
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:^{}];
     }
+    
 }
-
+-(void)cancelButtonPressed {
+    
+    
+    [self.navigationController popViewControllerAnimated:NO];
+    CATransition* transition = [CATransition animation];
+    transition.type = kCATransitionFade;
+    transition.subtype = kCATransitionFromTop;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+}
 
 @end
