@@ -286,13 +286,6 @@
 - (void)itemsSynchronized {
     [self updateItems];
     [self calculateBudget];
-//    [self.costsListView reloadData];
-    [UIView transitionWithView:self.costsListView
-                      duration:0.5f
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^(void) {
-                        [self.costsListView reloadData];
-                    } completion:NULL];
 }
 - (void)calculateBudget
 {
@@ -303,7 +296,7 @@
     NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
     
     [components setDay:startValue];
-//    NSDate *startDate = [calendar dateBySettingUnit:NSCalendarUnitDay value:startValue ofDate:date options:0];
+
     NSDate *startDate = [calendar dateFromComponents:components];
     
     [components setYear:0];
@@ -342,8 +335,22 @@
     self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
     if (swipeGesture.direction == UISwipeGestureRecognizerDirectionLeft) {
         self.currentSelectDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentSelectDate];
+        [UIView transitionWithView:self.costsListView
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionFlipFromRight
+                        animations:^(void) {
+                            [self.costsListView reloadData];
+                        } completion:NULL];
+
     } else if (swipeGesture.direction == UISwipeGestureRecognizerDirectionRight) {
         self.currentSelectDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentSelectDate];
+        [UIView transitionWithView:self.costsListView
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^(void) {
+                            [self.costsListView reloadData];
+                        } completion:NULL];
+
     }
     _dateSelectTextField.text = [formatter stringFromDate:self.currentSelectDate];
     
@@ -369,10 +376,6 @@
     [_traffic removeAllObjects];
     [_entertainment removeAllObjects];
     [_else removeAllObjects];
-    
-//    [Item MR_truncateAll];
-//    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-//    NSArray *items = [Item MR_findAll];
 
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
@@ -396,6 +399,3 @@
 }
 
 @end
-
-
-

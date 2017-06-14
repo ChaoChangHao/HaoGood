@@ -27,8 +27,6 @@
     
     UIDatePicker *datePicker;
     NSDateFormatter *formatter;
-    
-    NSUInteger budgetValue;
 }
 
 
@@ -42,6 +40,8 @@
     
     _income = [NSMutableArray new];
     _items = @[_income];
+    
+    
     
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.incomeListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
@@ -82,7 +82,9 @@
     [self.view addGestureRecognizer:swipeR];
     [self.view addGestureRecognizer:swipeL];
     //======================================================================//
-    budgetValue = 10000;
+    
+    
+    
     
     [self chooseDate:datePicker];
     [self updateItems];
@@ -92,7 +94,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.rootViewController setTitle:@"Income"];
+    [self itemsSynchronized];
+    [self.rootViewController setTitle:@"Cost"];
     [self.incomeListView reloadData];
 }
 
@@ -134,6 +137,22 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{    return 100;
+}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIView* myView = [[UIView alloc] init];
+//    myView.backgroundColor = [UIColor colorWithRed:0.10 green:0.68 blue:0.94 alpha:0.7];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 90, 22)];
+//    titleLabel.textColor=[UIColor whiteColor];
+//    titleLabel.backgroundColor = [UIColor clearColor];
+//    titleLabel.text=[self.keys objectAtIndex:section];
+//    [myView addSubview:titleLabel];
+//    [titleLabel release];
+//    return myView;
+//
+//}
 - (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath {
     return YES;
 }
@@ -167,7 +186,25 @@
     if ([view isKindOfClass: [UITableViewHeaderFooterView class]]) {
         UITableViewHeaderFooterView* castView = (UITableViewHeaderFooterView*) view;
         UIView* content = castView.contentView;
-        content.backgroundColor  = [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1];
+        switch (section) {
+            case 2:
+                content.backgroundColor  = [UIColor colorWithRed:0.827 green:0.639 blue:1 alpha:1];
+                break;
+            case 1:
+                content.backgroundColor  = [UIColor colorWithRed:0.6 green:0.8 blue:1 alpha:1];
+                break;
+            case 0:
+                content.backgroundColor  = [UIColor colorWithRed:1 green:0.761 blue:0.878 alpha:1];
+                break;
+            case 3:
+                content.backgroundColor  = [UIColor colorWithRed:1 green:1 blue:0.439 alpha:1];
+                break;
+            case 4:
+                content.backgroundColor  = [UIColor colorWithRed:0.584 green:1 blue:0.816 alpha:1];
+                break;
+            default:
+                break;
+        }
     }
     
 }
@@ -232,36 +269,41 @@
 - (void)itemsSynchronized {
     [self updateItems];
     [self calculateBudget];
-    [self.incomeListView reloadData];
 }
 - (void)calculateBudget
 {
-    //    [Item MR_trurncateAll];
-    NSDate *todayDate = [NSDate date];
+    NSUInteger budgetValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
+    NSUInteger startValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"startdate"];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *date = [NSDate date];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
     
-    NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [components setDay:startValue];
     
-    NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:todayDate];
+    NSDate *startDate = [calendar dateFromComponents:components];
     
-    NSString *dateStr;
-    NSDate *date;
+    [components setYear:0];
+    [components setMonth:1];
+    [components setDay:-1];
+    NSDate *endDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
+    
+    [components setMonth:0];
+    NSInteger dayTimeInterval = [endDate timeIntervalSinceDate:startDate]/86400;
+    
     NSArray *items;
-    
-    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay
-                                   inUnit: NSCalendarUnitMonth
-                                  forDate:todayDate];
     NSUInteger sum = 0;
     
-    for (int i = 1; i <= range.length; i++) {
-        dateStr = [NSString stringWithFormat:@"%ld/%ld/%i",(long)comps.year, (long)comps.month, i];
-        date = [formatter dateFromString:dateStr];
-        
-        items = [Item MR_findByAttribute:@"date" withValue:date];
+    for (int i = 0; i <= dayTimeInterval; i++) {
+        [components setDay:i];
+        NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
+        items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
             if ([item.category isEqualToString:@"income"]) continue;
             sum += [item.price integerValue];
         }
+        
     }
+    
     self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)budgetValue];
     if (sum > budgetValue) {
         [self.budgetBarLabel setTextColor:[UIColor redColor]];
@@ -276,8 +318,22 @@
     self.currentSelectDate = [formatter dateFromString:_dateSelectTextField.text];
     if (swipeGesture.direction == UISwipeGestureRecognizerDirectionLeft) {
         self.currentSelectDate = [NSDate dateWithTimeInterval:24*60*60 sinceDate:self.currentSelectDate];
+        [UIView transitionWithView:self.incomeListView
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionFlipFromRight
+                        animations:^(void) {
+                            [self.incomeListView reloadData];
+                        } completion:NULL];
+        
     } else if (swipeGesture.direction == UISwipeGestureRecognizerDirectionRight) {
         self.currentSelectDate = [NSDate dateWithTimeInterval:-24*60*60 sinceDate:self.currentSelectDate];
+        [UIView transitionWithView:self.incomeListView
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionFlipFromLeft
+                        animations:^(void) {
+                            [self.incomeListView reloadData];
+                        } completion:NULL];
+        
     }
     _dateSelectTextField.text = [formatter stringFromDate:self.currentSelectDate];
     
@@ -293,28 +349,25 @@
 }
 - (void)doneButtonPressed
 {
+    if (![_dateSelectTextField.text isEqualToString:[formatter stringFromDate:[NSDate date]]])
+        [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
     [_dateSelectTextField resignFirstResponder];
-    [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
 }
 
 - (void)updateItems {
     [_income removeAllObjects];
-    
-    
-    //    NSArray *items = [Item MR_findAll];
     
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
         if ([item.category isEqualToString:@"income"]) {
             [_income addObject:item];
         }
+    }
     [self.incomeListView reloadData];
     
-    }
 }
 
 - (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
     return [[_items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 }
-
 @end
