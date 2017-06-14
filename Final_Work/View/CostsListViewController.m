@@ -88,7 +88,9 @@
     [self.view addGestureRecognizer:swipeR];
     [self.view addGestureRecognizer:swipeL];
     //======================================================================//
-    self.budgetValue = 10000;
+    
+    
+    
     
     [self chooseDate:datePicker];
     [self updateItems];
@@ -98,6 +100,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self itemsSynchronized];
     [self.rootViewController setTitle:@"Cost"];
     [self.costsListView reloadData];
 }
@@ -293,17 +296,14 @@
                     } completion:NULL];}
 - (void)calculateBudget
 {
-    //    [Item MR_trurncateAll];
+    budgetValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
     NSDate *todayDate = [NSDate date];
-    
     NSCalendar * calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-
     NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:todayDate];
     
     NSString *dateStr;
     NSDate *date;
     NSArray *items;
-    
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay
                                    inUnit: NSCalendarUnitMonth
                                   forDate:todayDate];
@@ -319,10 +319,11 @@
             sum += [item.price integerValue];
         }
     }
-    self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)self.budgetValue];
-    if (sum > self.budgetValue) {
+    
+    self.budgetBarLabel.text = [NSString stringWithFormat:@"預算： %lu / %lu", (unsigned long)sum, (unsigned long)budgetValue];
+    if (sum > budgetValue) {
         [self.budgetBarLabel setTextColor:[UIColor redColor]];
-    } else if (sum > self.budgetValue/2) {
+    } else if (sum > budgetValue/2) {
         [self.budgetBarLabel setTextColor:[UIColor orangeColor]];
     } else {
         [self.budgetBarLabel setTextColor:[UIColor greenColor]];
@@ -367,7 +368,7 @@
 
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
-        NSLog(@"%@",item);
+        
         if ([item.category isEqualToString:@"food"]) {
             [_food addObject:item];
         } else if ([item.category isEqualToString:@"traffic"]) {

@@ -21,6 +21,7 @@
 		9FA9E5D21EF0238B00061812 /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D11EF0238B00061812 /* Model.xcmappingmodel */; };
 		9FA9E5D61EF0331D00061812 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D41EF0331D00061812 /* SettingViewController.m */; };
 		9FA9E5D71EF0331D00061812 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D51EF0331D00061812 /* SettingView.xib */; };
+		9FA9E5D91EF045E700061812 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5D81EF045E700061812 /* Settings.bundle */; };
 		9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7C1ED6DD56002E56EB /* main.m */; };
 		9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */; };
 		9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */; };
@@ -57,6 +58,7 @@
 		9FA9E5D31EF0331D00061812 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = View/SettingViewController.h; sourceTree = "<group>"; };
 		9FA9E5D41EF0331D00061812 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = View/SettingViewController.m; sourceTree = "<group>"; };
 		9FA9E5D51EF0331D00061812 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingView.xib; path = View/SettingView.xib; sourceTree = "<group>"; };
+		9FA9E5D81EF045E700061812 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Setting/Settings.bundle; sourceTree = "<group>"; };
 		9FAA8F781ED6DD56002E56EB /* Final_Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_Work.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAA8F7C1ED6DD56002E56EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FAA8F7E1ED6DD56002E56EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,11 +160,6 @@
 				9F4A2A421ED8392D006CD86D /* View */,
 				9FAA8F7E1ED6DD56002E56EB /* AppDelegate.h */,
 				9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */,
-				9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */,
-				9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */,
-				9FAA8F8F1ED6DD56002E56EB /* Info.plist */,
-				9FA9E5D11EF0238B00061812 /* Model.xcmappingmodel */,
-				9F2B1B171EF02031005ED060 /* Final_Work.xcdatamodeld */,
 				9FAA8F7B1ED6DD56002E56EB /* Supporting Files */,
 			);
 			path = Final_Work;
@@ -171,6 +168,12 @@
 		9FAA8F7B1ED6DD56002E56EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9FAA8F8F1ED6DD56002E56EB /* Info.plist */,
+				9FA9E5D81EF045E700061812 /* Settings.bundle */,
+				9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */,
+				9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */,
+				9FA9E5D11EF0238B00061812 /* Model.xcmappingmodel */,
+				9F2B1B171EF02031005ED060 /* Final_Work.xcdatamodeld */,
 				9FAA8F7C1ED6DD56002E56EB /* main.m */,
 			);
 			name = "Supporting Files";
@@ -271,6 +274,7 @@
 				9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */,
 				9FBFD3D51EE707EB00DBEFBC /* Images.xcassets in Resources */,
 				9F80B3861EE914DF007F2BA4 /* CostsListView.xib in Resources */,
+				9FA9E5D91EF045E700061812 /* Settings.bundle in Resources */,
 				9FA9E5D71EF0331D00061812 /* SettingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

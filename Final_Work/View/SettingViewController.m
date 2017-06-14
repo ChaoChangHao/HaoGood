@@ -7,14 +7,14 @@
 //
 
 #import "SettingViewController.h"
-#import "CostsListViewController.h"
 
 @interface SettingViewController ()
 
 @end
 
 @implementation SettingViewController {
-    CostsListViewController *_costListsViewController;
+    
+
 }
 
 - (void)viewDidLoad {
@@ -31,14 +31,19 @@
     [nameToolBar setItems:[NSArray arrayWithObjects:space,nameDoneBtn, nil]];
     [_budgetTextField setInputAccessoryView:nameToolBar];
     ////////////////////////////////////////////////////////////////
-    _costListsViewController = [[CostsListViewController alloc] initWithNibName:@"CostsListView" bundle:nil];
-    self.budgetTextField.text = [NSString stringWithFormat:@"%lu",(unsigned long)_costListsViewController.budgetValue];
+    NSInteger budget = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
+    _budgetTextField.text = [NSString stringWithFormat:@"%ld",(long)budget];
 }
 
 -(void)budgetTextFieldDoneButtonPressed
 {
+    NSInteger budget = [_budgetTextField.text integerValue];
+    [[NSUserDefaults standardUserDefaults] setInteger:budget forKey:@"budget"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     [_budgetTextField resignFirstResponder];
 }
-
 
 @end

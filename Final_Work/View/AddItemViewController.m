@@ -260,7 +260,7 @@
         self.item.name = _itemName.text;
         self.item.priceValue = [_itemPrice.text floatValue];
         self.item.date = [formatter dateFromString:_itemDate.text];
-        NSLog(@"date:%@", self.item.date);
+        
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
         //Inform app

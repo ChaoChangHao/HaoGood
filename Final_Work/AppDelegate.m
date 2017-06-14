@@ -21,11 +21,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Final_Work2"];
     
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self showRootView];
     
     [self.window makeKeyAndVisible];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        NSLog(@"Yes");
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY/MM/dd"];
+        NSDate *date = [NSDate date];
+        date = [formatter dateFromString:[formatter stringFromDate:date]];
+        [[NSUserDefaults standardUserDefaults] setInteger:10000 forKey:@"budget"];
+        [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"startdate"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"everLaunched"];
+//        NSLog(@"No");
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     return YES;
 }
