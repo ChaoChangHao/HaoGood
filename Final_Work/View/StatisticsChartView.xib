@@ -5,13 +5,15 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatisticsChartViewController">
             <connections>
                 <outlet property="chartView" destination="RKZ-xq-abx" id="DSM-Hd-C5q"/>
+                <outlet property="rangeSelectSegmentedControl" destination="fNu-IF-kEf" id="6Q6-Yu-ZLl"/>
+                <outlet property="rankListView" destination="JKc-bC-ptu" id="Q7l-9m-Q2H"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,18 +22,44 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fNu-IF-kEf" userLabel="RangeSelect">
+                    <rect key="frame" x="15" y="15" width="345" height="29"/>
+                    <segments>
+                        <segment title="日"/>
+                        <segment title="月"/>
+                        <segment title="季"/>
+                        <segment title="年"/>
+                    </segments>
+                    <connections>
+                        <action selector="rangeSelected:" destination="-1" eventType="valueChanged" id="n6r-6k-neC"/>
+                    </connections>
+                </segmentedControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKZ-xq-abx" customClass="PieChartView" customModule="Charts">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="15" y="58" width="345" height="464"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JKc-bC-ptu" userLabel="ItemList">
+                    <rect key="frame" x="15" y="537" width="345" height="130"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="VZD-Qa-qdj"/>
+                    </constraints>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="RKZ-xq-abx" secondAttribute="trailing" id="2Bw-nA-Jdt"/>
-                <constraint firstItem="RKZ-xq-abx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2e0-ao-hAG"/>
-                <constraint firstAttribute="bottom" secondItem="RKZ-xq-abx" secondAttribute="bottom" id="fhw-uH-RDi"/>
-                <constraint firstItem="RKZ-xq-abx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="n1t-5R-TUD"/>
+                <constraint firstAttribute="trailing" secondItem="fNu-IF-kEf" secondAttribute="trailing" constant="15" id="5KG-5x-1GB"/>
+                <constraint firstItem="RKZ-xq-abx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="8oy-LQ-2X7"/>
+                <constraint firstItem="JKc-bC-ptu" firstAttribute="top" secondItem="RKZ-xq-abx" secondAttribute="bottom" constant="15" id="LkV-dR-GgM"/>
+                <constraint firstAttribute="bottom" secondItem="JKc-bC-ptu" secondAttribute="bottom" id="VQQ-00-3jE"/>
+                <constraint firstItem="JKc-bC-ptu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="WTe-9T-C2c"/>
+                <constraint firstAttribute="trailing" secondItem="JKc-bC-ptu" secondAttribute="trailing" constant="15" id="cCs-XC-sFn"/>
+                <constraint firstItem="RKZ-xq-abx" firstAttribute="top" secondItem="fNu-IF-kEf" secondAttribute="bottom" constant="15" id="lVa-oK-Dl9"/>
+                <constraint firstItem="fNu-IF-kEf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="oNM-14-h57"/>
+                <constraint firstItem="fNu-IF-kEf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="qX0-Bm-rAC"/>
+                <constraint firstAttribute="trailing" secondItem="RKZ-xq-abx" secondAttribute="trailing" constant="15" id="vkB-Ay-aNR"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="61.5"/>
         </view>
     </objects>
 </document>

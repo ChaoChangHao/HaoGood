@@ -31,6 +31,11 @@
     
     NSDate *today;
     NSDateFormatter *formatter;
+    NSCalendar *calendar;
+    
+    NSDate *startDate;
+    NSDate *endDate;
+    NSInteger dayTimeInterval;
 }
 
 - (void)viewDidLoad {
@@ -64,8 +69,47 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     [self.rootViewController setTitle:@"Statistics"];
+    [self rangeSelected:self];
     [self updateItems];
     [self setupPieChartView:_chartView];
+}
+- (IBAction)rangeSelected:(id)sender {
+//    NSLog(@"%ld",(long)_rangeSelectSegmentedControl.selectedSegmentIndex);
+    
+    calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    NSUInteger startValue = [[NSUserDefaults standardUserDefaults] integerForKey:@"startdate"];
+    NSDate *date = [NSDate date];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+    
+    [components setDay:startValue];
+    
+    startDate = [calendar dateFromComponents:components];
+    if (_rangeSelectSegmentedControl.selectedSegmentIndex == 0) {
+        [components setYear:0];
+        [components setMonth:0];
+        [components setDay:0];
+        startDate = today;
+    } else if (_rangeSelectSegmentedControl.selectedSegmentIndex == 1) {
+        [components setYear:0];
+        [components setMonth:1];
+        [components setDay:-1];
+    } else if (_rangeSelectSegmentedControl.selectedSegmentIndex == 2) {
+        [components setYear:0];
+        [components setMonth:3];
+        [components setDay:-1];
+    } else if (_rangeSelectSegmentedControl.selectedSegmentIndex == 3) {
+        [components setYear:1];
+        [components setMonth:0];
+        [components setDay:-1];
+
+    }
+    endDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
+    
+    
+    dayTimeInterval = [endDate timeIntervalSinceDate:startDate]/86400;
+
+    [self updateItems];
 }
 
 #pragma mark - ChartViewDelegate
@@ -77,9 +121,16 @@
 
 - (void)chartValueNothingSelected:(ChartViewBase * __nonnull)chartView
 {
+    
     NSLog(@"chartValueNothingSelected");
 }
-
+//- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+//    Item* poster = [self itemAtIndexPath:indexPath];
+//    CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
+//    [cell setItem:poster];
+//    
+//    return cell;
+//}
 #pragma mark - privated method
 - (void)updateItems {
     [_food removeAllObjects];
@@ -92,21 +143,27 @@
     NSInteger entertainmentPrice = 0;
     NSInteger elsePrice = 0;
     
-    NSArray *items = [Item MR_findByAttribute:@"date" withValue:today];
-    for (Item* item in items) {
-                if (!item.name || !item.price) continue;
-        if ([item.category isEqualToString:@"food"]) {
-            [_food addObject:item];
-            foodPrice += [item.price integerValue];
-        } else if ([item.category isEqualToString:@"traffic"]) {
-            [_traffic addObject:item];
-            trafficPrice += [item.price integerValue];
-        } else if ([item.category isEqualToString:@"entertainment"]) {
-            [_entertainment addObject:item];
-            entertainmentPrice += [item.price integerValue];
-        } else if ([item.category isEqualToString:@"else"]) {
-            [_else addObject:item];
-            elsePrice += [item.price integerValue];
+    NSDateComponents *components = [calendar components:NSCalendarUnitDay fromDate:today];
+    for (int i = 0; i <= dayTimeInterval; i++) {
+        [components setDay:i];
+        NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
+        NSLog(@"%@",selectDate);
+        NSArray *items = [Item MR_findByAttribute:@"date" withValue:selectDate];
+        for (Item* item in items) {
+            if (!item.name || !item.price) continue;
+            if ([item.category isEqualToString:@"food"]) {
+                [_food addObject:item];
+                foodPrice += [item.price integerValue];
+            } else if ([item.category isEqualToString:@"traffic"]) {
+                [_traffic addObject:item];
+                trafficPrice += [item.price integerValue];
+            } else if ([item.category isEqualToString:@"entertainment"]) {
+                [_entertainment addObject:item];
+                entertainmentPrice += [item.price integerValue];
+            } else if ([item.category isEqualToString:@"else"]) {
+                [_else addObject:item];
+                elsePrice += [item.price integerValue];
+            }
         }
     }
     _sumPrice = [NSMutableArray new];
@@ -227,6 +284,8 @@
     l.yEntrySpace = 0.0;
     l.yOffset = 0.0;
 }
-
+- (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
+    return [[_items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+}
 
 @end

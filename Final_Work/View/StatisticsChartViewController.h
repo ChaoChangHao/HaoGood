@@ -13,11 +13,13 @@
 #import <charts/Charts-Swift.h>
 
 
-@interface StatisticsChartViewController : UIViewController
+@interface StatisticsChartViewController : UIViewController<UITableViewDelegate>
 @property (weak) RootViewController* rootViewController;
 
 
 @property (nonatomic, strong) IBOutlet PieChartView *chartView;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *rangeSelectSegmentedControl;
+@property (weak, nonatomic) IBOutlet UITableView *rankListView;
 
 @end

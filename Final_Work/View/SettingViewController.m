@@ -48,15 +48,11 @@
     [_startDateTextField setInputAccessoryView:dateToolBar];
     
     ////////////////////////////////////////////////////////////////
-    NSInteger budget = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
-
-    NSInteger startDate = [[NSUserDefaults standardUserDefaults] integerForKey:@"startdate"];
-    
-    _budgetTextField.text = [NSString stringWithFormat:@"%ld",(long)budget];
-    _startDateTextField.text = [NSString stringWithFormat:@"%ld",(long)startDate];
+    [self updateView];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
+    [self updateView];
     [self.rootViewController setTitle:@"Setting"];
 }
 #pragma mark - UITextFieldDelegate
@@ -67,6 +63,14 @@
     textField.text = [NSString stringWithFormat:@"%ld",(long)value];
 }
 #pragma mark - private method
+- (void)updateView
+{
+    NSInteger budget = [[NSUserDefaults standardUserDefaults] integerForKey:@"budget"];
+    NSInteger startDate = [[NSUserDefaults standardUserDefaults] integerForKey:@"startdate"];
+    
+    _budgetTextField.text = [NSString stringWithFormat:@"%ld",(long)budget];
+    _startDateTextField.text = [NSString stringWithFormat:@"%ld",(long)startDate];
+}
 -(void)budgetTextFieldDoneButtonPressed
 {
     
