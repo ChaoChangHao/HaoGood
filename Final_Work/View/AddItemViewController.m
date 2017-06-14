@@ -260,12 +260,13 @@
 
 -(void)confirmButtonPressed {
     if (_itemPrice.text.length > 0 & _itemName.text.length > 0) {
-        self.item = [Item MR_createEntity];
+//        self.item = [Item MR_createEntity];
         
         self.item.name = _itemName.text;
         self.item.priceValue = [_itemPrice.text floatValue];
         self.item.date = [formatter dateFromString:_itemDate.text];
         if (imageData) self.item.image = imageData;
+        
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
         
         //Inform app

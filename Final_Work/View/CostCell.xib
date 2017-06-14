@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,23 +17,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="69.666666666666671"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ItemName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56p-8Y-XYG" userLabel="ItemName">
-                        <rect key="frame" x="23" y="7.9999999999999964" width="79" height="53.666666666666657"/>
+                        <rect key="frame" x="23" y="8" width="79" height="53.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.13725490200000001" green="0.039215686270000001" blue="0.37254901959999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9rS-dy-37j" userLabel="photo">
-                        <rect key="frame" x="243.33333333333337" y="7.9999999999999964" width="53.666666666666629" height="53.666666666666657"/>
+                        <rect key="frame" x="243.5" y="8" width="53.5" height="53.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="9rS-dy-37j" secondAttribute="height" multiplier="1:1" id="Jam-ud-XfX"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-QF-bhM" userLabel="ItemPrice">
-                        <rect key="frame" x="210.33333333333334" y="7.9999999999999964" width="18" height="53.666666666666657"/>
+                        <rect key="frame" x="210.5" y="8" width="18" height="53.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.13725490196078433" green="0.039215686274509803" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
