@@ -139,7 +139,7 @@
 //    NSLog(@"%@",[_rankItems objectAtIndex:indexPath.row]);
     Item *poster = [_rankItems objectAtIndex:indexPath.row];
     StatisticsCell* cell = [tableView dequeueReusableCellWithIdentifier:StatisticsCellIdentifier forIndexPath:indexPath];
-    [cell setItem:poster];
+    [cell setItem:poster itemRank:indexPath.row];
     return cell;
 }
 #pragma mark - privated method
@@ -294,7 +294,7 @@
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     paragraphStyle.alignment = NSTextAlignmentCenter;
     
-    NSMutableAttributedString *centerText = [[NSMutableAttributedString alloc] initWithString:@"圓餅圖\n一日花費"];
+    NSMutableAttributedString *centerText = [[NSMutableAttributedString alloc] initWithString:@"圓餅圖\n開銷統計"];
     [centerText setAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:13.f],
                                 NSParagraphStyleAttributeName: paragraphStyle

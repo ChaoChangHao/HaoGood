@@ -15,10 +15,11 @@ FOUNDATION_EXPORT NSString* const StatisticsCellIdentifier;
 @interface StatisticsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rankLabel;
 
 
 
 
-- (void)setItem:(Item*)aItem;
+- (void)setItem:(Item*)aItem itemRank:(NSInteger)rank;
 
 @end
