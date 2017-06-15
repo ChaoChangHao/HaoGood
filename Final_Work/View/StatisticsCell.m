@@ -19,7 +19,7 @@ NSString* const StatisticsCellIdentifier = @"StatisticsCell";
 
 - (void)setItem:(Item*)aItem itemRank:(NSInteger)rank {
     self.rankLabel.text = [NSString stringWithFormat:@"%li",(long)rank+1];
-    self.categoryLabel.text = aItem.name;
+    self.categoryLabel.text = aItem.category;
     self.priceLabel.text = [NSString stringWithFormat:@"%@  $",aItem.price];
 }
 

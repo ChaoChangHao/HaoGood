@@ -26,11 +26,13 @@
 		9FA9E5E71EF17AF400061812 /* StatisticsChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5E51EF17AF400061812 /* StatisticsChartView.xib */; };
 		9FA9E5EB1EF1A35900061812 /* StatisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E5E91EF1A35800061812 /* StatisticsCell.m */; };
 		9FA9E5EC1EF1A35900061812 /* StatisticsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5EA1EF1A35900061812 /* StatisticsCell.xib */; };
+		9FA9E5F51EF22DE200061812 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E5F31EF22DE200061812 /* PreviewViewController.m */; };
+		9FA9E5F61EF22DE200061812 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5F41EF22DE200061812 /* PreviewView.xib */; };
+		9FA9E5F81EF23A6600061812 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5F71EF23A6600061812 /* Images.xcassets */; };
 		9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7C1ED6DD56002E56EB /* main.m */; };
 		9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */; };
 		9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */; };
 		9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBFD3CF1EE706C100DBEFBC /* RootView.xib */; };
-		9FBFD3D51EE707EB00DBEFBC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */; };
 		9FBFD3D91EE7A2C800DBEFBC /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFD3D81EE7A2C800DBEFBC /* UIView+Utils.m */; };
 		9FBFD3DA1EE7AB9300DBEFBC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFD3CE1EE706C100DBEFBC /* RootViewController.m */; };
 		9FD904181EEB9D180004D4C7 /* AddItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F80B3511EE844D5007F2BA4 /* AddItemView.xib */; };
@@ -69,6 +71,10 @@
 		9FA9E5E81EF1A35800061812 /* StatisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatisticsCell.h; path = View/StatisticsCell.h; sourceTree = "<group>"; };
 		9FA9E5E91EF1A35800061812 /* StatisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatisticsCell.m; path = View/StatisticsCell.m; sourceTree = "<group>"; };
 		9FA9E5EA1EF1A35900061812 /* StatisticsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsCell.xib; path = View/StatisticsCell.xib; sourceTree = "<group>"; };
+		9FA9E5F21EF22DE200061812 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = View/PreviewViewController.h; sourceTree = "<group>"; };
+		9FA9E5F31EF22DE200061812 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = View/PreviewViewController.m; sourceTree = "<group>"; };
+		9FA9E5F41EF22DE200061812 /* PreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreviewView.xib; path = View/PreviewView.xib; sourceTree = "<group>"; };
+		9FA9E5F71EF23A6600061812 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9FAA8F781ED6DD56002E56EB /* Final_Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_Work.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAA8F7C1ED6DD56002E56EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FAA8F7E1ED6DD56002E56EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,7 +84,6 @@
 		9FBFD3CD1EE706C100DBEFBC /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = View/RootViewController.h; sourceTree = "<group>"; };
 		9FBFD3CE1EE706C100DBEFBC /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = View/RootViewController.m; sourceTree = "<group>"; };
 		9FBFD3CF1EE706C100DBEFBC /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootView.xib; path = View/RootView.xib; sourceTree = "<group>"; };
-		9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9FBFD3D71EE7A2C800DBEFBC /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		9FBFD3D81EE7A2C800DBEFBC /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		9FD904191EEBA10C0004D4C7 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = View/AddItemViewController.h; sourceTree = "<group>"; };
@@ -134,6 +139,9 @@
 				9FA9E5D31EF0331D00061812 /* SettingViewController.h */,
 				9FA9E5D41EF0331D00061812 /* SettingViewController.m */,
 				9FA9E5D51EF0331D00061812 /* SettingView.xib */,
+				9FA9E5F21EF22DE200061812 /* PreviewViewController.h */,
+				9FA9E5F31EF22DE200061812 /* PreviewViewController.m */,
+				9FA9E5F41EF22DE200061812 /* PreviewView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -184,9 +192,9 @@
 		9FAA8F7B1ED6DD56002E56EB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9FA9E5F71EF23A6600061812 /* Images.xcassets */,
 				9FAA8F8F1ED6DD56002E56EB /* Info.plist */,
 				9FA9E5D81EF045E700061812 /* Settings.bundle */,
-				9FBFD3D41EE707EB00DBEFBC /* Images.xcassets */,
 				9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */,
 				9FA9E5D11EF0238B00061812 /* Model.xcmappingmodel */,
 				9F2B1B171EF02031005ED060 /* Final_Work.xcdatamodeld */,
@@ -286,12 +294,13 @@
 				9FA9E5E71EF17AF400061812 /* StatisticsChartView.xib in Resources */,
 				9FA9E5EC1EF1A35900061812 /* StatisticsCell.xib in Resources */,
 				9FD904181EEB9D180004D4C7 /* AddItemView.xib in Resources */,
+				9FA9E5F61EF22DE200061812 /* PreviewView.xib in Resources */,
 				9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */,
 				9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */,
 				9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */,
 				9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */,
-				9FBFD3D51EE707EB00DBEFBC /* Images.xcassets in Resources */,
 				9F80B3861EE914DF007F2BA4 /* CostsListView.xib in Resources */,
+				9FA9E5F81EF23A6600061812 /* Images.xcassets in Resources */,
 				9FA9E5D91EF045E700061812 /* Settings.bundle in Resources */,
 				9FA9E5D71EF0331D00061812 /* SettingView.xib in Resources */,
 			);
@@ -365,6 +374,7 @@
 				9F80B3851EE914DF007F2BA4 /* CostsListViewController.m in Sources */,
 				9F80B3891EE9196F007F2BA4 /* ItemManager.m in Sources */,
 				9FBFD3DA1EE7AB9300DBEFBC /* RootViewController.m in Sources */,
+				9FA9E5F51EF22DE200061812 /* PreviewViewController.m in Sources */,
 				9FBFD3D91EE7A2C800DBEFBC /* UIView+Utils.m in Sources */,
 				9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */,
 				9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */,

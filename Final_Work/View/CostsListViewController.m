@@ -51,6 +51,8 @@
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.costsListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
     
+    [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    
     //=================================================================//
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd"];
@@ -108,6 +110,22 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - UIViewControllerPreviewingDelegate
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    NSIndexPath *index =  [_costsListView indexPathForRowAtPoint:location];
+    UITableViewCell *cell = [_costsListView cellForRowAtIndexPath:index];
+    
+    if(cell != nil ){
+        AddItemViewController *addItemViewController = [[AddItemViewController alloc] init];
+        addItemViewController.item = [self itemAtIndexPath:index];
+        return addItemViewController;
+    }
+    return nil;
+}
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+//    [self showViewController:viewControllerToCommit sender:self];
+    [_rootViewController.navigationController pushViewController:viewControllerToCommit animated:NO];
+}
 #pragma mark - DZNEmptyDataSetSource
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
@@ -157,8 +175,6 @@
     transition.type = kCATransitionPush;
     transition.subtype = kCATransitionFromBottom;
     
-    
-//    viewController.item = [Item MR_createEntity];
     viewController.item = [self itemAtIndexPath:indexPath];
     [_rootViewController.navigationController pushViewController:viewController animated:NO];
 }

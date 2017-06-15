@@ -28,17 +28,7 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
-			<string>icon user</string>
-			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>進入</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>開啟App</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>Search</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
-			<string>icon user</string>
+			<string>app_icon</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>進入</string>
 			<key>UIApplicationShortcutItemTitle</key>

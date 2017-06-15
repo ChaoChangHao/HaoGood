@@ -8,6 +8,7 @@
 
 #import "StatisticsChartViewController.h"
 #import "StatisticsCell.h"
+#import "PreviewViewController.h"
 
 #import "Item.h"
 
@@ -78,7 +79,7 @@
     [self setupPieChartView:_chartView];
 }
 - (IBAction)rangeSelected:(id)sender {
-//    NSLog(@"%ld",(long)_rangeSelectSegmentedControl.selectedSegmentIndex);
+
     
     calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
@@ -128,6 +129,30 @@
     
     NSLog(@"chartValueNothingSelected");
 }
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    Item *recognize = [_rankItems objectAtIndex:indexPath.row];
+    if ([recognize.category isEqualToString:@"food"]) NSLog(@"%@",_food);
+    else if ([recognize.category isEqualToString:@"entertainment"]) NSLog(@"%@",_entertainment);
+    else if ([recognize.category isEqualToString:@"traffic"]) NSLog(@"%@",_traffic);
+    else if ([recognize.category isEqualToString:@"else"]) NSLog(@"%@",_else);
+    
+    PreviewViewController *viewController = [[PreviewViewController alloc] initWithNibName:@"PreviewView" bundle:nil];
+
+    CATransition* transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromBottom;
+
+//    viewController.Container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+//    [viewController.Container setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.3]];
+//    viewController.Container.center = self.view.center;
+//    viewController.items = [_rankItems copy];
+//    [self.view addSubview:viewController.Container];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
@@ -158,7 +183,7 @@
     for (int i = 0; i <= dayTimeInterval; i++) {
         [components setDay:i];
         NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
-//        NSLog(@"%@",selectDate);
+
         NSArray *items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
             if (!item.name || !item.price) continue;
@@ -182,7 +207,7 @@
     _rankItems = [NSMutableArray new];
     if (_food.count) {
         Item *item = [Item MR_createEntity];
-        item.name = @"food";
+        item.category = @"food";
         item.priceValue = foodPrice;
         [_rankItems addObject:item];
 
@@ -192,7 +217,7 @@
     }
     if (_traffic.count) {
         Item *item = [Item MR_createEntity];
-        item.name = @"traffic";
+        item.category = @"traffic";
         item.priceValue = trafficPrice;
         [_rankItems addObject:item];
 
@@ -201,7 +226,7 @@
     }
     if (_entertainment.count) {
         Item *item = [Item MR_createEntity];
-        item.name = @"entertainment";
+        item.category = @"entertainment";
         item.priceValue = entertainmentPrice;
         [_rankItems addObject:item];
 
@@ -210,7 +235,7 @@
     }
     if (_else.count) {
         Item *item = [Item MR_createEntity];
-        item.name = @"else";
+        item.category = @"else";
         item.priceValue = elsePrice;
         [_rankItems addObject:item];
 

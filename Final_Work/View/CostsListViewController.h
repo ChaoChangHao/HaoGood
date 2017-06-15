@@ -14,7 +14,7 @@
 @class RootViewController;
 
 
-@interface CostsListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface CostsListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UIViewControllerPreviewingDelegate>
 
 
 @property (weak) ItemManager* itemManager;
