@@ -29,8 +29,8 @@
     
     _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
-    UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
-    [self.previewList registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
+    UINib* nib = [UINib nibWithNibName:@"PreviewCell" bundle:nil];
+    [self.previewList registerNib:nib forCellReuseIdentifier:PreviewCellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,10 +39,13 @@
     
 }
 #pragma mark - UITableViewDelegate
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 100;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
     return [_items count];
@@ -51,7 +54,7 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     
     Item *poster = [self itemAtIndexPath:indexPath];
-    CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
+    PreviewCell* cell = [tableView dequeueReusableCellWithIdentifier:PreviewCellIdentifier forIndexPath:indexPath];
     [cell setItem:poster];
     return cell;
 }
