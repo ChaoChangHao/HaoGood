@@ -7,21 +7,73 @@
 //
 
 #import "PreviewViewController.h"
+#import "previewCell.h"
+
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface PreviewViewController ()
 
 @end
 
-@implementation PreviewViewController
+@implementation PreviewViewController {
+    NSMutableArray *_items;
+    NSCalendar *_calendar;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    _previewList.delegate = self;
+    _previewList.dataSource = self;
+    
+    _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+
+    UINib* nib = [UINib nibWithNibName:@"PreviewCell" bundle:nil];
+    [self.previewList registerNib:nib forCellReuseIdentifier:PreviewCellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    NSLog(@"%@",_items);
+    [self updateItems];
+    
+}
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{    return 100;
+}
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_items count];
 }
 
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    
+    Item *poster = [self itemAtIndexPath:indexPath];
+    previewCell* cell = [tableView dequeueReusableCellWithIdentifier:PreviewCellIdentifier forIndexPath:indexPath];
+    [cell setItem:poster];
+    return cell;
+}
+#pragma mark - Private Method
+- (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
+    return [_items objectAtIndex:indexPath.row];
+}
+- (void)updateItems {
+    
+    _items = [NSMutableArray new];
+    
+    NSDateComponents *components = [_calendar components:NSCalendarUnitDay fromDate:_startDate];
+    for (int i = 0; i <= _dayTimeInterval; i++) {
+        [components setDay:i];
+        NSDate *selectDate = [_calendar dateByAddingComponents:components toDate:_startDate options:0];
+        
+        NSArray *items = [Item MR_findByAttribute:@"date" withValue:selectDate];
+        for (Item* item in items) {
+            if (!item.name || !item.price) continue;
+            if ([item.category isEqualToString:_keyword]) {
+                [_items addObject:item];
+            }
+        }
+    }
+    [_previewList reloadData];
+}
 @end

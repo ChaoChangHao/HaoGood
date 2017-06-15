@@ -46,6 +46,7 @@
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.incomeListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
     
+    [self registerForPreviewingWithDelegate:self sourceView:self.view];
     //=================================================================//
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd"];
@@ -101,6 +102,22 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+#pragma mark - UIViewControllerPreviewingDelegate
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    NSIndexPath *index =  [_incomeListView indexPathForRowAtPoint:location];
+    UITableViewCell *cell = [_incomeListView cellForRowAtIndexPath:index];
+    
+    if(cell != nil ){
+        AddItemViewController *addItemViewController = [[AddItemViewController alloc] init];
+        addItemViewController.item = [self itemAtIndexPath:index];
+        return addItemViewController;
+    }
+    return nil;
+}
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    //    [self showViewController:viewControllerToCommit sender:self];
+    [_rootViewController.navigationController pushViewController:viewControllerToCommit animated:NO];
 }
 
 #pragma mark - DZNEmptyDataSetSource

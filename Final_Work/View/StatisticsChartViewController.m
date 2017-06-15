@@ -65,10 +65,10 @@
     [formatter setDateFormat:@"YYYY/MM/dd"];
     today = [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
     
+//    UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
+//    [self.costsListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
     
-    
-    
-    
+    [self registerForPreviewingWithDelegate:self sourceView:_rankListView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -78,6 +78,30 @@
     [self updateItems];
     [self setupPieChartView:_chartView];
 }
+
+#pragma mark - UIViewControllerPreviewingDelegate
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    NSIndexPath *index =  [_rankListView indexPathForRowAtPoint:location];
+    UITableViewCell *cell = [_rankListView cellForRowAtIndexPath:index];
+    
+    if(cell != nil ){
+        PreviewViewController *previewViewController = [[PreviewViewController alloc] init];
+        Item *item = [self itemAtIndexPath:index];
+        previewViewController.keyword = item.category;
+        previewViewController.startDate = startDate;
+        previewViewController.endDate = endDate;
+        previewViewController.dayTimeInterval = dayTimeInterval;
+        return previewViewController;
+    }
+    return nil;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    //    [self showViewController:viewControllerToCommit sender:self];
+    [_rootViewController.navigationController pushViewController:viewControllerToCommit animated:NO];
+}
+
+#pragma mark - IBAction
 - (IBAction)rangeSelected:(id)sender {
 
     
@@ -139,18 +163,6 @@
     else if ([recognize.category isEqualToString:@"entertainment"]) NSLog(@"%@",_entertainment);
     else if ([recognize.category isEqualToString:@"traffic"]) NSLog(@"%@",_traffic);
     else if ([recognize.category isEqualToString:@"else"]) NSLog(@"%@",_else);
-    
-    PreviewViewController *viewController = [[PreviewViewController alloc] initWithNibName:@"PreviewView" bundle:nil];
-
-    CATransition* transition = [CATransition animation];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromBottom;
-
-//    viewController.Container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    [viewController.Container setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.3]];
-//    viewController.Container.center = self.view.center;
-//    viewController.items = [_rankItems copy];
-//    [self.view addSubview:viewController.Container];
 }
 
 #pragma mark - UITableViewDataSource
@@ -349,7 +361,7 @@
     l.yOffset = 0.0;
 }
 - (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
-    return [_items objectAtIndex:indexPath.row];
+    return [_rankItems objectAtIndex:indexPath.row];
 }
 
 @end

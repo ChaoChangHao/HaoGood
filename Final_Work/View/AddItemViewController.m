@@ -103,9 +103,19 @@
     //        [self.addItemView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems
+{
+    
+    // 生成UIPreviewAction
+    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"Edit" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+    }];
+    
+    UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"Delete" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        
+    }];
+    
+    NSArray *actions = @[action1, action2];
+    return actions;
 }
 #pragma mark - TZImagePickerController
 
@@ -277,7 +287,7 @@
         
         CATransition* transition = [CATransition animation];
         transition.type = kCATransitionFromTop;
-//        transition.subtype = kCATransitionFromTop;
+        transition.subtype = kCATransitionFromTop;
         [self.navigationController.view.layer addAnimation:transition forKey:nil];
     } else {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"名字、價錢或日期未填" preferredStyle:UIAlertControllerStyleAlert];

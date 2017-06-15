@@ -176,6 +176,7 @@
     transition.subtype = kCATransitionFromBottom;
     
     viewController.item = [self itemAtIndexPath:indexPath];
+    
     [_rootViewController.navigationController pushViewController:viewController animated:NO];
 }
 - (NSArray<UITableViewRowAction*> *)tableView:(UITableView*)tableView editActionsForRowAtIndexPath:(NSIndexPath*)indexPath {

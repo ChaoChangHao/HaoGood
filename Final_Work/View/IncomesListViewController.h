@@ -13,7 +13,7 @@
 @class ItemManager;
 @class RootViewController;
 
-@interface IncomesListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface IncomesListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UIViewControllerPreviewingDelegate>
 
 
 @property (weak) ItemManager* itemManager;

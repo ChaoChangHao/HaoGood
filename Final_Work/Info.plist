@@ -28,13 +28,15 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
-			<string>app_icon</string>
+			<string>AppIcon</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>進入</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>開啟App</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>Search</string>
+			<string>Enter</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>AppIcon</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>

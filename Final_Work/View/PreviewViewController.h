@@ -9,9 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Item.h"
 
-@interface PreviewViewController : UIViewController
+@interface PreviewViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *previewList;
 @property (strong, nonatomic) IBOutlet UIView *Container;
 
-@property (nonatomic) NSMutableArray *items;
+
+@property (nonatomic) Item *item;
+@property (nonatomic) NSString *keyword;
+@property (nonatomic) NSDate *startDate;
+@property (nonatomic) NSDate *endDate;
+@property (nonatomic) NSInteger dayTimeInterval;
+
 @end

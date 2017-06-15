@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="previewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PreviewCell" rowHeight="130" id="KGk-i7-Jjw" customClass="previewCell">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="74"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="previewCell">
+                <rect key="frame" x="0.0" y="0.0" width="358" height="74"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7G-p6-RXd">
+                        <rect key="frame" x="12.999999999999996" y="26.666666666666671" width="41.666666666666657" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTD-23-U7g">
+                        <rect key="frame" x="60" y="27.000000000000004" width="238" height="20.333333333333339"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWl-Cv-OKE">
+                        <rect key="frame" x="303" y="27.000000000000004" width="42" height="20.333333333333339"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HTD-23-U7g" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OXC-I5-Red"/>
+                    <constraint firstItem="IWl-Cv-OKE" firstAttribute="leading" secondItem="HTD-23-U7g" secondAttribute="trailing" constant="5" id="QVn-A8-Tul"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IWl-Cv-OKE" secondAttribute="trailing" constant="5" id="fO1-aR-GVe"/>
+                    <constraint firstItem="HTD-23-U7g" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fxa-2S-uQa"/>
+                    <constraint firstItem="a7G-p6-RXd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="m5x-CS-gsw"/>
+                    <constraint firstItem="a7G-p6-RXd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wZ9-1V-Hgn"/>
+                    <constraint firstItem="IWl-Cv-OKE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yWw-ak-pzd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="a7G-p6-RXd" id="p1S-E1-FUY"/>
+                <outlet property="nameLabel" destination="HTD-23-U7g" id="lJ0-Rb-r9P"/>
+                <outlet property="priceLabel" destination="IWl-Cv-OKE" id="v2k-OS-27S"/>
+            </connections>
+            <point key="canvasLocation" x="43" y="22"/>
+        </tableViewCell>
+    </objects>
+</document>
