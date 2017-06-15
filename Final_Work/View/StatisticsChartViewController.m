@@ -7,6 +7,7 @@
 //
 
 #import "StatisticsChartViewController.h"
+#import "StatisticsCell.h"
 
 #import "Item.h"
 
@@ -21,12 +22,13 @@
     NSArray *parties;
     
     NSArray *_items;
-    NSMutableArray *_sumPrice;
-    NSMutableArray *_categoryName;
     NSMutableArray* _food;
     NSMutableArray* _traffic;
     NSMutableArray* _entertainment;
     NSMutableArray* _else;
+    NSMutableArray *_rankItems;
+    NSMutableArray *_sumPrice;
+    NSMutableArray *_categoryName;
 
     
     NSDate *today;
@@ -40,6 +42,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _rankListView.delegate = self;
+    _rankListView.dataSource = self;
+    UINib* nib = [UINib nibWithNibName:@"StatisticsCell" bundle:nil];
+    [self.rankListView registerNib:nib forCellReuseIdentifier:StatisticsCellIdentifier];
     
     _food = [NSMutableArray new];
     _traffic = [NSMutableArray new];
@@ -57,10 +64,7 @@
     [formatter setDateFormat:@"YYYY/MM/dd"];
     today = [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
     
-    NSArray *items = [Item MR_findByAttribute:@"date" withValue:today];
-    for (Item *item in items) {
-        NSLog(@"%@",item.date);
-    }
+    
     
     
     
@@ -124,13 +128,20 @@
     
     NSLog(@"chartValueNothingSelected");
 }
-//- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-//    Item* poster = [self itemAtIndexPath:indexPath];
-//    CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
-//    [cell setItem:poster];
-//    
-//    return cell;
-//}
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_sumPrice count];
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    
+//    NSLog(@"%@",[_rankItems objectAtIndex:indexPath.row]);
+    Item *poster = [_rankItems objectAtIndex:indexPath.row];
+    StatisticsCell* cell = [tableView dequeueReusableCellWithIdentifier:StatisticsCellIdentifier forIndexPath:indexPath];
+    [cell setItem:poster];
+    return cell;
+}
 #pragma mark - privated method
 - (void)updateItems {
     [_food removeAllObjects];
@@ -147,7 +158,7 @@
     for (int i = 0; i <= dayTimeInterval; i++) {
         [components setDay:i];
         NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
-        NSLog(@"%@",selectDate);
+//        NSLog(@"%@",selectDate);
         NSArray *items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
             if (!item.name || !item.price) continue;
@@ -168,28 +179,56 @@
     }
     _sumPrice = [NSMutableArray new];
     _categoryName = [NSMutableArray new];
+    _rankItems = [NSMutableArray new];
     if (_food.count) {
+        Item *item = [Item MR_createEntity];
+        item.name = @"food";
+        item.priceValue = foodPrice;
+        [_rankItems addObject:item];
+
         [_sumPrice addObject:[NSNumber numberWithInteger:foodPrice]];
         [_categoryName addObject:[NSString stringWithFormat:@"food"]];
+        
     }
     if (_traffic.count) {
+        Item *item = [Item MR_createEntity];
+        item.name = @"traffic";
+        item.priceValue = trafficPrice;
+        [_rankItems addObject:item];
+
         [_sumPrice addObject:[NSNumber numberWithInteger:trafficPrice]];
         [_categoryName addObject:[NSString stringWithFormat:@"traffic"]];
     }
     if (_entertainment.count) {
+        Item *item = [Item MR_createEntity];
+        item.name = @"entertainment";
+        item.priceValue = entertainmentPrice;
+        [_rankItems addObject:item];
+
         [_sumPrice addObject:[NSNumber numberWithInteger:entertainmentPrice]];
         [_categoryName addObject:[NSString stringWithFormat:@"entertainment"]];
     }
     if (_else.count) {
+        Item *item = [Item MR_createEntity];
+        item.name = @"else";
+        item.priceValue = elsePrice;
+        [_rankItems addObject:item];
+
         [_sumPrice addObject:[NSNumber numberWithInteger:elsePrice]];
         [_categoryName addObject:[NSString stringWithFormat:@"else"]];
     }
 
-    NSLog(@"%@", _sumPrice);
+    NSArray *sortedArray;
+    sortedArray = [_rankItems sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSNumber *first = [(Item*)a price];
+        NSNumber *second = [(Item*)b price];
+        return [second compare:first];
+    }];
+    
+    _rankItems = [sortedArray copy];
+    
     [self setDataCount:[_sumPrice count] range:100];
-    
-    
-    //    [self.costsListView reloadData];
+    [self.rankListView reloadData];
 }
 
 - (void)setDataCount:(NSUInteger)count range:(double)range
@@ -285,7 +324,7 @@
     l.yOffset = 0.0;
 }
 - (Item*)itemAtIndexPath:(NSIndexPath*)indexPath {
-    return [[_items objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    return [_items objectAtIndex:indexPath.row];
 }
 
 @end

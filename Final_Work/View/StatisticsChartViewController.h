@@ -13,7 +13,7 @@
 #import <charts/Charts-Swift.h>
 
 
-@interface StatisticsChartViewController : UIViewController<UITableViewDelegate>
+@interface StatisticsChartViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak) RootViewController* rootViewController;
 
 
