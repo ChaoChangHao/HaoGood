@@ -7,7 +7,8 @@
 //
 
 #import "PreviewViewController.h"
-#import "previewCell.h"
+#import "PreviewCell.h"
+#import "CostCell.h"
 
 #import <MagicalRecord/MagicalRecord.h>
 
@@ -28,8 +29,8 @@
     
     _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 
-    UINib* nib = [UINib nibWithNibName:@"PreviewCell" bundle:nil];
-    [self.previewList registerNib:nib forCellReuseIdentifier:PreviewCellIdentifier];
+    UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
+    [self.previewList registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -38,9 +39,10 @@
     
 }
 #pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{    return 100;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 100;
+//}
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
     return [_items count];
@@ -49,7 +51,7 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     
     Item *poster = [self itemAtIndexPath:indexPath];
-    previewCell* cell = [tableView dequeueReusableCellWithIdentifier:PreviewCellIdentifier forIndexPath:indexPath];
+    CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
     [cell setItem:poster];
     return cell;
 }
