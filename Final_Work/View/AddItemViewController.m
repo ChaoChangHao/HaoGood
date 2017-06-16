@@ -77,14 +77,15 @@
     [dateToolBar setItems:[NSArray arrayWithObjects:space,dateDoneBtn, nil]];
     [_itemDate setInputAccessoryView:dateToolBar];
     //Comfirm button in navigation bar
-    UIBarButtonItem *confirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"Confirm" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
+    UIBarButtonItem *confirmBtn = [[UIBarButtonItem alloc] initWithTitle:@"確認" style:UIBarButtonItemStyleDone target:self action:@selector(confirmButtonPressed)];
     self.navigationItem.rightBarButtonItem = confirmBtn;
-    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancelButtonPressed)];
+    UIBarButtonItem *cancelBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancelButtonPressed)];
     self.navigationItem.leftBarButtonItem = cancelBtn;
     [self.navigationItem setTitle:_item.category];
     
     _selectedPhotos = [NSMutableArray array];
     _selectedAssets = [NSMutableArray array];
+    
     imagePC= [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];//设置多选最多支持的最大数量，设置代理
     [imagePC setDidFinishPickingPhotosHandle:^(NSArray *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         _selectedPhotos = [NSMutableArray arrayWithArray:photos];
@@ -129,7 +130,7 @@
     
 //    if (self.maxCountTF.text.integerValue > 1) {
         // 1.设置目前已经选中的图片数组
-        imagePickerVc.selectedAssets = _selectedAssets; // 目前已经选中的图片数组
+    imagePickerVc.selectedAssets = _selectedAssets; // 目前已经选中的图片数组
 //    }
     imagePickerVc.allowTakePicture = YES; // 在内部显示拍照按钮
     

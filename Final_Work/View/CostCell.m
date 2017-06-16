@@ -21,11 +21,9 @@ NSString* const CostCellIdentifier = @"CostCell";
 - (void)setItem:(Item*)aItem {
     self.ItemNameLabel.text = aItem.name;
     self.ItemPriceLabel.text = [NSString stringWithFormat:@"%@  $",aItem.price];
-    if (aItem.image) {
-        UIImage *image = [UIImage imageWithData:aItem.image];
-        
-        [_ItemPhotoImage setImage:image];
-    }
+    UIImage *image = [UIImage imageWithData:aItem.image];
+    
+    [_ItemPhotoImage setImage:image];
 
 //    self.ItemPhotoImage.layer.masksToBounds = YES;
 //    self.ItemPhotoImage.layer.borderColor = [UIColor main].CGColor;

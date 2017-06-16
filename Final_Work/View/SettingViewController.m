@@ -53,13 +53,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     [self updateView];
-    [self.rootViewController setTitle:@"Setting"];
+    [self.rootViewController setTitle:@"設定"];
 }
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSInteger value = [textField.text integerValue];
-    if (value > 31) value = 31;
-    if (value < 1) value = 1;
+//    if (value > 31) value = 31;
+//    if (value < 1) value = 1;
     textField.text = [NSString stringWithFormat:@"%ld",(long)value];
 }
 #pragma mark - private method
@@ -79,6 +79,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [_budgetTextField resignFirstResponder];
+    [self updateView];
 }
 
 -(void)startDateTextFieldDoneButtonPressed
@@ -92,6 +93,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [_startDateTextField resignFirstResponder];
+    [self updateView];
 }
 
 -(void)chooseDate:(UIDatePicker *)datePick

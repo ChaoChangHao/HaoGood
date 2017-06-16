@@ -96,7 +96,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self itemsSynchronized];
-    [self.rootViewController setTitle:@"Income"];
+    [self.rootViewController setTitle:@"收入"];
     [self.incomeListView reloadData];
 }
 
@@ -231,7 +231,7 @@
     switch (section) {
         case 0:
             if (_income.count == 0) return nil;
-            else return @"income";
+            else return @"收入";
             break;
         default:
             return nil;
@@ -316,7 +316,7 @@
         NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
         items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
-            if ([item.category isEqualToString:@"income"]) continue;
+            if ([item.category isEqualToString:@"收入"]) continue;
             sum += [item.price integerValue];
         }
         
@@ -378,7 +378,7 @@
     NSArray *items = [Item MR_findByAttribute:@"date" withValue:self.currentSelectDate];
     for (Item* item in items) {
         if (!item.name || !item.price) continue;
-        if ([item.category isEqualToString:@"income"]) {
+        if ([item.category isEqualToString:@"收入"]) {
             [_income addObject:item];
         }
     }

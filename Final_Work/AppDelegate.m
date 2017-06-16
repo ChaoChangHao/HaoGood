@@ -28,7 +28,7 @@
 //    NSDate *startDate = [formatter dateFromString:@"2017/01/01"];
 //    NSDate *endDate = [formatter dateFromString:@"2017/12/31"];
 //    NSTimeInterval interval = [endDate timeIntervalSinceDate:startDate];
-//    NSArray *categoryArray = @[@"food",@"traffic",@"else",@"entertainment",@"income"];
+//    NSArray *categoryArray = @[@"食物",@"交通",@"其他",@"娛樂",@"收入"];
 //    for (int i = 0; i < 2000; i++) {
 //        Item *item = [Item MR_createEntity];
 //        item.category = categoryArray[arc4random()%5];

@@ -86,7 +86,7 @@
     
     
     [self setSelectedIndex:0];
-    [self setTitle:@"Cost"];
+    [self setTitle:@"開銷"];
 
     //======================================================================//
     // Circle button
@@ -164,15 +164,15 @@
     viewController.item = [Item MR_createEntity];
     viewController.item.date = _costsListViewController.currentSelectDate;
     if (anIndex == 0) {
-        viewController.item.category = [NSString stringWithFormat:@"entertainment"];
+        viewController.item.category = [NSString stringWithFormat:@"娛樂"];
     } else if (anIndex == 1) {
-        viewController.item.category = [NSString stringWithFormat:@"traffic"];
+        viewController.item.category = [NSString stringWithFormat:@"交通"];
     } else if (anIndex == 2) {
-        viewController.item.category = [NSString stringWithFormat:@"food"];
+        viewController.item.category = [NSString stringWithFormat:@"食物"];
     } else if (anIndex == 3) {
-        viewController.item.category = [NSString stringWithFormat:@"else"];
+        viewController.item.category = [NSString stringWithFormat:@"其他"];
     } else if (anIndex == 4) {
-        viewController.item.category = [NSString stringWithFormat:@"income"];
+        viewController.item.category = [NSString stringWithFormat:@"收入"];
     }
     [self.navigationController pushViewController:viewController animated:NO];
     

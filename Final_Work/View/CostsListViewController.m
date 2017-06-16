@@ -102,7 +102,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self itemsSynchronized];
-    [self.rootViewController setTitle:@"Cost"];
+    [self.rootViewController setTitle:@"開銷"];
     [self.costsListView reloadData];
 }
 
@@ -222,19 +222,19 @@
     switch (section) {
         case 0:
             if (_food.count == 0) return nil;
-            else return @"food";
+            else return @"食物";
             break;
         case 1:
             if (_traffic.count == 0) return nil;
-            else return @"traffic";
+            else return @"交通";
             break;
         case 2:
             if (_entertainment.count == 0) return nil;
-            else return @"entertainment";
+            else return @"娛樂";
             break;
         case 3:
             if (_else.count == 0) return nil;
-            else return @"else";
+            else return @"其他";
             break;
         default:
             return nil;
@@ -319,7 +319,7 @@
         NSDate *selectDate = [calendar dateByAddingComponents:components toDate:startDate options:0];
         items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
-            if ([item.category isEqualToString:@"income"]) continue;
+            if ([item.category isEqualToString:@"收入"]) continue;
             sum += [item.price integerValue];
         }
 
@@ -386,13 +386,13 @@
     for (Item* item in items) {
 //        if (!item.name || !item.price) continue;
         
-        if ([item.category isEqualToString:@"food"]) {
+        if ([item.category isEqualToString:@"食物"]) {
             [_food addObject:item];
-        } else if ([item.category isEqualToString:@"traffic"]) {
+        } else if ([item.category isEqualToString:@"交通"]) {
             [_traffic addObject:item];
-        } else if ([item.category isEqualToString:@"entertainment"]) {
+        } else if ([item.category isEqualToString:@"娛樂"]) {
             [_entertainment addObject:item];
-        } else if ([item.category isEqualToString:@"else"]) {
+        } else if ([item.category isEqualToString:@"其他"]) {
             [_else addObject:item];
         }
     }

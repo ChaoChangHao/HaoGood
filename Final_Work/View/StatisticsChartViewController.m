@@ -73,7 +73,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    [self.rootViewController setTitle:@"Statistics"];
+    [self.rootViewController setTitle:@"統計"];
     [self rangeSelected:self];
     [self updateItems];
     [self setupPieChartView:_chartView];
@@ -200,16 +200,16 @@
         NSArray *items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
             if (!item.name || !item.price) continue;
-            if ([item.category isEqualToString:@"food"]) {
+            if ([item.category isEqualToString:@"食物"]) {
                 [_food addObject:item];
                 foodPrice += [item.price integerValue];
-            } else if ([item.category isEqualToString:@"traffic"]) {
+            } else if ([item.category isEqualToString:@"交通"]) {
                 [_traffic addObject:item];
                 trafficPrice += [item.price integerValue];
-            } else if ([item.category isEqualToString:@"entertainment"]) {
+            } else if ([item.category isEqualToString:@"娛樂"]) {
                 [_entertainment addObject:item];
                 entertainmentPrice += [item.price integerValue];
-            } else if ([item.category isEqualToString:@"else"]) {
+            } else if ([item.category isEqualToString:@"其他"]) {
                 [_else addObject:item];
                 elsePrice += [item.price integerValue];
             }
