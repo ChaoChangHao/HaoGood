@@ -181,6 +181,7 @@
 }
 #pragma mark - privated method
 - (void)updateItems {
+    [_chartView animateWithYAxisDuration:1.5f];
     [_food removeAllObjects];
     [_traffic removeAllObjects];
     [_entertainment removeAllObjects];
@@ -292,7 +293,7 @@
     [colors addObjectsFromArray:ChartColorTemplates.liberty];
     [colors addObjectsFromArray:ChartColorTemplates.pastel];
     [colors addObject:[UIColor colorWithRed:51/255.f green:181/255.f blue:229/255.f alpha:1.f]];
-    
+
     dataSet.colors = colors;
     
     dataSet.valueLinePart1OffsetPercentage = 0.8;

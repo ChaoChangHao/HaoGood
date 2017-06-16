@@ -23,12 +23,29 @@
     
 //    [Item MR_truncateAll];
 //    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"YYYY/MM/dd"];
+//    NSDate *startDate = [formatter dateFromString:@"2017/01/01"];
+//    NSDate *endDate = [formatter dateFromString:@"2017/12/31"];
+//    NSTimeInterval interval = [endDate timeIntervalSinceDate:startDate];
+//    NSArray *categoryArray = @[@"food",@"traffic",@"else",@"entertainment",@"income"];
+//    for (int i = 0; i < 2000; i++) {
+//        Item *item = [Item MR_createEntity];
+//        item.category = categoryArray[arc4random()%5];
+//        item.name = [NSString stringWithFormat:@"test%i",i];
+//        item.priceValue = arc4random()%400 + 1;
+//        NSTimeInterval randomInterval = random()% (int)interval;
+//        
+//        item.date = [formatter dateFromString:[formatter stringFromDate:[startDate dateByAddingTimeInterval:randomInterval]]];
+//        NSLog(@"%@",item);
+//        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+//    }
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self showRootView];
     
     [self.window makeKeyAndVisible];
-    
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"everLaunched"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];

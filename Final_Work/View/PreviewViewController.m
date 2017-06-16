@@ -68,8 +68,8 @@
     
     NSDateComponents *components = [_calendar components:NSCalendarUnitDay fromDate:_startDate];
     for (int i = 0; i <= _dayTimeInterval; i++) {
-        [components setDay:i];
-        NSDate *selectDate = [_calendar dateByAddingComponents:components toDate:_startDate options:0];
+        [components setDay:-i];
+        NSDate *selectDate = [_calendar dateByAddingComponents:components toDate:_endDate options:0];
         
         NSArray *items = [Item MR_findByAttribute:@"date" withValue:selectDate];
         for (Item* item in items) {
