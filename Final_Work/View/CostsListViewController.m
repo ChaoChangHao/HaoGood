@@ -51,7 +51,7 @@
     UINib* nib = [UINib nibWithNibName:@"CostCell" bundle:nil];
     [self.costsListView registerNib:nib forCellReuseIdentifier:CostCellIdentifier];
     
-    [self registerForPreviewingWithDelegate:self sourceView:self.view];
+
     
     //=================================================================//
     formatter = [[NSDateFormatter alloc] init];
@@ -112,15 +112,12 @@
 
 #pragma mark - UIViewControllerPreviewingDelegate
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-    NSIndexPath *index =  [_costsListView indexPathForRowAtPoint:location];
-    UITableViewCell *cell = [_costsListView cellForRowAtIndexPath:index];
+    NSIndexPath *index =  [_costsListView indexPathForCell:(CostCell*)[previewingContext sourceView]];
     
-    if(cell != nil ){
-        AddItemViewController *addItemViewController = [[AddItemViewController alloc] init];
-        addItemViewController.item = [self itemAtIndexPath:index];
-        return addItemViewController;
-    }
-    return nil;
+    AddItemViewController *addItemViewController = [[AddItemViewController alloc] init];
+    addItemViewController.item = [self itemAtIndexPath:index];
+    return addItemViewController;
+
 }
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
 //    [self showViewController:viewControllerToCommit sender:self];
@@ -254,6 +251,7 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     Item* poster = [self itemAtIndexPath:indexPath];
     CostCell* cell = [tableView dequeueReusableCellWithIdentifier:CostCellIdentifier forIndexPath:indexPath];
+    [self registerForPreviewingWithDelegate:self sourceView:cell];
     [cell setItem:poster];
     
     return cell;
