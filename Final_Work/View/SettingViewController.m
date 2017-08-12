@@ -58,8 +58,7 @@
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSInteger value = [textField.text integerValue];
-//    if (value > 31) value = 31;
-//    if (value < 1) value = 1;
+
     textField.text = [NSString stringWithFormat:@"%ld",(long)value];
 }
 #pragma mark - private method

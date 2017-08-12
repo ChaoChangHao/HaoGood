@@ -220,40 +220,40 @@
     _rankItems = [NSMutableArray new];
     if (_food.count) {
         Item *item = [Item MR_createEntity];
-        item.category = @"food";
+        item.category = @"食物";
         item.priceValue = foodPrice;
         [_rankItems addObject:item];
 
         [_sumPrice addObject:[NSNumber numberWithInteger:foodPrice]];
-        [_categoryName addObject:[NSString stringWithFormat:@"food"]];
+        [_categoryName addObject:[NSString stringWithFormat:@"食物"]];
         
     }
     if (_traffic.count) {
         Item *item = [Item MR_createEntity];
-        item.category = @"traffic";
+        item.category = @"交通";
         item.priceValue = trafficPrice;
         [_rankItems addObject:item];
 
         [_sumPrice addObject:[NSNumber numberWithInteger:trafficPrice]];
-        [_categoryName addObject:[NSString stringWithFormat:@"traffic"]];
+        [_categoryName addObject:[NSString stringWithFormat:@"交通"]];
     }
     if (_entertainment.count) {
         Item *item = [Item MR_createEntity];
-        item.category = @"entertainment";
+        item.category = @"娛樂";
         item.priceValue = entertainmentPrice;
         [_rankItems addObject:item];
 
         [_sumPrice addObject:[NSNumber numberWithInteger:entertainmentPrice]];
-        [_categoryName addObject:[NSString stringWithFormat:@"entertainment"]];
+        [_categoryName addObject:[NSString stringWithFormat:@"娛樂"]];
     }
     if (_else.count) {
         Item *item = [Item MR_createEntity];
-        item.category = @"else";
+        item.category = @"其他";
         item.priceValue = elsePrice;
         [_rankItems addObject:item];
 
         [_sumPrice addObject:[NSNumber numberWithInteger:elsePrice]];
-        [_categoryName addObject:[NSString stringWithFormat:@"else"]];
+        [_categoryName addObject:[NSString stringWithFormat:@"其他"]];
     }
 
     NSArray *sortedArray;

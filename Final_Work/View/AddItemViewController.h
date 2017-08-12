@@ -13,7 +13,7 @@
 @interface AddItemViewController : UIViewController<UITextFieldDelegate, TZImagePickerControllerDelegate>
 
 
-@property (nonatomic, weak) UIViewController* rootViewController;
+@property (nonatomic, weak) RootViewController* rootViewController;
 
 @property (strong, nonatomic) IBOutlet UIView *addItemView;
 

@@ -31,6 +31,7 @@
 		9FA9E5FA1EF2C1D600061812 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E5F91EF2C1D600061812 /* Images.xcassets */; };
 		9FA9E6361EF2E2E500061812 /* PreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA9E6341EF2E2E500061812 /* PreviewCell.m */; };
 		9FA9E6371EF2E2E500061812 /* PreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA9E6351EF2E2E500061812 /* PreviewCell.xib */; };
+		9FA9E6401EF3A25A00061812 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8F1ED6DD56002E56EB /* Info.plist */; };
 		9FAA8F7D1ED6DD56002E56EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7C1ED6DD56002E56EB /* main.m */; };
 		9FAA8F801ED6DD56002E56EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA8F7F1ED6DD56002E56EB /* AppDelegate.m */; };
 		9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA8F8C1ED6DD56002E56EB /* LaunchScreen.storyboard */; };
@@ -305,6 +306,7 @@
 				9FA9E5F61EF22DE200061812 /* PreviewView.xib in Resources */,
 				9F80B38E1EE91F6A007F2BA4 /* IncomesListView.xib in Resources */,
 				9FBFD3D11EE706C100DBEFBC /* RootView.xib in Resources */,
+				9FA9E6401EF3A25A00061812 /* Info.plist in Resources */,
 				9F80B35A1EE844D5007F2BA4 /* CostCell.xib in Resources */,
 				9FAA8F8E1ED6DD56002E56EB /* LaunchScreen.storyboard in Resources */,
 				9F80B3861EE914DF007F2BA4 /* CostsListView.xib in Resources */,
@@ -500,6 +502,7 @@
 			baseConfigurationReference = 33E82FFECD113A4621078F52 /* Pods-Final_Work.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				DEVELOPMENT_TEAM = LRVMYCBTJ7;
 				INFOPLIST_FILE = Final_Work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -515,6 +518,7 @@
 			baseConfigurationReference = BA6E706066076762D39E4848 /* Pods-Final_Work.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				DEVELOPMENT_TEAM = LRVMYCBTJ7;
 				INFOPLIST_FILE = Final_Work/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;

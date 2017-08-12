@@ -20,19 +20,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="rank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4p4-MG-W5a">
-                        <rect key="frame" x="23" y="8" width="33.5" height="27.5"/>
+                        <rect key="frame" x="23" y="8" width="20" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="JT0-vv-8Ms"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.75408679249999999" green="0.13890794140000001" blue="0.084597989730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxV-7v-qzq">
-                        <rect key="frame" x="71.5" y="8" width="172" height="27.5"/>
+                        <rect key="frame" x="58" y="8" width="144" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOU-Jq-xBf">
-                        <rect key="frame" x="258.5" y="8" width="38.5" height="27.5"/>
+                        <rect key="frame" x="217" y="8" width="80" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="4r5-qD-4k8"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.5621040276" green="0.56385043459999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>

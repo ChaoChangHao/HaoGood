@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Final_Work2"];
-    
+//    
 //    [Item MR_truncateAll];
 //    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 //    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

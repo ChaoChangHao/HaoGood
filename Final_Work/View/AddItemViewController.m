@@ -107,15 +107,13 @@
 - (NSArray<id<UIPreviewActionItem>> *)previewActionItems
 {
     
-    // 生成UIPreviewAction
-    UIPreviewAction *action1 = [UIPreviewAction actionWithTitle:@"Edit" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-    }];
-    
     UIPreviewAction *action2 = [UIPreviewAction actionWithTitle:@"Delete" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        
+        [_item MR_deleteEntity];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        [[NSNotificationCenter defaultCenter] postNotificationName:ItemsSynchronizedNotificationName object:nil];
     }];
     
-    NSArray *actions = @[action1, action2];
+    NSArray *actions = @[action2];
     return actions;
 }
 #pragma mark - TZImagePickerController
